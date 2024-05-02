@@ -1,4 +1,4 @@
-import pygame,sys   
+from settings import *
 from abc import ABC,abstractmethod
 from level import Level
 from pytmx.util_pygame import load_pygame
