@@ -1,3 +1,7 @@
+# Komen baru From Me
+
+
+
 from settings import *
 from abc import ABC,abstractmethod
 from level import Level
@@ -11,6 +15,8 @@ class Game(ABC):
         self._height = height
         self.display_surface = pygame.display.set_mode((self._width,self._height))
         pygame.display.set_caption(title)
+        
+        self.current_stage =Level()
        
 
     @abstractmethod
