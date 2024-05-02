@@ -4,6 +4,8 @@
 # KOmen coba adittttttttt
 # komen lagi dehhhhhhhhhhhhhhhhhhhhhh
 
+# KOMEN KETIGA
+
 from settings import *
 from abc import ABC,abstractmethod
 from level import Level
