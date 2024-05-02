@@ -1,5 +1,5 @@
 # Komen baru From Me
-
+# oke makasih tha
 
 
 from settings import *
