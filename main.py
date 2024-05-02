@@ -1,11 +1,3 @@
-# Komen baru From Me
-# oke makasih tha
-# Komen baru coba commit dari vs code
-# KOmen coba adittttttttt
-# komen lagi dehhhhhhhhhhhhhhhhhhhhhh
-
-# KOMEN KETIGA
-
 from settings import *
 from abc import ABC,abstractmethod
 from level import Level
