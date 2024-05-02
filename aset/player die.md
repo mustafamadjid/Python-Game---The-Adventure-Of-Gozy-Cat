@@ -1,8 +1,0 @@
-![1](https://github.com/mustafamadjid/TugasBesar-Kelompok5-Platformer/assets/151505698/be1985cb-7fb4-4378-8cba-bc7f895e7cf0)
-![2](https://github.com/mustafamadjid/TugasBesar-Kelompok5-Platformer/assets/151505698/59e6823b-e088-467d-85be-48377cd7c2bb)
-![3](https://github.com/mustafamadjid/TugasBesar-Kelompok5-Platformer/assets/151505698/074eebf9-1983-4081-a53d-6f61a0ea1400)
-![4](https://github.com/mustafamadjid/TugasBesar-Kelompok5-Platformer/assets/151505698/b884d4e0-1cd5-4947-910f-99c7d886ec04)
-![5](https://github.com/mustafamadjid/TugasBesar-Kelompok5-Platformer/assets/151505698/e3adb101-ce9e-47eb-b565-c2518cc6f6f6)
-![6](https://github.com/mustafamadjid/TugasBesar-Kelompok5-Platformer/assets/151505698/cbcd2bae-e288-47e4-8d93-b27c1bfe4dde)
-![7](https://github.com/mustafamadjid/TugasBesar-Kelompok5-Platformer/assets/151505698/5e35380f-db06-47a8-81c1-f0daa820facb)
-![8](https://github.com/mustafamadjid/TugasBesar-Kelompok5-Platformer/assets/151505698/6733dfd5-6105-429a-b950-07b452743986)
