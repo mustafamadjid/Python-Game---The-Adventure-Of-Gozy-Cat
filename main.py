@@ -2,7 +2,7 @@
 # oke makasih tha
 # Komen baru coba commit dari vs code
 # KOmen coba adittttttttt
-# komen lagi deh
+# komen lagi dehhhhhhhhhhhhhhhhhhhhhh
 
 from settings import *
 from abc import ABC,abstractmethod
