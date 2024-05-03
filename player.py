@@ -14,10 +14,13 @@ class Player(pygame.sprite.Sprite):
         # Movement
         self.direction = vector()
         self.speed = 5
-        self.gravity = 5
+        self.gravity = 1
+        self.jump = False
+        self.jump_height = 20
         
         # collision
         self.collision_sprites =  collision_sprites
+        self.on_surface = {'floor': False,'left' : False, 'right': False}
     
     def input(self):
         keys = pygame.key.get_pressed()
@@ -27,9 +30,10 @@ class Player(pygame.sprite.Sprite):
             input_vector.x += 1
         if keys[pygame.K_LEFT]:
             input_vector.x -= 1
+        self.direction.x = input_vector.normalize().x if input_vector else input_vector.x
         
-        
-        self.direction = input_vector.normalize() if input_vector else input_vector
+        if keys[pygame.K_SPACE]:
+            self.jump = True
     
     def move (self):
         # Horizontal
@@ -40,6 +44,17 @@ class Player(pygame.sprite.Sprite):
         self.direction.y += self.gravity
         self.rect.y += self.direction.y
         self.collision('vertical')
+        
+        if self.jump == True:
+            if self.on_surface['floor']:
+                self.direction.y = -self.jump_height
+                self.jump = False
+    
+    def check_contact(self):
+        floor_rect
+        right_rect
+        left_rect
+            
         
     def collision(self,axis):
         for sprite in self.collision_sprites:
@@ -53,8 +68,14 @@ class Player(pygame.sprite.Sprite):
                         self.rect.right = sprite.rect.left
                 else:
                     if axis == 'vertical':
+                        # top
+                        if self.rect.top <= sprite.rect.bottom and self.old_rect.top >= sprite.old_rect.bottom:
+                            self.rect.top = sprite.rect.bottom
+                        
+                        # Bottom
                         if self.rect.bottom >= sprite.rect.top and self.old_rect.bottom <= sprite.old_rect.top:
                             self.rect.bottom = sprite.rect.top
+                        self.direction.y = 0
                 
                 
     def update(self):
