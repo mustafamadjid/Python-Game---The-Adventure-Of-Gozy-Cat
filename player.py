@@ -6,11 +6,15 @@ class Player(pygame.sprite.Sprite):
         super().__init__(groups)
         self.image = pygame.Surface((143,92))
         self.image.fill('blue')
+        
+        # Rects
         self.rect = self.image.get_rect(topleft = pos)
+        self.old_rect = self.rect.copy()
         
         # Movement
         self.direction = vector()
         self.speed = 5
+        self.gravity = 5
         
         # collision
         self.collision_sprites =  collision_sprites
@@ -24,12 +28,17 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_LEFT]:
             input_vector.x -= 1
         
+        
         self.direction = input_vector.normalize() if input_vector else input_vector
     
     def move (self):
+        # Horizontal
         self.rect.x += self.direction.x * self.speed
         self.collision('horizontal')
-        self.rect.y += self.direction.y * self.speed
+        
+        # Vertical
+        self.direction.y += self.gravity
+        self.rect.y += self.direction.y
         self.collision('vertical')
         
     def collision(self,axis):
@@ -37,15 +46,18 @@ class Player(pygame.sprite.Sprite):
             if sprite.rect.colliderect(self.rect):
                 if axis == 'horizontal':
                     # left
-                    if self.rect.left <= sprite.rect.right:
+                    if self.rect.left <= sprite.rect.right and self.old_rect.left >= sprite.old_rect.right:
                         self.rect.left = sprite.rect.right
                     # right
-                    if self.rect.right >= sprite.rect.left:
+                    if self.rect.right >= sprite.rect.left and self.old_rect.right <= sprite.old_rect.left:
                         self.rect.right = sprite.rect.left
                 else:
-                    pass
+                    if axis == 'vertical':
+                        if self.rect.bottom >= sprite.rect.top and self.old_rect.bottom <= sprite.old_rect.top:
+                            self.rect.bottom = sprite.rect.top
                 
                 
     def update(self):
+        self.old_rect = self.rect.copy()
         self.input()
         self.move()
