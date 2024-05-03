@@ -5,11 +5,12 @@ class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups,collision_sprites):
         super().__init__(groups)
         self.image = pygame.Surface((143,92))
+        self.image.fill('blue')
         self.rect = self.image.get_rect(topleft = pos)
         
         # Movement
         self.direction = vector()
-        self.speed = 200
+        self.speed = 5
         
         # collision
         self.collision_sprites =  collision_sprites
@@ -23,16 +24,12 @@ class Player(pygame.sprite.Sprite):
         if keys[pygame.K_LEFT]:
             input_vector.x -= 1
         
-        self.direction = input_vector
-        if input_vector:
-            self.direction = input_vector.normalize()
-        else:
-            self.direction = input_vector
+        self.direction = input_vector.normalize() if input_vector else input_vector
     
-    def move (self,dt):
-        self.rect.x += self.direction.x * self.speed * dt
+    def move (self):
+        self.rect.x += self.direction.x * self.speed
         self.collision('horizontal')
-        self.rect.y += self.direction.y * self.speed * dt
+        self.rect.y += self.direction.y * self.speed
         self.collision('vertical')
         
     def collision(self,axis):
@@ -49,6 +46,6 @@ class Player(pygame.sprite.Sprite):
                     pass
                 
                 
-    def update(self,dt):
-        self.input(dt)
-        self.move(dt)
+    def update(self):
+        self.input()
+        self.move()

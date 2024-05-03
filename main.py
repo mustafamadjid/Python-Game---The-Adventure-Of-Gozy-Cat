@@ -33,19 +33,19 @@ class Game(ABC):
 class GozyGame(Game):
     def __init__(self):
         super().__init__(1280,720,'The Adventure of Gozy Cat')
-        self.tmx_map = {}
-        self.current_stage = Level()
+        self.tmx_map = {0: load_pygame(join('Assets','Map','revisi fatih lagi','File TILED','File TILED','Map and Stage','stage level.tmx'))}
+        self.current_stage = Level(self.tmx_map[0])
         self.clock = pygame.time.Clock()
     
     
     def run(self):
         while True:
-            dt = self.clock.tick() / 1000
+            self.clock.tick(60)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-            self.current_stage.run(dt)
+            self.current_stage.run()
             pygame.display.update()
 
 if __name__ == "__main__":
