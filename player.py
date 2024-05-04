@@ -16,11 +16,11 @@ class Player(pygame.sprite.Sprite):
         self.speed = 5
         self.gravity = 1
         self.jump = False
-        self.jump_height = 20
+        self.jump_height = 22
         
         # collision
         self.collision_sprites =  collision_sprites
-        self.on_surface = {'floor': False,'left' : False, 'right': False}
+
     
     def input(self):
         keys = pygame.key.get_pressed()
@@ -45,17 +45,10 @@ class Player(pygame.sprite.Sprite):
         self.rect.y += self.direction.y
         self.collision('vertical')
         
-        if self.jump == True:
-            if self.on_surface['floor']:
+        for sprite in self.collision_sprites:
+            if self.rect.bottom == sprite.rect.top and self.jump:
                 self.direction.y = -self.jump_height
-                self.jump = False
-    
-    def check_contact(self):
-        floor_rect = pygame.Rect(self.rect.bottomleft,(self.rect.width,2))
-        collide_rect = [sprite.rect for sprite in self.collision_sprites]
-        # right_rect
-        # left_rect
-        self.on_surface['floor'] = True if floor_rect.collidelist(collide_rect) >= 0 else False  
+        self.jump = False
         
     def collision(self,axis):
         for sprite in self.collision_sprites:
