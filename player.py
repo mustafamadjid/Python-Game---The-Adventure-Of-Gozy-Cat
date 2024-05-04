@@ -51,10 +51,11 @@ class Player(pygame.sprite.Sprite):
                 self.jump = False
     
     def check_contact(self):
-        floor_rect
-        right_rect
-        left_rect
-            
+        floor_rect = pygame.Rect(self.rect.bottomleft,(self.rect.width,2))
+        collide_rect = [sprite.rect for sprite in self.collision_sprites]
+        # right_rect
+        # left_rect
+        self.on_surface['floor'] = True if floor_rect.collidelist(collide_rect) >= 0 else False  
         
     def collision(self,axis):
         for sprite in self.collision_sprites:
