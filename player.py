@@ -1,22 +1,24 @@
 from pygame.sprite import Group
 from settings import *
+from os.path import join
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups,collision_sprites):
         super().__init__(groups)
-        self.image = pygame.Surface((143,92))
-        self.image.fill('blue')
+        self.image = pygame.image.load(join('Assets','Player','2_Walk Cat','1.png'))
+        # self.image.fill('blue')
         
         # Rects
         self.rect = self.image.get_rect(topleft = pos)
         self.old_rect = self.rect.copy()
+       
         
         # Movement
         self.direction = vector()
         self.speed = 5
         self.gravity = 1
         self.jump = False
-        self.jump_height = 22
+        self.jump_height = 20
         
         # collision
         self.collision_sprites =  collision_sprites
@@ -32,8 +34,9 @@ class Player(pygame.sprite.Sprite):
             input_vector.x -= 1
         self.direction.x = input_vector.normalize().x if input_vector else input_vector.x
         
-        if keys[pygame.K_SPACE]:
-            self.jump = True
+        for sprite in self.collision_sprites:
+            if keys[pygame.K_SPACE] and self.rect.bottom == sprite.rect.top:
+                self.jump = True
     
     def move (self):
         # Horizontal
@@ -45,9 +48,9 @@ class Player(pygame.sprite.Sprite):
         self.rect.y += self.direction.y
         self.collision('vertical')
         
-        for sprite in self.collision_sprites:
-            if self.rect.bottom == sprite.rect.top and self.jump:
-                self.direction.y = -self.jump_height
+        
+        if self.jump:
+            self.direction.y = -self.jump_height
         self.jump = False
         
     def collision(self,axis):
