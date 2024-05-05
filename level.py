@@ -1,5 +1,5 @@
 from settings import *
-from sprites import Sprite
+from sprites import Sprite, AnimatedSprite
 from player import Player
 from groups import AllSprites
 
@@ -21,7 +21,8 @@ class Level:
             else:
                 if obj.name in ('Spike',''):
                     Sprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))
-                
+                    frames = level_frames[obj.name]
+                    AnimatedSprite((obj.x,obj.y),frames,self.all_sprites)
                   
         for layer in ['pijakan','BG 5 (pohon)','BG 4 (gunung grass)','BG 3 (awan)','BG 2 (rock mt)','BG 1']:
             # Tiles
