@@ -5,8 +5,9 @@ from os.path import join
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups,collision_sprites):
         super().__init__(groups)
-        self.image = pygame.image.load(join('Assets','Player','2_Walk Cat','1.png'))
+        self.image = pygame.image.load(join('Assets','Player','2_Walk Cat','tes 300 crop.png'))
         # self.image.fill('blue')
+        self.z = Z_LAYERS['main']
         
         # Rects
         self.rect = self.image.get_rect(topleft = pos)
