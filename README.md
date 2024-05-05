@@ -13,6 +13,8 @@ _______________
 | Eden Wijaya | 122140187 |
 | M. Fatih Hanbali | 122140122 |
 | Debora Sihombing | 122140032 |
+
+
 Dalam permainan ini, player akan mengendalikan karakter bernama Gozy . Gozy sendiri merupakan kucing yang tersesat di hutan berbahaya. Player harus menghindari beberapa monster jahat dan rintangan berbahaya hingga Gozy Cat menuju kembali ke rumah majikannya 
 
 CARA BERMAIN :
