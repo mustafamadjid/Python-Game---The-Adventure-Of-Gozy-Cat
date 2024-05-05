@@ -4,6 +4,8 @@ from level import Level
 from pytmx.util_pygame import load_pygame
 from os.path import join
 
+from support import *
+
 class Game(ABC):
     def __init__(self,width,height,title):
         pygame.init()
@@ -15,6 +17,10 @@ class Game(ABC):
 
     @abstractmethod
     def run():
+        pass
+
+    @abstractmethod
+    def import_assets():
         pass
     
     @property
@@ -33,10 +39,18 @@ class Game(ABC):
 class GozyGame(Game):
     def __init__(self):
         super().__init__(1280,720,'The Adventure of Gozy Cat')
+        self.import_assets()
+        
         self.tmx_map = {0: load_pygame(join('Assets','Map','revisi fatih lagi','File TILED','File TILED','Map and Stage','stage level.tmx'))}
-        self.current_stage = Level(self.tmx_map[0])
+        self.current_stage = Level(self.tmx_map[0],self.level_frames)
         self.clock = pygame.time.Clock()
     
+    
+    def import_assets(self):
+        self.level_frames = {
+            'spikes' : import_folder('Assets','Map','revisi fatih lagi','File TILED','File TILED','Spikes')
+        }
+        print(self.level_frames)
     
     def run(self):
         while True:
