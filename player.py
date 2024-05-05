@@ -85,11 +85,7 @@ class Player(pygame.sprite.Sprite):
         for sprite in self.collision_sprites:
             if self.rect.bottom == sprite.rect.top:
                 self.state = 'idle' if self.direction.x == 0 else 'run'
-            else:
-                if any((self.on_surface['left'], self.on_surface['right'])):
-                    self.state = 'wall'
-                else:
-                    self.state = 'jump' if self.direction.y < 0 else 'fall'      
+                 
                 
     
     def animate(self):

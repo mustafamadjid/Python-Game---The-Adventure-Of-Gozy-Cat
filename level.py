@@ -7,6 +7,11 @@ class Level:
     def __init__(self,tmx_map,level_frames):
         self.display_surface = pygame.display.get_surface()
         
+        # Level Data
+        self.level_width = tmx_map.width*TILE_SIZE
+        self.level_bottom = tmx_map.height*TILE_SIZE
+        
+        
         # groups
         self.all_sprites = AllSprites()
         self.collision_sprites = pygame.sprite.Group()
@@ -14,6 +19,25 @@ class Level:
         self.setup(tmx_map,level_frames)
         
     def setup(self,tmx_map,level_frames):
+                  
+        for layer in ['Pijakan','BG 5 (grass mt 2)','BG 4 (grass mt)','BG 3 (rck mt)','BG 2 (awan)','BG 1']:
+            # Tiles
+            for x,y,surf in tmx_map.get_layer_by_name(layer).tiles():
+                groups = [self.all_sprites]
+                if layer == 'Pijakan' :
+                    groups.append(self.collision_sprites)
+                match layer:
+                    case 'BG 1' : z = Z_LAYERS['bg 1']
+                    case 'BG 5 (grass mt 2)' : z = Z_LAYERS['bg 2']
+                    case 'BG 2 (awan)' : z = Z_LAYERS['bg details 1']
+                    case 'BG 4 (grass mt)' : z = Z_LAYERS['bg details 1']
+                    case 'BG 3 (rck mt)' : z = Z_LAYERS['bg details 2']
+                    case 'Pijakan' : z = Z_LAYERS['main']
+                Sprite((x * TILE_SIZE,y * TILE_SIZE),surf,groups,z)
+
+        
+        
+    
         # Object 
         for obj in tmx_map.get_layer_by_name('Object'):
             if obj.name == 'Gozy':
@@ -24,28 +48,33 @@ class Level:
                     frames=level_frames['player'])
             else:
                 if obj.name in ('Spike',''):
-                    Sprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))
-                    frames = level_frames[obj.name]
-                    AnimatedSprite((obj.x,obj.y),frames,self.all_sprites)
-                  
-        for layer in ['pijakan','BG 5 (pohon)','BG 4 (gunung grass)','BG 3 (awan)','BG 2 (rock mt)','BG 1']:
-            # Tiles
-            for x,y,surf in tmx_map.get_layer_by_name(layer).tiles():
-                groups = [self.all_sprites]
-                if layer == 'pijakan' :
-                    groups.append(self.collision_sprites)
-                match layer:
-                    case 'BG 1' : z = Z_LAYERS['bg']
-                    case 'BG 2 (rock mt)' : z = Z_LAYERS['bg details 1']
-                    case 'BG 3 (awan)' : z = Z_LAYERS['bg details 1']
-                    case 'BG 4 (gunung grass)' : z = Z_LAYERS['bg details 2']
-                    case 'BG 5 (pohon)' : z = Z_LAYERS['bg details 2']
-                    case 'pijakan' : z = Z_LAYERS['main']
-                Sprite((x * TILE_SIZE,y * TILE_SIZE),surf,groups,z)
-
+                    if obj.name == 'Spike':
+                        Sprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))
+                        frames = level_frames[obj.name]
+                        AnimatedSprite((obj.x,obj.y),frames,self.all_sprites)
+        for obj in tmx_map.get_layer_by_name('Object 2'):
+            if obj.name == 'Tree':
+                 Sprite((obj.x,obj.y),obj.image,self.all_sprites)
+    
+    def check_constraint(self):
+        # left right
+        if self.player.rect.left <= 0:
+            self.player.rect.left = 0
+        if self.player.rect.right >= self.level_width:
+            self.player.rect.right = self.level_width
         
+        # Bottom border
+        if self.player.rect.bottom > self.level_bottom:
+            print("MATI COY")
+            sys.exit()
         
-    def run(self):
+        # Success
+        # if self.player.rect.colliderect(self.level_finish_rect):
+            
+        
+    def run(self):        
         self.all_sprites.update()
         self.display_surface.fill('black')
         self.all_sprites.draw(self.player.rect.center)
+        
+        self.check_constraint()

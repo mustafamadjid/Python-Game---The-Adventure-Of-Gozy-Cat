@@ -41,14 +41,17 @@ class GozyGame(Game):
         super().__init__(1280,720,'The Adventure of Gozy Cat')
         self.import_assets()
         
-        self.tmx_map = {0: load_pygame(join('Assets','Map','revisi fatih lagi','File TILED','File TILED','Map and Stage','stage level.tmx'))}
+        self.tmx_map = {0: load_pygame(join('Assets','Map','Stage Level','stage.tmx'))}
         self.current_stage = Level(self.tmx_map[0],self.level_frames)
         self.clock = pygame.time.Clock()
     
     
     def import_assets(self):
         self.level_frames = {
-            'Spike' : import_folder('Assets','Map','revisi fatih lagi','File TILED','File TILED','Spikes'),
+            'Spike' : import_folder('Assets','Spikes'),
+            'Chicken' : import_folder('Assets','makanan (koin)','Chicken'),
+            'Fish' : import_folder('Assets','makanan (koin)','Fish'),
+            'Food' : import_folder('Assets','makanan (koin)','Food'),
             'player' : import_sub_folders('Assets','Player')
         }
         print(self.level_frames['player'])

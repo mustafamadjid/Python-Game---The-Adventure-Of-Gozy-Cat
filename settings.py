@@ -6,11 +6,12 @@ ANIMATION_SPEED = 0.15
 
 
 Z_LAYERS = {
-    'bg' : 0,
-    'bg details 1' : 1,
-    'bg details 2' : 2,
-    'terrain' : 3,
-    'main' : 4
+    'bg 1' : 0,
+    'bg 2' : 1,
+    'bg details 1' : 2,
+    'bg details 2' : 3,
+    'terrain' : 4,
+    'main' : 5
 }
 # New Comment
 
