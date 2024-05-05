@@ -52,6 +52,10 @@ class Level:
                         Sprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))
                         frames = level_frames[obj.name]
                         AnimatedSprite((obj.x,obj.y),frames,self.all_sprites)
+                if obj.name in ('House','Flag'):
+                    z = Z_LAYERS['bg details 2']
+                    Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
+                        
         for obj in tmx_map.get_layer_by_name('Object 2'):
             if obj.name == 'Tree':
                  Sprite((obj.x,obj.y),obj.image,self.all_sprites)
