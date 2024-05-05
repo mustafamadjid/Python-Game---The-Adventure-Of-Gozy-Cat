@@ -17,7 +17,11 @@ class Level:
         # Object 
         for obj in tmx_map.get_layer_by_name('Object'):
             if obj.name == 'Gozy':
-                self.player = Player((obj.x,obj.y),self.all_sprites,self.collision_sprites)
+                self.player = Player(
+                    pos = (obj.x,obj.y),
+                    groups=self.all_sprites,
+                    collision_sprites=self.collision_sprites,
+                    frames=level_frames['player'])
             else:
                 if obj.name in ('Spike',''):
                     Sprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))

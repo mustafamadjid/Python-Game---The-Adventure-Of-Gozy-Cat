@@ -48,9 +48,10 @@ class GozyGame(Game):
     
     def import_assets(self):
         self.level_frames = {
-            'Spike' : import_folder('Assets','Map','revisi fatih lagi','File TILED','File TILED','Spikes')
+            'Spike' : import_folder('Assets','Map','revisi fatih lagi','File TILED','File TILED','Spikes'),
+            'player' : import_sub_folders('Assets','Player')
         }
-        print(self.level_frames)
+        print(self.level_frames['player'])
     
     def run(self):
         while True:

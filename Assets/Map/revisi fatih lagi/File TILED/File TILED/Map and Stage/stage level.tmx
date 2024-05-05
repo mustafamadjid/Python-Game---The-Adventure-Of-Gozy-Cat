@@ -226,6 +226,6 @@
   <object id="49" name="Spike" gid="233" x="1600" y="1152" width="64" height="64"/>
   <object id="50" gid="237" x="1792" y="640" width="64" height="64"/>
   <object id="51" gid="238" x="1792" y="704" width="64" height="64"/>
-  <object id="53" name="Gozy" gid="239" x="76" y="706" width="64" height="64"/>
+  <object id="53" name="Gozy" gid="239" x="74" y="509.333" width="64" height="64"/>
  </objectgroup>
 </map>

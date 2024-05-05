@@ -3,11 +3,15 @@ from settings import *
 from os.path import join
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, groups,collision_sprites):
+    def __init__(self, pos, groups,collision_sprites,frames):
+        # General Setup
         super().__init__(groups)
-        self.image = pygame.image.load(join('Assets','Player','2_Walk Cat','tes 300 crop.png'))
-        # self.image.fill('blue')
         self.z = Z_LAYERS['main']
+        
+        # image
+        self.frames, self.frame_index = frames, 0
+        self.state, self.facing_right = 'idle',True
+        self.image = self.frames[self.state][self.frame_index]
         
         # Rects
         self.rect = self.image.get_rect(topleft = pos)
@@ -31,8 +35,10 @@ class Player(pygame.sprite.Sprite):
         
         if keys[pygame.K_RIGHT]:
             input_vector.x += 1
+            self.facing_right = True
         if keys[pygame.K_LEFT]:
             input_vector.x -= 1
+            self.facing_right = False
         self.direction.x = input_vector.normalize().x if input_vector else input_vector.x
         
         for sprite in self.collision_sprites:
@@ -74,9 +80,14 @@ class Player(pygame.sprite.Sprite):
                         if self.rect.bottom >= sprite.rect.top and self.old_rect.bottom <= sprite.old_rect.top:
                             self.rect.bottom = sprite.rect.top
                         self.direction.y = 0
-                
-                
+    
+    def animate(self):
+        self.frame_index += ANIMATION_SPEED
+        self.image = self.frames[self.state][int(self.frame_index % len(self.frames[self.state]))]
+        self.image = self.image if self.facing_right else pygame.transform.flip(self.image,True,False)
     def update(self):
         self.old_rect = self.rect.copy()
         self.input()
         self.move()
+        
+        self.animate()
