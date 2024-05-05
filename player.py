@@ -80,6 +80,12 @@ class Player(pygame.sprite.Sprite):
                         if self.rect.bottom >= sprite.rect.top and self.old_rect.bottom <= sprite.old_rect.top:
                             self.rect.bottom = sprite.rect.top
                         self.direction.y = 0
+        
+    def get_state(self):
+        for sprite in self.collision_sprites:
+            if self.rect.bottom == sprite.rect.top:
+                self.state = 'idle' if self.direction.x == 0 else 'run'
+            
     
     def animate(self):
         self.frame_index += ANIMATION_SPEED
@@ -90,4 +96,5 @@ class Player(pygame.sprite.Sprite):
         self.input()
         self.move()
         
+        self.get_state()
         self.animate()
