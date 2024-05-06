@@ -58,6 +58,7 @@ class Player(pygame.sprite.Sprite):
         
         if self.jump:
             self.direction.y = -self.jump_height
+            self.state = 'run'
         self.jump = False
         
     def collision(self,axis):
@@ -86,7 +87,6 @@ class Player(pygame.sprite.Sprite):
             if self.rect.bottom == sprite.rect.top:
                 self.state = 'idle' if self.direction.x == 0 else 'run'
                  
-                
     
     def animate(self):
         self.frame_index += ANIMATION_SPEED

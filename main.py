@@ -9,6 +9,7 @@ from support import *
 class Game(ABC):
     def __init__(self,width,height,title):
         pygame.init()
+        
         self._width = width
         self._height = height
         self.display_surface = pygame.display.set_mode((self._width,self._height))
