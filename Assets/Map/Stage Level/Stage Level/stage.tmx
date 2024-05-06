@@ -186,7 +186,7 @@
   <object id="88" name="Tree" gid="211" x="1408" y="1024" width="54" height="108"/>
   <object id="89" name="Tree" gid="214" x="1402" y="456" width="76" height="152"/>
   <object id="90" name="Tree" gid="2" x="1472" y="768" width="135" height="135"/>
-  <object id="91" name="Tree" gid="4" x="64" y="1024" width="208" height="208"/>
+  <object id="91" name="Tree" gid="4" x="64" y="1023.33" width="208" height="208"/>
   <object id="92" name="Tree" gid="3" x="350" y="648" width="258" height="258"/>
   <object id="93" name="Tree" gid="1" x="654" y="576" width="168" height="168"/>
   <object id="94" name="Tree" gid="209" x="704" y="1152" width="69" height="138"/>

@@ -13,7 +13,7 @@ class Level:
         
         
         # groups
-        self.all_sprites = AllSprites()
+        self.all_sprites = AllSprites(width=tmx_map.width,height=tmx_map.height)
         self.collision_sprites = pygame.sprite.Group()
         
         self.setup(tmx_map,level_frames)
@@ -36,7 +36,6 @@ class Level:
                 Sprite((x * TILE_SIZE,y * TILE_SIZE),surf,groups,z)
 
         
-        
     
         # Object 
         for obj in tmx_map.get_layer_by_name('Object'):
@@ -55,6 +54,10 @@ class Level:
                 if obj.name in ('House','Flag'):
                     z = Z_LAYERS['bg details 2']
                     Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
+                    
+                    # Flag Succes
+                    if obj.name == 'Flag':
+                        self.level_finish_rect = pygame.Rect((obj.x,obj.y),(obj.width,obj.height))
                         
         for obj in tmx_map.get_layer_by_name('Object 2'):
             if obj.name == 'Tree':
@@ -69,11 +72,12 @@ class Level:
         
         # Bottom border
         if self.player.rect.bottom > self.level_bottom:
-            print("MATI COY")
+            print("Yah Mati")
             sys.exit()
         
         # Success
-        # if self.player.rect.colliderect(self.level_finish_rect):
+        if self.player.rect.colliderect(self.level_finish_rect):
+            print('Success')
             
         
     def run(self):        
