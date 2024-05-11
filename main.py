@@ -9,13 +9,12 @@ from support import *
 class Game(ABC):
     def __init__(self,width,height,title):
         pygame.init()
-        
         self._width = width
         self._height = height
         self.display_surface = pygame.display.set_mode((self._width,self._height))
         pygame.display.set_caption(title)
        
- 
+
     @abstractmethod
     def run():
         pass
@@ -53,7 +52,8 @@ class GozyGame(Game):
             'Chicken' : import_folder('Assets','makanan (koin)','Chicken'),
             'Fish' : import_folder('Assets','makanan (koin)','Fish'),
             'Food' : import_folder('Assets','makanan (koin)','Food'),
-            'player' : import_sub_folders('Assets','Player')
+            'player' : import_sub_folders('Assets','Player'),
+            'Slime' : import_folder('Assets','enemy','slime2')
         }
         print(self.level_frames['player'])
     

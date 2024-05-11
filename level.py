@@ -2,6 +2,7 @@ from settings import *
 from sprites import Sprite, AnimatedSprite
 from player import Player
 from groups import AllSprites
+from enemy import Slime
 
 class Level:
     def __init__(self,tmx_map,level_frames):
@@ -15,6 +16,8 @@ class Level:
         # groups
         self.all_sprites = AllSprites(width=tmx_map.width,height=tmx_map.height)
         self.collision_sprites = pygame.sprite.Group()
+        self.damage_sprites = pygame.sprite.Group()
+        self.slime_sprites = pygame.sprite.Group()
         
         self.setup(tmx_map,level_frames)
         
@@ -62,6 +65,11 @@ class Level:
         for obj in tmx_map.get_layer_by_name('Object 2'):
             if obj.name == 'Tree':
                  Sprite((obj.x,obj.y),obj.image,self.all_sprites)
+    
+        # Enemy
+        for obj in tmx_map.get_layer_by_name('Object'):
+            if obj.name == 'Slime' :
+                Slime((obj.x, obj.y), level_frames['Slime'], (self.all_sprites, self.damage_sprites, self.slime_sprites), self.collision_sprites)
     
     def check_constraint(self):
         # left right
