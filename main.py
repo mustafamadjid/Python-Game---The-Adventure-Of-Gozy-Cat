@@ -56,8 +56,7 @@ class GozyGame(Game):
             'Slime' : import_folder('Assets','enemy','slime_2'),
             'Fish' : import_folder('Assets','makanan (koin)','Fish')
         }
-        print(self.level_frames['player'])
-    
+            
     def run(self):
         while True:
             self.clock.tick(60)
