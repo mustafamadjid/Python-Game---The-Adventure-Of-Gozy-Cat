@@ -12,7 +12,7 @@ class Slime(pygame.sprite.Sprite):
         
         self.direction = choice((-1,1))
         self.collision_rects = [sprite.rect for sprite in collision_sprites]
-        self.speed = 200
+        self.speed = 1
         
     def update(self):
         # Animasi

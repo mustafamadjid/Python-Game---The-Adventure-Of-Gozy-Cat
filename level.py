@@ -51,9 +51,9 @@ class Level:
             else:
                 if obj.name in ('Spike',''):
                     if obj.name == 'Spike':
-                        Sprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))
+                        # Sprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))
                         frames = level_frames[obj.name]
-                        AnimatedSprite((obj.x,obj.y),frames,self.all_sprites)
+                        AnimatedSprite((obj.x,obj.y),frames,(self.all_sprites,self.collision_sprites))
                 if obj.name in ('House','Flag'):
                     z = Z_LAYERS['bg details 2']
                     Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
@@ -71,9 +71,9 @@ class Level:
             if obj.name == 'Slime' :
                 Slime((obj.x, obj.y), level_frames['Slime'], (self.all_sprites, self.slime_sprites), self.collision_sprites)
     
-        # Items
-        for obj in tmx_map.get_layer_by_name('Object'):
-            Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y), level_frames['Fish'], self.all_sprites)
+        # # Items
+        # for obj in tmx_map.get_layer_by_name('Object'):
+        #     Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y), level_frames['Fish'], self.all_sprites)
     
     def check_constraint(self):
         # left right
