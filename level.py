@@ -1,5 +1,5 @@
 from settings import *
-from sprites import Sprite, AnimatedSprite
+from sprites import Sprite, AnimatedSprite, Item
 from player import Player
 from groups import AllSprites
 from enemy import Slime
@@ -69,7 +69,11 @@ class Level:
         # Enemy
         for obj in tmx_map.get_layer_by_name('Object'):
             if obj.name == 'Slime' :
-                Slime((obj.x, obj.y), level_frames['Slime'], (self.all_sprites, self.damage_sprites, self.slime_sprites), self.collision_sprites)
+                Slime((obj.x, obj.y), level_frames['Slime'], (self.all_sprites, self.slime_sprites), self.collision_sprites)
+    
+        # Items
+        for obj in tmx_map.get_layer_by_name('Object'):
+            Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y), level_frames['Fish'], self.all_sprites)
     
     def check_constraint(self):
         # left right

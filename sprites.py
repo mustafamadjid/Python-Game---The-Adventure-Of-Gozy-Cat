@@ -22,5 +22,9 @@ class AnimatedSprite(Sprite):
     
     def update(self):
         self.animate()
-
+        
+class Item(AnimatedSprite):
+    def __init__(self, item_type, pos, frames, groups):
+        super().__init__(pos, frames, groups)
+        self.rect.center = pos
 
