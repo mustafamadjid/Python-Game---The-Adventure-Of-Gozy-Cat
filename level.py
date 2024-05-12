@@ -68,7 +68,7 @@ class Level:
     
         # Enemy
         for obj in tmx_map.get_layer_by_name('Object'):
-            if obj.name == 'Slime' :
+            if obj.name == 'slime' :
                 Slime((obj.x, obj.y), level_frames['Slime'], (self.all_sprites, self.slime_sprites), self.collision_sprites)
     
         # # Items
