@@ -87,6 +87,8 @@ class Player(pygame.sprite.Sprite):
             if self.rect.bottom == sprite.rect.top:
                 self.state = 'idle' if self.direction.x == 0 else 'run'
                  
+    def get_damage(self):
+        print('Player was damage')
     
     def animate(self):
         self.frame_index += ANIMATION_SPEED

@@ -17,7 +17,7 @@ class AnimatedSprite(Sprite):
         self.animation_speed = animation_speed
     
     def animate(self):
-        self.frame_index += self.animation_speed
+        self.frame_index += self.animation_speed 
         self.image = self.frames[int(self.frame_index % len(self.frames))]
     
     def update(self):
@@ -27,4 +27,5 @@ class Item(AnimatedSprite):
     def __init__(self, item_type, pos, frames, groups):
         super().__init__(pos, frames, groups)
         self.rect.center = pos
+        self.item_type = item_type
 

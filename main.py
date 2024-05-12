@@ -3,6 +3,8 @@ from abc import ABC,abstractmethod
 from level import Level
 from pytmx.util_pygame import load_pygame
 from os.path import join
+from support import *
+from data import Data
 
 from support import *
 
@@ -41,6 +43,7 @@ class GozyGame(Game):
         super().__init__(1280,720,'The Adventure of Gozy Cat')
         self.import_assets()
         
+        self.data = Data()
         self.tmx_map = {0: load_pygame(join('Assets','Map','Stage Level','stage.tmx'))}
         self.current_stage = Level(self.tmx_map[0],self.level_frames)
         self.clock = pygame.time.Clock()

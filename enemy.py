@@ -17,7 +17,7 @@ class Slime(pygame.sprite.Sprite):
         
     def update (self):
         # Animate
-        self.frame_index += ANIMATION_SPEED
+        self.frame_index += ANIMATION_SPEED - 0.05
         self.image = self.frames[int(self.frame_index) % len(self.frames) ]
         
         if self.direction < 0:

@@ -18,6 +18,7 @@ class Level:
         self.collision_sprites = pygame.sprite.Group()
         self.damage_sprites = pygame.sprite.Group()
         self.slime_sprites = pygame.sprite.Group()
+        self.item_sprites = pygame.sprite.Group()
         
         self.setup(tmx_map,level_frames)
         
@@ -71,9 +72,9 @@ class Level:
             if obj.name == 'slime' :
                 Slime((obj.x, obj.y), level_frames['Slime'], (self.all_sprites, self.slime_sprites), self.collision_sprites)
     
-        # # Items
-        # for obj in tmx_map.get_layer_by_name('Object'):
-        #     Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y), level_frames['Fish'], self.all_sprites)
+        # Items
+        for obj in tmx_map.get_layer_by_name('Object'):
+            Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y + TILE_SIZE / 2), level_frames['Fish'], (self.all_sprites, self.item_sprites))
     
     def check_constraint(self):
         # left right
@@ -91,10 +92,21 @@ class Level:
         if self.player.rect.colliderect(self.level_finish_rect):
             print('Success')
             
-        
+    def hit_collision(self):
+        for sprite in self.damage_sprites:
+            if sprite.rect.pygame.Rect.colliderect(self.player.hitbox_rect):
+                self.player.get_damage()
+            
+    def item_collision(self):
+        if self.item_sprites:
+            item_sprites = pygame.sprite.spritecollide(self.player, self.item_sprites, True)
+            if item_sprites:
+                print(item_sprites)
+            
     def run(self):        
         self.all_sprites.update()
         self.display_surface.fill('black')
         self.all_sprites.draw(self.player.rect.center)
+        self.item_collision()
         
         self.check_constraint()
