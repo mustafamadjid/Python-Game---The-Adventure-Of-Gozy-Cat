@@ -57,7 +57,8 @@ class GozyGame(Game):
             'Food' : import_folder('Assets','makanan (koin)','Food'),
             'player' : import_sub_folders('Assets','Player'),
             'Slime' : import_folder('Assets','enemy','slime_2'),
-            'Fish' : import_folder('Assets','makanan (koin)','Fish')
+            'Fish' : import_folder('Assets','makanan (koin)','Fish'),
+            'Food' : import_folder('Assets','makanan (koin)','Food')
         }
             
     def run(self):

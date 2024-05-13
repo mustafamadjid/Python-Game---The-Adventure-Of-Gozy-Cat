@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="12" nextobjectid="161">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="12" nextobjectid="165">
  <tileset firstgid="1" name="48x48 trees" tilewidth="48" tileheight="48" tilecount="4" columns="4">
   <image source="Stage Tiles/bahan/48x48 trees.png" width="192" height="48"/>
  </tileset>
@@ -240,7 +240,7 @@
   <object id="37" name="Grass" gid="133" x="1024" y="576" width="64" height="64"/>
   <object id="38" name="Grass" gid="133" x="1088" y="576" width="64" height="64"/>
   <object id="39" name="Grass" gid="133" x="1091" y="576" width="64" height="64"/>
-  <object id="40" name="Grass" gid="133" x="1298.67" y="422" width="64" height="64"/>
+  <object id="40" name="Grass" gid="133" x="1346.67" y="831" width="64" height="64"/>
   <object id="41" name="Grass" gid="133" x="1426.67" y="358" width="64" height="64"/>
   <object id="42" gid="133" x="1472" y="768" width="64" height="64"/>
   <object id="43" name="Slime" gid="133" x="1536" y="768" width="64" height="64"/>
@@ -259,22 +259,15 @@
   <object id="66" name="Spike" gid="208" x="1536" y="1216" width="48" height="48"/>
   <object id="69" name="Gozy" type="Animal" gid="217" x="-37" y="1016" width="120" height="120"/>
   <object id="95" name="Spike" gid="208" x="640" y="896" width="48" height="48"/>
-  <object id="99" gid="224" x="204.342" y="876.517" width="18.6927" height="18.6927" rotation="88.1453"/>
-  <object id="100" name="Chicken" gid="223" x="223.099" y="875.946" width="18.6927" height="18.6927" rotation="88.1453"/>
-  <object id="102" gid="224" x="397.774" y="815.584" width="18.6927" height="18.6927" rotation="90.2353"/>
-  <object id="103" name="Chicken" gid="223" x="416.539" y="815.698" width="18.6927" height="18.6927" rotation="90.2353"/>
-  <object id="104" name="Food" gid="225" x="576" y="1216.15" width="24.1189" height="24.1189"/>
-  <object id="105" name="Food" gid="226" x="599.85" y="1216" width="24.1189" height="24.1189"/>
   <object id="106" gid="225" x="896" y="1088.15" width="24.1189" height="24.1189"/>
   <object id="107" gid="226" x="919.85" y="1088" width="24.1189" height="24.1189"/>
-  <object id="108" name="Food" gid="225" x="768" y="576.15" width="24.1189" height="24.1189"/>
-  <object id="109" name="Food" gid="226" x="791.85" y="576" width="24.1189" height="24.1189"/>
   <object id="110" name="Fish" gid="227" x="1000.96" y="808.867" width="26" height="26" rotation="219.383"/>
-  <object id="111" name="Fish" gid="227" x="432.667" y="618" width="26" height="26" rotation="219.383"/>
+  <object id="111" name="Fish" gid="227" x="434.417" y="618.125" width="26" height="26" rotation="219.383"/>
   <object id="112" name="Fish" gid="227" x="1264" y="556" width="26" height="26" rotation="219.383"/>
   <object id="113" name="Fish" gid="227" x="1328" y="617" width="26" height="26" rotation="219.383"/>
   <object id="115" name="Fish" gid="227" x="940.333" y="808.5" width="26" height="26" rotation="219.383"/>
   <object id="116" name="Fish" gid="227" x="883" y="807.667" width="26" height="26" rotation="219.383"/>
+  <object id="162" name="Food" gid="227" x="561.333" y="1190.67" width="26" height="26" rotation="219.383"/>
   <object id="117" name="Fish" gid="227" x="1263.58" y="870.575" width="23.954" height="23.954" rotation="224.719"/>
   <object id="119" gid="224" x="1096.61" y="928.939" width="18.6927" height="18.6927" rotation="88.1453"/>
   <object id="120" name="Chicken" gid="223" x="1115.36" y="928.368" width="18.6927" height="18.6927" rotation="88.1453"/>
@@ -305,5 +298,7 @@
   <object id="158" name="Slime" gid="237" x="1568.08" y="768.837" width="19.1651" height="19.1651"/>
   <object id="159" name="slime" gid="238" x="900" y="1098" width="64" height="64"/>
   <object id="160" name="slime" gid="238" x="709" y="576" width="64" height="64"/>
+  <object id="163" name="Food" gid="227" x="615" y="878" width="26" height="26" rotation="219.383"/>
+  <object id="164" name="Food" gid="227" x="937" y="501" width="26" height="26" rotation="219.383"/>
  </objectgroup>
 </map>

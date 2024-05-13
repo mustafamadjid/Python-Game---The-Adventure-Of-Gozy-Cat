@@ -33,16 +33,16 @@ class Player(pygame.sprite.Sprite):
         keys = pygame.key.get_pressed()
         input_vector = vector(0,0)
         
-        if keys[pygame.K_RIGHT]:
+        if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
             input_vector.x += 1
             self.facing_right = True
-        if keys[pygame.K_LEFT]:
+        if keys[pygame.K_LEFT] or keys[pygame.K_a]:
             input_vector.x -= 1
             self.facing_right = False
         self.direction.x = input_vector.normalize().x if input_vector else input_vector.x
         
         for sprite in self.collision_sprites:
-            if keys[pygame.K_SPACE] and self.rect.bottom == sprite.rect.top:
+            if (keys[pygame.K_SPACE] or keys[pygame.K_w]) and self.rect.bottom == sprite.rect.top:
                 self.jump = True
     
     def move (self):
