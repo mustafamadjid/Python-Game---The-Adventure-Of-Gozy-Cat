@@ -6,6 +6,7 @@ from os.path import join
 from support import *
 from data import Data
 from ui import UI
+from overworld import *
 
 from support import *
 
@@ -47,7 +48,9 @@ class GozyGame(Game):
         self.ui = UI(self.font, self.ui_frames)
         self.data = Data(self.ui)
         self.tmx_map = {0: load_pygame(join('Assets','Map','Stage Level','stage.tmx'))}
-        self.current_stage = Level(self.tmx_map[0],self.level_frames)
+        self.tmx_overworld = load_pygame(join('Assets','Map','Map','Aset Tiles','Map Fix.tmx'))
+        
+        self.current_stage = Overworld(self.tmx_overworld,self.data,self.overworld_frames)
         self.clock = pygame.time.Clock()
     
     
@@ -68,6 +71,11 @@ class GozyGame(Game):
 			'heart': import_folder('Assets', 'ui', 'heart'), 
 			'fish':import_image('Assets', 'ui', 'fish')
 		}
+        
+        self.overworld_frames = {
+            'Node' : import_image('Assets','Map','Map','object','1'),
+            'Player' : import_sub_folders('Assets','Player'),
+        }
             
     def run(self):
         while True:
