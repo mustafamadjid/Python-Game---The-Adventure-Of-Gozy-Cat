@@ -25,11 +25,17 @@ class AnimatedSprite(Sprite):
         self.animate()
         
 class Item(AnimatedSprite):
-    def __init__(self, item_type, pos, frames, groups):
+    def __init__(self, item_type, pos, frames, groups, data):
         super().__init__(pos, frames, groups)
         self.rect.center = pos
         self.item_type = item_type
+        self.data = data
         
+    def activate(self):
+        if self.item_type == 'Fish':
+            self.data.fish += 2
+        if self.item_type == 'Food':
+            self.data.health += 1
 
 class Node(pygame.sprite.Sprite):
     def __init__(self, pos, surf, groups,level,data,paths):

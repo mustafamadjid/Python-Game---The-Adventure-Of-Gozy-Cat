@@ -6,6 +6,7 @@ from os.path import join
 from support import *
 from data import Data
 from ui import UI
+from debug import debug
 from overworld import *
 
 from support import *
@@ -85,6 +86,8 @@ class GozyGame(Game):
                     pygame.quit()
                     sys.exit()
             self.current_stage.run()
+            pygame.display.update()
+            debug(self.data.health)
             pygame.display.update()
 
 if __name__ == "__main__":

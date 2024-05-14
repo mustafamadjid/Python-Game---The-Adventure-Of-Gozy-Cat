@@ -5,8 +5,9 @@ from groups import AllSprites
 from enemy import Slime
 
 class Level:
-    def __init__(self,tmx_map,level_frames):
+    def __init__(self,tmx_map,level_frames, data):
         self.display_surface = pygame.display.get_surface()
+        self.data = data
         
         # Level Data
         self.level_width = tmx_map.width*TILE_SIZE
@@ -48,7 +49,8 @@ class Level:
                     pos = (obj.x,obj.y),
                     groups=self.all_sprites,
                     collision_sprites=self.collision_sprites,
-                    frames=level_frames['player'])
+                    frames=level_frames['player'],
+                    data = self.data)
             else:
                 if obj.name in ('Spike',''):
                     if obj.name == 'Spike':
@@ -75,7 +77,7 @@ class Level:
         # Items
         for obj in tmx_map.get_layer_by_name('Object'):
             if obj.name == 'Fish':
-                Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y + TILE_SIZE / 2), level_frames['Fish'], (self.all_sprites, self.item_sprites))
+                Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y + TILE_SIZE / 2), level_frames['Fish'], (self.all_sprites, self.item_sprites), self.data)
             if obj.name == 'Food':
                 Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y + TILE_SIZE / 2), level_frames['Food'], (self.all_sprites, self.item_sprites))
     
@@ -97,13 +99,14 @@ class Level:
             
     def hit_collision(self):
         for sprite in self.damage_sprites:
-            if sprite.rect.pygame.Rect.colliderect(self.player.hitbox_rect):
+            if sprite.rect.colliderect(self.player.rect):
                 self.player.get_damage()
             
     def item_collision(self):
         if self.item_sprites:
             item_sprites = pygame.sprite.spritecollide(self.player, self.item_sprites, True)
             if item_sprites:
+                item_sprites[0].activate()
                 print(item_sprites)
             
     def run(self):        
