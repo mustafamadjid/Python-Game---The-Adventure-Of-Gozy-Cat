@@ -5,13 +5,21 @@ from groups import AllSprites
 from enemy import Slime
 
 class Level:
-    def __init__(self,tmx_map,level_frames, data):
+    def __init__(self,tmx_map,level_frames, data,switch_stage):
         self.display_surface = pygame.display.get_surface()
         self.data = data
+        self.switch_stage = switch_stage
         
         # Level Data
         self.level_width = tmx_map.width*TILE_SIZE
         self.level_bottom = tmx_map.height*TILE_SIZE
+        # tmx_level_properties = tmx_map.get_layer_by_name('Data')[0].properties
+        self.level_unlock = 0
+
+        for layer in tmx_map.get_layer_by_name('Data'):
+            if layer.properties['level_unlock']:
+                self.level_unlock = layer.properties['level_unlock']
+        
         
         
         # groups
@@ -56,8 +64,12 @@ class Level:
                     if obj.name == 'Spike':
                         # Sprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))
                         frames = level_frames[obj.name]
-                        AnimatedSprite((obj.x,obj.y),frames,(self.all_sprites,self.collision_sprites))
-                if obj.name in ('House','Flag'):
+                        AnimatedSprite(
+                            pos=(obj.x,obj.y),
+                            frames=frames,
+                            groups = (self.all_sprites),
+                            z = Z_LAYERS['obstacle'])
+                if obj.name in ('House','Flag','Grass'):
                     z = Z_LAYERS['bg details 2']
                     Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
                     
@@ -79,7 +91,7 @@ class Level:
             if obj.name == 'Fish':
                 Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y + TILE_SIZE / 2), level_frames['Fish'], (self.all_sprites, self.item_sprites), self.data)
             if obj.name == 'Food':
-                Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y + TILE_SIZE / 2), level_frames['Food'], (self.all_sprites, self.item_sprites))
+                Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y + TILE_SIZE / 2), level_frames['Food'], (self.all_sprites, self.item_sprites),self.data)
     
     def check_constraint(self):
         # left right
@@ -90,12 +102,11 @@ class Level:
         
         # Bottom border
         if self.player.rect.bottom > self.level_bottom:
-            print("Yah Mati")
-            sys.exit()
+            self.switch_stage('overworld',-1)
         
         # Success
         if self.player.rect.colliderect(self.level_finish_rect):
-            print('Success')
+            self.switch_stage('overworld', self.level_unlock)
             
     def hit_collision(self):
         for sprite in self.damage_sprites:

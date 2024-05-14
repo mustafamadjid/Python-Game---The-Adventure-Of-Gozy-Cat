@@ -48,13 +48,29 @@ class GozyGame(Game):
         
         self.ui = UI(self.font, self.ui_frames)
         self.data = Data(self.ui)
-        self.tmx_map = {0: load_pygame(join('Assets','Map','Stage Level','stage.tmx'))}
+        self.tmx_map = {
+            0: load_pygame(join('Assets','Map','Stage Level','stage.tmx'))}
+        
+        
+        
         self.tmx_overworld = load_pygame(join('Assets','Map','Map','Aset Tiles','Map Fix.tmx'))
         
-        self.current_stage = Overworld(self.tmx_overworld,self.data,self.overworld_frames)
+        self.current_stage = Overworld(self.tmx_overworld,self.data,self.overworld_frames,self.switch_stage)
+        self.current_stage = Level(self.tmx_map[self.data.current_level],self.level_frames,self.data,self.switch_stage)
         self.clock = pygame.time.Clock()
     
     
+    def switch_stage (self,target,unlock = 0):
+        if target == 'level':
+            self.current_stage = Level(self.tmx_map[self.data.current_level],self.level_frames,self.data,self.switch_stage)
+        else: # Overworld
+            if unlock > 0:
+                self.data.unlocked_level = unlock
+            else:
+                self.data.health -= 1
+            self.current_stage = Overworld(self.tmx_overworld,self.data,self.overworld_frames,self.switch_stage)
+            
+            
     def import_assets(self):
         self.level_frames = {
             'Spike' : import_folder('Assets','Spikes'),

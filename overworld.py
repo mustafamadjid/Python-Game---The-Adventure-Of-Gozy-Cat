@@ -4,9 +4,10 @@ from groups import *
 from data import *
 
 class Overworld:
-    def __init__(self,tmx_map,data,overworld_frames):
+    def __init__(self,tmx_map,data,overworld_frames,switch_stage):
         self.display_surface = pygame.display.get_surface()
         self.data = data
+        self.switch_stage = switch_stage
         
         # groups
         self.all_sprites = WorldSprites(data,width=tmx_map.width,height=tmx_map.height)
@@ -37,6 +38,7 @@ class Overworld:
             start = obj.properties['start']
             
             self.paths[end] = {'pos' : pos, 'start' : start}
+            print(self.paths)
             
           
           
@@ -66,9 +68,20 @@ class Overworld:
         
     def input (self):
         keys = pygame.key.get_pressed()
-        if self.current_node:
+        if self.current_node and not self.icon.path:
             if keys[pygame.K_DOWN] and self.current_node.can_move('down'):
                 self.move('down')
+            
+            if keys[pygame.K_LEFT] and self.current_node.can_move('left'):
+                self.move('left')
+            
+            if keys[pygame.K_RIGHT] and self.current_node.can_move('right'):
+                self.move('right')
+                self.facing_right = False
+            
+            if keys[pygame.K_RETURN]:
+                self.data.current_level = self.current_node.level
+                self.switch_stage('level')
     
     def move (self,direction):
         path_key = int(self.current_node.paths[direction][0])
@@ -76,7 +89,15 @@ class Overworld:
         path = self.paths[path_key]['pos'][:] if not path_reverse else self.paths[path_key]['pos'][::-1]
         self.icon.start_move(path)
         
+        
+    
+    def get_current_node(self):
+        nodes = pygame.sprite.spritecollide(self.icon,self.node_sprites,False)
+        if nodes:
+            self.current_node = nodes[0]
+        
     def run (self):
         self.input()
+        self.get_current_node()
         self.all_sprites.update()
         self.all_sprites.draw(self.icon.rect)

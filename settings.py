@@ -13,7 +13,8 @@ Z_LAYERS = {
     'bg details 1' : 4,
     'bg details 2' : 5,
     'terrain' : 6,
-    'main' : 7
+    'main' : 7,
+    'obstacle' : 8,
 }
 # New Comment
 
