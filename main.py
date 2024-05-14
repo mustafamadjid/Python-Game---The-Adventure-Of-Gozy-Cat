@@ -5,6 +5,7 @@ from pytmx.util_pygame import load_pygame
 from os.path import join
 from support import *
 from data import Data
+from ui import UI
 
 from support import *
 
@@ -43,7 +44,8 @@ class GozyGame(Game):
         super().__init__(1280,720,'The Adventure of Gozy Cat')
         self.import_assets()
         
-        self.data = Data()
+        self.ui = UI(self.font, self.ui_frames)
+        self.data = Data(self.ui)
         self.tmx_map = {0: load_pygame(join('Assets','Map','Stage Level','stage.tmx'))}
         self.current_stage = Level(self.tmx_map[0],self.level_frames)
         self.clock = pygame.time.Clock()
@@ -60,6 +62,12 @@ class GozyGame(Game):
             'Fish' : import_folder('Assets','makanan (koin)','Fish'),
             'Food' : import_folder('Assets','makanan (koin)','Food')
         }
+        self.font = pygame.font.Font(join('Assets', 'ui', 'runescape_uf.ttf'), 40)
+
+        self.ui_frames = {
+			'heart': import_folder('Assets', 'ui', 'heart'), 
+			'fish':import_image('Assets', 'ui', 'fish')
+		}
             
     def run(self):
         while True:
