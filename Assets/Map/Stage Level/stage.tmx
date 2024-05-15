@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="12" nextobjectid="173">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="13" nextobjectid="185">
  <tileset firstgid="1" name="48x48 trees" tilewidth="48" tileheight="48" tilecount="4" columns="4">
   <image source="Stage Tiles/bahan/48x48 trees.png" width="192" height="48"/>
  </tileset>
@@ -60,7 +60,7 @@
  <tileset firstgid="238" name="1" tilewidth="16" tileheight="16" tilecount="12" columns="4">
   <image source="Stage Tiles/rumah_2/1.png" width="64" height="51"/>
  </tileset>
- <layer id="1" name="BG1" width="30" height="20">
+ <layer id="1" name="BG 1" width="30" height="20">
   <data encoding="csv">
 14,8,13,9,13,9,8,14,14,8,8,8,13,5,6,7,8,14,9,13,14,8,9,8,13,14,9,9,9,8,
 13,9,14,9,14,8,9,14,9,14,14,14,13,10,13,8,13,8,13,14,14,14,9,14,9,14,9,8,14,14,
@@ -108,7 +108,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="3" name="BG3 (rck mt)" width="30" height="20">
+ <layer id="3" name="BG 3 (rck mt)" width="30" height="20">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -191,8 +191,19 @@
   <object id="90" name="Tree" gid="2" x="1472" y="768" width="135" height="135"/>
   <object id="91" name="Tree" gid="4" x="64" y="1024" width="208" height="208"/>
   <object id="92" name="Tree" gid="3" x="350" y="648" width="258" height="258"/>
-  <object id="93" name="Tree" gid="1" x="654" y="576" width="168" height="168"/>
+  <object id="93" name="Tree" gid="1" x="882.333" y="524.833" width="168" height="168"/>
   <object id="94" name="Tree" gid="209" x="704" y="1152" width="69" height="138"/>
+ </objectgroup>
+ <objectgroup id="12" name="Data">
+  <properties>
+   <property name="level_unlock" type="int" value="0"/>
+  </properties>
+  <object id="173" x="120" y="80" width="90" height="106">
+   <properties>
+    <property name="level_unlock" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="174" x="430" y="-246"/>
  </objectgroup>
  <layer id="8" name="Pijakan" width="30" height="20">
   <data encoding="csv">
@@ -204,7 +215,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,174,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,1,0,0,174,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,174,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,174,174,174,0,0,0,135,136,137,174,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,171,172,173,0,0,0,0,0,0,174,147,148,149,0,174,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,174,0,0,0,0,0,0,0,0,174,0,159,160,161,0,0,0,0,0,0,0,0,0,0,0,
@@ -265,12 +276,6 @@
   <object id="100" name="Chicken" gid="223" x="223.099" y="875.946" width="18.6927" height="18.6927" rotation="88.1453"/>
   <object id="102" gid="224" x="397.774" y="815.584" width="18.6927" height="18.6927" rotation="90.2353"/>
   <object id="103" name="Chicken" gid="223" x="416.539" y="815.698" width="18.6927" height="18.6927" rotation="90.2353"/>
-  <object id="104" name="Food" gid="225" x="576" y="1216.15" width="24.1189" height="24.1189"/>
-  <object id="105" name="Food" gid="226" x="599.85" y="1216" width="24.1189" height="24.1189"/>
-  <object id="106" gid="225" x="896" y="1088.15" width="24.1189" height="24.1189"/>
-  <object id="107" gid="226" x="919.85" y="1088" width="24.1189" height="24.1189"/>
-  <object id="108" name="Food" gid="225" x="768" y="576.15" width="24.1189" height="24.1189"/>
-  <object id="109" name="Food" gid="226" x="791.85" y="576" width="24.1189" height="24.1189"/>
   <object id="110" name="Fish" gid="227" x="1000.96" y="808.867" width="26" height="26" rotation="219.383"/>
   <object id="111" name="Fish" gid="227" x="432.667" y="618" width="26" height="26" rotation="219.383"/>
   <object id="112" name="Fish" gid="227" x="1264" y="556" width="26" height="26" rotation="219.383"/>
@@ -280,35 +285,23 @@
   <object id="117" name="Fish" gid="227" x="1263.58" y="870.575" width="23.954" height="23.954" rotation="224.719"/>
   <object id="119" gid="224" x="1096.61" y="928.939" width="18.6927" height="18.6927" rotation="88.1453"/>
   <object id="120" name="Chicken" gid="223" x="1115.36" y="928.368" width="18.6927" height="18.6927" rotation="88.1453"/>
-  <object id="140" name="Slime" gid="234" x="1292.97" y="874.165" width="19.1651" height="19.1651"/>
-  <object id="141" name="Slime" gid="235" x="1312.13" y="874.165" width="19.1651" height="19.1651"/>
-  <object id="142" name="Slime" gid="236" x="1292.88" y="893.258" width="19.1651" height="19.1651"/>
-  <object id="143" name="Slime" gid="237" x="1311.83" y="893.131" width="19.1651" height="19.1651"/>
   <object id="144" name="Grass" gid="133" x="1104.37" y="570.544" width="19.1651" height="19.1651"/>
-  <object id="145" name="Slime" gid="234" x="1096.88" y="555.871" width="19.1651" height="19.1651"/>
-  <object id="146" name="Slime" gid="235" x="1116.04" y="555.871" width="19.1651" height="19.1651"/>
-  <object id="147" name="Slime" gid="236" x="1096.79" y="574.964" width="19.1651" height="19.1651"/>
-  <object id="148" name="Slime" gid="237" x="1115.74" y="574.837" width="19.1651" height="19.1651"/>
   <object id="149" name="Slime" gid="133" x="721.872" y="572.544" width="19.1651" height="19.1651"/>
-  <object id="150" name="Slime" gid="234" x="714.382" y="557.871" width="19.1651" height="19.1651"/>
-  <object id="151" name="Slime" gid="235" x="733.542" y="557.871" width="19.1651" height="19.1651"/>
-  <object id="152" name="Slime" gid="236" x="714.292" y="576.964" width="19.1651" height="19.1651"/>
-  <object id="153" name="Slime" gid="237" x="733.242" y="576.837" width="19.1651" height="19.1651"/>
   <object id="154" name="Grass" gid="133" x="1497.37" y="761.211" width="19.1651" height="19.1651"/>
-  <object id="155" name="Slime" gid="234" x="1549.22" y="749.871" width="19.1651" height="19.1651"/>
-  <object id="156" name="Slime" gid="235" x="1568.38" y="749.871" width="19.1651" height="19.1651"/>
-  <object id="157" name="Slime" gid="236" x="1549.13" y="768.964" width="19.1651" height="19.1651"/>
-  <object id="158" name="Slime" gid="237" x="1568.08" y="768.837" width="19.1651" height="19.1651"/>
-  <object id="161" gid="239" x="1818.23" y="701.326" width="33.9217" height="33.9217"/>
-  <object id="162" gid="240" x="1848.09" y="702.121" width="33.9217" height="33.9217"/>
-  <object id="163" gid="241" x="1880.6" y="700.884" width="33.9217" height="33.9217"/>
-  <object id="164" gid="242" x="1790.05" y="733.922" width="33.9217" height="33.9217"/>
-  <object id="165" gid="243" x="1823.97" y="735.159" width="33.9217" height="33.9217"/>
-  <object id="166" gid="244" x="1855.16" y="734.806" width="33.9217" height="33.9217"/>
-  <object id="167" gid="245" x="1889.08" y="734.806" width="33.9217" height="33.9217"/>
-  <object id="168" gid="246" x="1789.88" y="766.961" width="33.9217" height="33.9217"/>
-  <object id="169" gid="247" x="1824.41" y="766.514" width="30.6955" height="30.6955"/>
-  <object id="170" gid="248" x="1850.59" y="768.386" width="33.9217" height="33.9217"/>
-  <object id="171" gid="249" x="1884.65" y="768.612" width="33.9217" height="33.9217"/>
+  <object id="161" name="House" gid="239" x="1818.23" y="701.326" width="33.9217" height="33.9217"/>
+  <object id="162" name="House" gid="240" x="1848.09" y="702.121" width="33.9217" height="33.9217"/>
+  <object id="163" name="House" gid="241" x="1880.6" y="700.884" width="33.9217" height="33.9217"/>
+  <object id="164" name="House" gid="242" x="1790.05" y="733.922" width="33.9217" height="33.9217"/>
+  <object id="165" name="House" gid="243" x="1823.97" y="735.159" width="33.9217" height="33.9217"/>
+  <object id="166" name="House" gid="244" x="1855.16" y="734.806" width="33.9217" height="33.9217"/>
+  <object id="167" name="House" gid="245" x="1889.08" y="734.806" width="33.9217" height="33.9217"/>
+  <object id="168" name="House" gid="246" x="1789.88" y="766.961" width="33.9217" height="33.9217"/>
+  <object id="169" name="House" gid="247" x="1824.41" y="766.514" width="30.6955" height="30.6955"/>
+  <object id="170" name="House" gid="248" x="1850.59" y="768.386" width="33.9217" height="33.9217"/>
+  <object id="171" name="House" gid="249" x="1884.65" y="768.612" width="33.9217" height="33.9217"/>
+  <object id="176" name="slime" x="711.75" y="521.5" width="46.5" height="40.5"/>
+  <object id="180" name="slime" x="840.75" y="1027.75" width="46.5" height="40.5"/>
+  <object id="181" name="Food" x="778.75" y="528" width="44" height="35.5"/>
+  <object id="184" name="Food" x="715.417" y="1106.67" width="44" height="35.5"/>
  </objectgroup>
 </map>

@@ -15,9 +15,10 @@ class Level:
         self.level_bottom = tmx_map.height*TILE_SIZE
         # tmx_level_properties = tmx_map.get_layer_by_name('Data')[0].properties
         self.level_unlock = 0
+    
 
         for layer in tmx_map.get_layer_by_name('Data'):
-            if layer.properties['level_unlock']:
+            if layer.properties == 'level_unlock':
                 self.level_unlock = layer.properties['level_unlock']
         
         
@@ -69,12 +70,12 @@ class Level:
                             frames=frames,
                             groups = (self.all_sprites),
                             z = Z_LAYERS['obstacle'])
-                if obj.name in ('House','Flag','Grass'):
+                if obj.name in ('House','Grass'):
                     z = Z_LAYERS['bg details 2']
                     Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
                     
-                    # Flag Succes
-                    if obj.name == 'Flag':
+                    # House succces
+                    if obj.name == 'House':
                         self.level_finish_rect = pygame.Rect((obj.x,obj.y),(obj.width,obj.height))
                         
         for obj in tmx_map.get_layer_by_name('Object 2'):
