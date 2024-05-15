@@ -1,12 +1,16 @@
 from pygame.sprite import Group
 from settings import *
+from timer import *
 from os.path import join
+from math import sin
+from data import *
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, groups,collision_sprites,frames):
+    def __init__(self, pos, groups,collision_sprites,frames, data):
         # General Setup
         super().__init__(groups)
         self.z = Z_LAYERS['main']
+        self.data = data
         
         # image
         self.frames, self.frame_index = frames, 0
@@ -27,22 +31,27 @@ class Player(pygame.sprite.Sprite):
         
         # collision
         self.collision_sprites =  collision_sprites
+        
+        # timer
+        self.timer = {
+            'hit' : Timer(400)
+        }
 
     
     def input(self):
         keys = pygame.key.get_pressed()
         input_vector = vector(0,0)
         
-        if keys[pygame.K_RIGHT]:
+        if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
             input_vector.x += 1
             self.facing_right = True
-        if keys[pygame.K_LEFT]:
+        if keys[pygame.K_LEFT] or keys[pygame.K_a]:
             input_vector.x -= 1
             self.facing_right = False
         self.direction.x = input_vector.normalize().x if input_vector else input_vector.x
         
         for sprite in self.collision_sprites:
-            if keys[pygame.K_SPACE] and self.rect.bottom == sprite.rect.top:
+            if (keys[pygame.K_SPACE] or keys[pygame.K_w]) and self.rect.bottom == sprite.rect.top:
                 self.jump = True
     
     def move (self):
@@ -87,6 +96,17 @@ class Player(pygame.sprite.Sprite):
             if self.rect.bottom == sprite.rect.top:
                 self.state = 'idle' if self.direction.x == 0 else 'run'
                  
+    def get_damage(self):
+        if not self.timer['hit'].activate:
+            self.data.health -= 1
+            self.timers['hit'].activate()
+    
+    def flicker(self):
+        if self.timer['hit'].activate and sin(pygame.time.get_ticks() * 100) >= 0:
+            white_mask = pygame.mask.from_surface(self.image)
+            white_surf = white_mask.to_surface()
+            white_surf.set_colorkey()
+            self.image = white_surf
     
     def animate(self):
         self.frame_index += ANIMATION_SPEED
@@ -99,3 +119,4 @@ class Player(pygame.sprite.Sprite):
         
         self.get_state()
         self.animate()
+        self.flicker()

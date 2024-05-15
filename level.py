@@ -1,16 +1,25 @@
 from settings import *
-from sprites import Sprite, AnimatedSprite
+from sprites import Sprite, AnimatedSprite, Item
 from player import Player
 from groups import AllSprites
 from enemy import Slime
 
 class Level:
-    def __init__(self,tmx_map,level_frames):
+    def __init__(self,tmx_map,level_frames, data,switch_stage):
         self.display_surface = pygame.display.get_surface()
+        self.data = data
+        self.switch_stage = switch_stage
         
         # Level Data
         self.level_width = tmx_map.width*TILE_SIZE
         self.level_bottom = tmx_map.height*TILE_SIZE
+        # tmx_level_properties = tmx_map.get_layer_by_name('Data')[0].properties
+        self.level_unlock = 0
+
+        for layer in tmx_map.get_layer_by_name('Data'):
+            if layer.properties['level_unlock']:
+                self.level_unlock = layer.properties['level_unlock']
+        
         
         
         # groups
@@ -18,6 +27,7 @@ class Level:
         self.collision_sprites = pygame.sprite.Group()
         self.damage_sprites = pygame.sprite.Group()
         self.slime_sprites = pygame.sprite.Group()
+        self.item_sprites = pygame.sprite.Group()
         
         self.setup(tmx_map,level_frames)
         
@@ -47,14 +57,19 @@ class Level:
                     pos = (obj.x,obj.y),
                     groups=self.all_sprites,
                     collision_sprites=self.collision_sprites,
-                    frames=level_frames['player'])
+                    frames=level_frames['player'],
+                    data = self.data)
             else:
                 if obj.name in ('Spike',''):
                     if obj.name == 'Spike':
-                        Sprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))
+                        # Sprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))
                         frames = level_frames[obj.name]
-                        AnimatedSprite((obj.x,obj.y),frames,self.all_sprites)
-                if obj.name in ('House','Flag'):
+                        AnimatedSprite(
+                            pos=(obj.x,obj.y),
+                            frames=frames,
+                            groups = (self.all_sprites),
+                            z = Z_LAYERS['obstacle'])
+                if obj.name in ('House','Flag','Grass'):
                     z = Z_LAYERS['bg details 2']
                     Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
                     
@@ -68,8 +83,15 @@ class Level:
     
         # Enemy
         for obj in tmx_map.get_layer_by_name('Object'):
-            if obj.name == 'Slime' :
-                Slime((obj.x, obj.y), level_frames['Slime'], (self.all_sprites, self.damage_sprites, self.slime_sprites), self.collision_sprites)
+            if obj.name == 'slime' :
+                Slime((obj.x, obj.y), level_frames['Slime'], (self.all_sprites, self.slime_sprites), self.collision_sprites)
+    
+        # Items
+        for obj in tmx_map.get_layer_by_name('Object'):
+            if obj.name == 'Fish':
+                Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y + TILE_SIZE / 2), level_frames['Fish'], (self.all_sprites, self.item_sprites), self.data)
+            if obj.name == 'Food':
+                Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y + TILE_SIZE / 2), level_frames['Food'], (self.all_sprites, self.item_sprites),self.data)
     
     def check_constraint(self):
         # left right
@@ -80,17 +102,28 @@ class Level:
         
         # Bottom border
         if self.player.rect.bottom > self.level_bottom:
-            print("Yah Mati")
-            sys.exit()
+            self.switch_stage('overworld',-1)
         
         # Success
         if self.player.rect.colliderect(self.level_finish_rect):
-            print('Success')
+            self.switch_stage('overworld', self.level_unlock)
             
-        
+    def hit_collision(self):
+        for sprite in self.damage_sprites:
+            if sprite.rect.colliderect(self.player.rect):
+                self.player.get_damage()
+            
+    def item_collision(self):
+        if self.item_sprites:
+            item_sprites = pygame.sprite.spritecollide(self.player, self.item_sprites, True)
+            if item_sprites:
+                item_sprites[0].activate()
+                print(item_sprites)
+            
     def run(self):        
         self.all_sprites.update()
         self.display_surface.fill('black')
         self.all_sprites.draw(self.player.rect.center)
+        self.item_collision()
         
         self.check_constraint()

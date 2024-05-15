@@ -3,6 +3,11 @@ from abc import ABC,abstractmethod
 from level import Level
 from pytmx.util_pygame import load_pygame
 from os.path import join
+from support import *
+from data import Data
+from ui import UI
+from debug import debug
+from overworld import *
 
 from support import *
 
@@ -41,11 +46,31 @@ class GozyGame(Game):
         super().__init__(1280,720,'The Adventure of Gozy Cat')
         self.import_assets()
         
-        self.tmx_map = {0: load_pygame(join('Assets','Map','Stage Level','stage.tmx'))}
-        self.current_stage = Level(self.tmx_map[0],self.level_frames)
+        self.ui = UI(self.font, self.ui_frames)
+        self.data = Data(self.ui)
+        self.tmx_map = {
+            0: load_pygame(join('Assets','Map','Stage Level','stage.tmx'))}
+        
+        
+        
+        self.tmx_overworld = load_pygame(join('Assets','Map','Map','Aset Tiles','Map Fix.tmx'))
+        
+        self.current_stage = Overworld(self.tmx_overworld,self.data,self.overworld_frames,self.switch_stage)
+        self.current_stage = Level(self.tmx_map[self.data.current_level],self.level_frames,self.data,self.switch_stage)
         self.clock = pygame.time.Clock()
     
     
+    def switch_stage (self,target,unlock = 0):
+        if target == 'level':
+            self.current_stage = Level(self.tmx_map[self.data.current_level],self.level_frames,self.data,self.switch_stage)
+        else: # Overworld
+            if unlock > 0:
+                self.data.unlocked_level = unlock
+            else:
+                self.data.health -= 1
+            self.current_stage = Overworld(self.tmx_overworld,self.data,self.overworld_frames,self.switch_stage)
+            
+            
     def import_assets(self):
         self.level_frames = {
             'Spike' : import_folder('Assets','Spikes'),
@@ -53,10 +78,22 @@ class GozyGame(Game):
             'Fish' : import_folder('Assets','makanan (koin)','Fish'),
             'Food' : import_folder('Assets','makanan (koin)','Food'),
             'player' : import_sub_folders('Assets','Player'),
-            'Slime' : import_folder('Assets','enemy','slime2')
+            'Slime' : import_folder('Assets','enemy','slime_2'),
+            'Fish' : import_folder('Assets','makanan (koin)','Fish'),
+            'Food' : import_folder('Assets','makanan (koin)','Food')
         }
-        print(self.level_frames['player'])
-    
+        self.font = pygame.font.Font(join('Assets', 'ui', 'runescape_uf.ttf'), 40)
+
+        self.ui_frames = {
+			'heart': import_folder('Assets', 'ui', 'heart'), 
+			'fish':import_image('Assets', 'ui', 'fish')
+		}
+        
+        self.overworld_frames = {
+            'Node' : import_image('Assets','Map','Map','object','1'),
+            'Player' : import_sub_folders('Assets','Player'),
+        }
+            
     def run(self):
         while True:
             self.clock.tick(60)
@@ -65,6 +102,8 @@ class GozyGame(Game):
                     pygame.quit()
                     sys.exit()
             self.current_stage.run()
+            pygame.display.update()
+            debug(self.data.health)
             pygame.display.update()
 
 if __name__ == "__main__":
