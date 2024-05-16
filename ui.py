@@ -13,6 +13,7 @@ class UI:
 		self.heart_frames = frames['heart']
 		self.heart_surf_width = self.heart_frames[0].get_width()
 		self.heart_padding = 6
+		self.create_hearts(5)
 
 		# fish 
 		self.fish_amount = 0

@@ -102,6 +102,7 @@ class GozyGame(Game):
                     pygame.quit()
                     sys.exit()
             self.current_stage.run()
+            self.ui.update()
             pygame.display.update()
             debug(self.data.health)
             pygame.display.update()
