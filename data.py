@@ -5,7 +5,7 @@ class Data:
         self._health = 5
         self.ui.create_hearts(self.health)
 
-        self.unlocked_level = 2
+        self.unlocked_level = 0
         self.current_level = 0
 
     @property

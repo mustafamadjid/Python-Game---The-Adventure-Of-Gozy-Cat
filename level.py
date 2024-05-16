@@ -1,5 +1,5 @@
 from settings import *
-from sprites import Sprite, AnimatedSprite, Item
+from sprites import *
 from player import Player
 from groups import AllSprites
 from enemy import Slime
@@ -21,14 +21,20 @@ class Level:
             if layer.properties == 'level_unlock':
                 self.level_unlock = layer.properties['level_unlock']
         
-        
-        
+
         # groups
         self.all_sprites = AllSprites(width=tmx_map.width,height=tmx_map.height)
         self.collision_sprites = pygame.sprite.Group()
         self.damage_sprites = pygame.sprite.Group()
         self.slime_sprites = pygame.sprite.Group()
         self.item_sprites = pygame.sprite.Group()
+        
+        # Frames
+        self.particle_frames = level_frames['Particle']
+        self.hit_frames = level_frames['Hit']
+        
+        # Hit
+        # self.hit = False
         
         self.setup(tmx_map,level_frames)
         
@@ -68,7 +74,7 @@ class Level:
                         AnimatedSprite(
                             pos=(obj.x,obj.y),
                             frames=frames,
-                            groups = (self.all_sprites),
+                            groups = (self.all_sprites,self.damage_sprites),
                             z = Z_LAYERS['obstacle'])
                 if obj.name in ('House','Grass'):
                     z = Z_LAYERS['bg details 2']
@@ -85,7 +91,7 @@ class Level:
         # Enemy
         for obj in tmx_map.get_layer_by_name('Object'):
             if obj.name == 'slime' :
-                Slime((obj.x, obj.y), level_frames['Slime'], (self.all_sprites, self.slime_sprites), self.collision_sprites)
+                Slime((obj.x, obj.y), level_frames['Slime'], (self.all_sprites, self.slime_sprites,self.damage_sprites), self.collision_sprites)
     
         # Items
         for obj in tmx_map.get_layer_by_name('Object'):
@@ -118,13 +124,16 @@ class Level:
         if self.item_sprites:
             item_sprites = pygame.sprite.spritecollide(self.player, self.item_sprites, True)
             if item_sprites:
+                ParticleEffect((item_sprites[0].rect.center),self.particle_frames,self.all_sprites)
                 item_sprites[0].activate()
-                print(item_sprites)
+                print(item_sprites[0].item_type)
             
     def run(self):        
         self.all_sprites.update()
+        
         self.display_surface.fill('black')
         self.all_sprites.draw(self.player.rect.center)
         self.item_collision()
+        self.hit_collision()
         
         self.check_constraint()

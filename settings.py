@@ -15,6 +15,7 @@ Z_LAYERS = {
     'terrain' : 6,
     'main' : 7,
     'obstacle' : 8,
+    'fg' : 9
 }
 # New Comment
 

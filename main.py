@@ -80,7 +80,9 @@ class GozyGame(Game):
             'player' : import_sub_folders('Assets','Player'),
             'Slime' : import_folder('Assets','enemy','slime_3'),
             'Fish' : import_folder('Assets','makanan (koin)','Fish'),
-            'Food' : import_folder('Assets','makanan (koin)','Food')
+            'Food' : import_folder('Assets','makanan (koin)','Food'),
+            'Particle' : import_folder('Assets','ui','effect','particle'),
+            'Hit' : import_folder('Assets','Player','hit')
         }
         self.font = pygame.font.Font(join('Assets', 'ui', 'runescape_uf.ttf'), 40)
 
