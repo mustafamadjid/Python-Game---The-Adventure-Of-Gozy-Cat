@@ -59,8 +59,13 @@ class GozyGame(Game):
         self.current_stage = Level(self.tmx_map[self.data.current_level],self.level_frames,self.audio_files,self.data,self.switch_stage)
         self.clock = pygame.time.Clock()
         
+        self.game_active = False
+        
+        
+    
         self.bg_music['ingame music'].play(-1)
         self.bg_music['ingame music'].set_volume(0.5)
+        
     
     def switch_stage (self,target,unlock = 0):
         if target == 'level':
@@ -116,6 +121,9 @@ class GozyGame(Game):
         
     def game_end(self):
         if self.data.health <= 0:
+            # self.display_surface.fill('yellow')
+            # self.data.health = 5
+            # self.game_active = False
             pygame.quit()
             sys.exit()
     
@@ -126,13 +134,20 @@ class GozyGame(Game):
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
-            self.current_stage.run()
-            self.ui.update()
-            self.game_end()
-            
-            pygame.display.update()
-            debug(self.data.health)
-            pygame.display.update()
+                else:
+                    if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
+                        self.game_active = True
+                     
+                     
+            if self.game_active == True:            
+                self.current_stage.run()
+                self.ui.update()
+                self.game_end()
+                # self.play_music()
+                pygame.display.update()
+                debug(self.data.health)
+                pygame.display.update()
+                        
 
 if __name__ == "__main__":
     game = GozyGame()
