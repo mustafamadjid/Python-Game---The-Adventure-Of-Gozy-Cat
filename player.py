@@ -6,7 +6,7 @@ from math import sin
 from data import *
 
 class Player(pygame.sprite.Sprite):
-    def __init__(self, pos, groups, collision_sprites, frames, data):
+    def __init__(self, pos, groups, collision_sprites, frames, data, jump_sound):
         # General Setup
         super().__init__(groups)
         self.z = Z_LAYERS['main']
@@ -31,6 +31,9 @@ class Player(pygame.sprite.Sprite):
         
         # collision
         self.collision_sprites = collision_sprites
+        
+        # Audio
+        self.jump_sound = jump_sound
         
         # timer
         self.timers = {
@@ -69,6 +72,7 @@ class Player(pygame.sprite.Sprite):
         if self.jump:
             self.direction.y = -self.jump_height
             self.state = 'run'
+            self.jump_sound.play()
         self.jump = False
 
     def collision(self, axis):

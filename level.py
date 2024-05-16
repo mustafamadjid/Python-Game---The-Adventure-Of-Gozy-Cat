@@ -5,7 +5,7 @@ from groups import AllSprites
 from enemy import Slime
 
 class Level:
-    def __init__(self,tmx_map,level_frames, data,switch_stage):
+    def __init__(self,tmx_map,level_frames,audio_files,data,switch_stage):
         self.display_surface = pygame.display.get_surface()
         self.data = data
         self.switch_stage = switch_stage
@@ -33,12 +33,18 @@ class Level:
         self.particle_frames = level_frames['Particle']
         self.hit_frames = level_frames['Hit']
         
+        # Sound
+        self.snack_sound = audio_files['snack']
+        self.snack_sound.set_volume(0.2)
+        self.jump_sound = audio_files['jump']
+        self.jump_sound.set_volume(0.2)
+        
         # Hit
         # self.hit = False
         
-        self.setup(tmx_map,level_frames)
+        self.setup(tmx_map,level_frames,audio_files)
         
-    def setup(self,tmx_map,level_frames):
+    def setup(self,tmx_map,level_frames, audio_files):
                   
         for layer in ['Pijakan','BG 5 (grass mt 2)','BG 4 (grass mt)','BG 3 (rck mt)','BG 2 (awan)','BG 1']:
             # Tiles
@@ -65,7 +71,8 @@ class Level:
                     groups=self.all_sprites,
                     collision_sprites=self.collision_sprites,
                     frames=level_frames['player'],
-                    data = self.data)
+                    data = self.data,
+                    jump_sound = audio_files['jump'])
             else:
                 if obj.name in ('Spike',''):
                     if obj.name == 'Spike':
@@ -125,6 +132,7 @@ class Level:
             item_sprites = pygame.sprite.spritecollide(self.player, self.item_sprites, True)
             if item_sprites:
                 ParticleEffect((item_sprites[0].rect.center),self.particle_frames,self.all_sprites)
+                self.snack_sound.play()
                 item_sprites[0].activate()
                 print(item_sprites[0].item_type)
             

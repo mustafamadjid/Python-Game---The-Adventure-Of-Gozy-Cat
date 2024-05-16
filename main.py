@@ -56,19 +56,27 @@ class GozyGame(Game):
         self.tmx_overworld = load_pygame(join('Assets','Map','Map','Aset Tiles','Map Fix.tmx'))
         
         self.current_stage = Overworld(self.tmx_overworld,self.data,self.overworld_frames,self.switch_stage)
-        self.current_stage = Level(self.tmx_map[self.data.current_level],self.level_frames,self.data,self.switch_stage)
+        self.current_stage = Level(self.tmx_map[self.data.current_level],self.level_frames,self.audio_files,self.data,self.switch_stage)
         self.clock = pygame.time.Clock()
-    
+        
+        self.bg_music['ingame music'].play(-1)
+        self.bg_music['ingame music'].set_volume(0.5)
     
     def switch_stage (self,target,unlock = 0):
         if target == 'level':
-            self.current_stage = Level(self.tmx_map[self.data.current_level],self.level_frames,self.data,self.switch_stage)
+            self.current_stage = Level(self.tmx_map[self.data.current_level],self.level_frames,self.audio_files,self.data,self.switch_stage)
+            self.bg_music['overworld music'].stop()
+            self.bg_music['ingame music'].play(-1)
+            self.bg_music['ingame music'].set_volume(0.5)
         else: # Overworld
             if unlock > 0:
                 self.data.unlocked_level = unlock
             else:
                 self.data.health -= 1
             self.current_stage = Overworld(self.tmx_overworld,self.data,self.overworld_frames,self.switch_stage)
+            self.bg_music['ingame music'].stop()
+            self.bg_music['overworld music'].play(-1)
+            self.bg_music['overworld music'].set_volume(0.5)
             
             
     def import_assets(self):
@@ -94,6 +102,16 @@ class GozyGame(Game):
         self.overworld_frames = {
             'Node' : import_image('Assets','Map','Map','object','1'),
             'Player' : import_sub_folders('Assets','Player'),
+        }
+        
+        self.audio_files = {
+            'snack' : pygame.mixer.Sound(join('Assets','Sound','Sound Effect','snack.wav')),
+            'jump' : pygame.mixer.Sound(join('Assets','Sound','Sound Effect','jump.wav'))
+        }
+        
+        self.bg_music = {
+            'ingame music' : pygame.mixer.Sound(join('Assets','Sound','Music Background','in game.mp3')),
+            'overworld music' : pygame.mixer.Sound(join('Assets','Sound','Music Background','overworld music.mp3'))
         }
         
     def game_end(self):
