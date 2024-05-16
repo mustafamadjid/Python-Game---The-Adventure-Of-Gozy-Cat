@@ -95,7 +95,12 @@ class GozyGame(Game):
             'Node' : import_image('Assets','Map','Map','object','1'),
             'Player' : import_sub_folders('Assets','Player'),
         }
-            
+        
+    def game_end(self):
+        if self.data.health <= 0:
+            pygame.quit()
+            sys.exit()
+    
     def run(self):
         while True:
             self.clock.tick(60)
@@ -105,6 +110,8 @@ class GozyGame(Game):
                     sys.exit()
             self.current_stage.run()
             self.ui.update()
+            self.game_end()
+            
             pygame.display.update()
             debug(self.data.health)
             pygame.display.update()

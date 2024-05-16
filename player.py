@@ -96,16 +96,15 @@ class Player(pygame.sprite.Sprite):
         for sprite in self.collision_sprites:
             if self.rect.bottom == sprite.rect.top:
                 self.state = 'idle' if self.direction.x == 0 else 'run'
-        
-        if self.hit:
-            self.state = 'hit'
            
             
 
     def get_damage(self):
         if not self.timers['hit'].active:
             self.hit = True
-            self.data.health -= 1
+            if self.data.health > 0:
+                self.data.health -= 1
+                
             print("Kena deh")
             self.timers['hit'].activate()
 
