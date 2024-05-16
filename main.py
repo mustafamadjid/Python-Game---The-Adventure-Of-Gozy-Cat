@@ -145,7 +145,6 @@ class GozyGame(Game):
                 self.game_end()
                 # self.play_music()
                 pygame.display.update()
-                debug(self.data.health)
                 pygame.display.update()
                         
 
