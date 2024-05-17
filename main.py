@@ -6,7 +6,7 @@ from os.path import join
 from support import *
 from data import Data
 from ui import UI
-from debug import debug
+import menu
 from overworld import *
 
 from support import *
@@ -128,10 +128,29 @@ class GozyGame(Game):
             # self.game_active = False
             pygame.quit()
             sys.exit()
+            
+    def menu(self):
+        pass
+        
     
     def run(self):
         while True:
+            start_img = pygame.image.load('Assets/Main menu/Start Game.png')
+            quit_img = pygame.image.load('Assets/Main menu/Quit.png')
+            start_button = menu.button(450,320,start_img, 0.65)
+            quit_button = menu.button(450,450,quit_img, 0.65)
+            
+            bg = pygame.image.load('Assets/Main menu/main bg.png')
+            self.display_surface.blit(bg,(0,0))
+    
+            if start_button.draw():
+                self.game_active = True
+            if quit_button.draw():
+                pygame.quit()
+                sys.exit()
+                
             self.clock.tick(60)
+            
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
