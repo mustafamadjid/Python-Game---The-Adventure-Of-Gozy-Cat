@@ -49,7 +49,8 @@ class GozyGame(Game):
         self.ui = UI(self.font, self.ui_frames)
         self.data = Data(self.ui)
         self.tmx_map = {
-            0: load_pygame(join('Assets','Map','Stage Level','stage.tmx'))}
+            0: load_pygame(join('Assets','Map','Stage Level','stage.tmx')),
+            1 : load_pygame(join('Assets','Map','Stage Level 2','stage level 2.tmx'))}
         
         
         
@@ -78,6 +79,7 @@ class GozyGame(Game):
                 self.data.unlocked_level = unlock
             else:
                 self.data.health -= 1
+                
             self.current_stage = Overworld(self.tmx_overworld,self.data,self.overworld_frames,self.switch_stage)
             self.bg_music['ingame music'].stop()
             self.bg_music['overworld music'].play(-1)

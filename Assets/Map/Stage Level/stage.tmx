@@ -198,7 +198,7 @@
   <properties>
    <property name="level_unlock" type="int" value="0"/>
   </properties>
-  <object id="173" x="120" y="80" width="90" height="106">
+  <object id="173" name="Data" x="120" y="80" width="90" height="106">
    <properties>
     <property name="level_unlock" type="int" value="0"/>
    </properties>
