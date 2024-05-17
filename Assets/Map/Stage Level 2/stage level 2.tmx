@@ -24,9 +24,6 @@
  <tileset firstgid="354" name="2" tilewidth="50" tileheight="50" tilecount="1" columns="1">
   <image source="Aset/Assets/Spikes/2.png" width="50" height="50"/>
  </tileset>
- <tileset firstgid="355" name="ambatuden" tilewidth="480" tileheight="360" tilecount="1" columns="1">
-  <image source="Aset/Assets/ambatuden.png" width="480" height="360"/>
- </tileset>
  <layer id="1" name="BG 1" width="40" height="15">
   <data encoding="csv">
 73,74,75,76,77,73,74,75,76,77,2147483725,2147483724,2147483723,2147483722,2147483721,73,74,75,76,77,73,74,75,76,77,2147483725,2147483724,2147483723,2147483722,2147483721,2147483725,2147483724,2147483723,2147483722,2147483721,2147483725,2147483724,2147483723,2147483722,2147483721,
@@ -126,9 +123,15 @@
   <object id="36" gid="346" x="2048" y="640" width="64" height="64"/>
   <object id="37" gid="346" x="2112" y="576" width="64" height="64"/>
   <object id="38" name="Gozy" gid="349" x="60.6667" y="127.333" width="48" height="48"/>
+<<<<<<< HEAD
   <object id="39" name="slime" gid="350" x="645.333" y="576" width="40" height="40"/>
   <object id="42" name="slime" gid="350" x="896" y="512" width="40" height="40"/>
   <object id="43" name="slime" gid="350" x="1664" y="832" width="40" height="40"/>
+=======
+  <object id="39" name="Slime" gid="350" x="645.333" y="576" width="40" height="40"/>
+  <object id="42" name="Slime" gid="350" x="896" y="512" width="40" height="40"/>
+  <object id="43" name="Slime" gid="350" x="1664" y="832" width="40" height="40"/>
+>>>>>>> 59252d5805c591a280a2499634f44b6419143273
   <object id="44" name="Food" gid="351" x="330" y="768" width="46" height="25"/>
   <object id="45" name="Food" gid="351" x="960" y="512" width="46" height="25"/>
   <object id="46" name="Food" gid="351" x="1152" y="448" width="46" height="25"/>
@@ -139,9 +142,14 @@
   <object id="51" name="Fish" gid="352" x="1361.33" y="382.333" width="25" height="25"/>
   <object id="52" name="Fish" gid="352" x="2068" y="634.333" width="25" height="25"/>
   <object id="54" name="Fish" gid="352" x="2196" y="507.667" width="25" height="25"/>
+<<<<<<< HEAD
   <object id="56" gid="353" x="2477.33" y="641.333" width="172" height="172"/>
   <object id="58" name="Spike" gid="354" x="1408" y="832" width="50" height="50"/>
   <object id="59" name="ambatuden sun" gid="355" x="888" y="116" width="110.222" height="82.6667"/>
+=======
+  <object id="56" name="House" gid="353" x="2477.33" y="641.333" width="172" height="172"/>
+  <object id="58" name="Spike" gid="354" x="1408" y="832" width="50" height="50"/>
+>>>>>>> 59252d5805c591a280a2499634f44b6419143273
   <object id="60" name="Fish" gid="352" x="24.8333" y="887.5" width="25" height="25"/>
   <object id="61" name="Food" gid="351" x="77" y="886.833" width="46" height="25"/>
   <object id="62" name="Food" gid="351" x="139.667" y="887.5" width="46" height="25"/>
