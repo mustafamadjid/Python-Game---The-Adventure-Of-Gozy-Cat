@@ -24,9 +24,6 @@
  <tileset firstgid="354" name="2" tilewidth="50" tileheight="50" tilecount="1" columns="1">
   <image source="Aset/Assets/Spikes/2.png" width="50" height="50"/>
  </tileset>
- <tileset firstgid="355" name="ambatuden" tilewidth="480" tileheight="360" tilecount="1" columns="1">
-  <image source="Aset/Assets/ambatuden.png" width="480" height="360"/>
- </tileset>
  <layer id="1" name="BG 1" width="40" height="15">
   <data encoding="csv">
 73,74,75,76,77,73,74,75,76,77,2147483725,2147483724,2147483723,2147483722,2147483721,73,74,75,76,77,73,74,75,76,77,2147483725,2147483724,2147483723,2147483722,2147483721,2147483725,2147483724,2147483723,2147483722,2147483721,2147483725,2147483724,2147483723,2147483722,2147483721,
@@ -134,7 +131,6 @@
   <object id="54" name="Food" gid="352" x="2196" y="507.667" width="25" height="25"/>
   <object id="56" gid="353" x="2477.33" y="641.333" width="172" height="172"/>
   <object id="58" name="Spike" gid="354" x="1408" y="832" width="50" height="50"/>
-  <object id="59" name="ambatuden sun" gid="355" x="888" y="116" width="110.222" height="82.6667"/>
   <object id="60" name="Food" gid="352" x="24.8333" y="887.5" width="25" height="25"/>
   <object id="61" name="Food" gid="351" x="77" y="886.833" width="46" height="25"/>
   <object id="62" name="Food" gid="351" x="139.667" y="887.5" width="46" height="25"/>
