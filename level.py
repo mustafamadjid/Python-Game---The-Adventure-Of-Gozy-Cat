@@ -3,6 +3,7 @@ from sprites import *
 from player import Player
 from groups import AllSprites
 from enemy import Slime
+from data import Data
 
 class Level:
     def __init__(self,tmx_map,level_frames,audio_files,data,switch_stage):
@@ -48,22 +49,34 @@ class Level:
         self.setup(tmx_map,level_frames,audio_files)
         
     def setup(self,tmx_map,level_frames, audio_files):
-                  
-        for layer in ['Pijakan','BG 5 (grass mt 2)','BG 4 (grass mt)','BG 3 (rck mt)','BG 2 (awan)','BG 1']:
-            # Tiles
-            for x,y,surf in tmx_map.get_layer_by_name(layer).tiles():
-                groups = [self.all_sprites]
-                if layer == 'Pijakan' :
-                    groups.append(self.collision_sprites)
-                match layer:
-                    case 'BG 1' : z = Z_LAYERS['bg 1']
-                    case 'BG 5 (grass mt 2)' : z = Z_LAYERS['bg 2']
-                    case 'BG 2 (awan)' : z = Z_LAYERS['bg details 1']
-                    case 'BG 2' : z = Z_LAYERS['bg details 1']
-                    case 'BG 4 (grass mt)' : z = Z_LAYERS['bg details 1']
-                    case 'BG 3 (rck mt)' : z = Z_LAYERS['bg details 2']
-                    case 'Pijakan' : z = Z_LAYERS['main']
-                Sprite((x * TILE_SIZE,y * TILE_SIZE),surf,groups,z)
+        if self.level_unlock == 1:         
+            for layer in ['Pijakan','BG 5 (grass mt 2)','BG 4 (grass mt)','BG 3 (rck mt)','BG 2 (awan)','BG 1']:
+                # Tiles
+                for x,y,surf in tmx_map.get_layer_by_name(layer).tiles():
+                    groups = [self.all_sprites]
+                    if layer == 'Pijakan' :
+                        groups.append(self.collision_sprites)
+                    match layer:
+                        case 'BG 1' : z = Z_LAYERS['bg 1']
+                        case 'BG 5 (grass mt 2)' : z = Z_LAYERS['bg 2']
+                        case 'BG 2 (awan)' : z = Z_LAYERS['bg details 1']
+                        case 'BG 2' : z = Z_LAYERS['bg details 1']
+                        case 'BG 4 (grass mt)' : z = Z_LAYERS['bg details 1']
+                        case 'BG 3 (rck mt)' : z = Z_LAYERS['bg details 2']
+                        case 'Pijakan' : z = Z_LAYERS['main']
+                    Sprite((x * TILE_SIZE,y * TILE_SIZE),surf,groups,z)
+        if self.level_unlock == 2:
+            for layer in ['Pijakan','BG 1','BG 2']:
+                # Tiles
+                for x,y,surf in tmx_map.get_layer_by_name(layer).tiles():
+                    groups = [self.all_sprites]
+                    if layer == 'Pijakan' :
+                        groups.append(self.collision_sprites)
+                    match layer:
+                        case 'BG 1' : z = Z_LAYERS['bg 1']
+                        case 'BG 2' : z = Z_LAYERS['bg details 1']
+                        case 'Pijakan' : z = Z_LAYERS['main']
+                    Sprite((x * TILE_SIZE,y * TILE_SIZE),surf,groups,z)
 
         
     
@@ -95,11 +108,7 @@ class Level:
                     if obj.name == 'House':
                         self.level_finish_rect = pygame.Rect((obj.x,obj.y),(obj.width,obj.height))
                         
-        for obj in tmx_map.get_layer_by_name('Object 2'):
-            if obj.name == 'Tree':
-                z = Z_LAYERS['bg details 2']
-                Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
-    
+        
         # Enemy
         for obj in tmx_map.get_layer_by_name('Object'):
             if obj.name == 'slime' :
