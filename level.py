@@ -93,7 +93,8 @@ class Level:
                         
         for obj in tmx_map.get_layer_by_name('Object 2'):
             if obj.name == 'Tree':
-                 Sprite((obj.x,obj.y),obj.image,self.all_sprites)
+                z = Z_LAYERS['bg details 2']
+                Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
     
         # Enemy
         for obj in tmx_map.get_layer_by_name('Object'):
@@ -103,7 +104,7 @@ class Level:
         # Items
         for obj in tmx_map.get_layer_by_name('Object'):
             if obj.name == 'Fish':
-                Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y + TILE_SIZE / 2), level_frames['Fish'], (self.all_sprites, self.item_sprites), self.data)
+                Item(obj.name, (obj.x + TILE_SIZE / 8 , obj.y + TILE_SIZE / 3), level_frames['Fish'], (self.all_sprites, self.item_sprites), self.data)
             if obj.name == 'Food':
                 Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y + TILE_SIZE / 2), level_frames['Food'], (self.all_sprites, self.item_sprites),self.data)
     

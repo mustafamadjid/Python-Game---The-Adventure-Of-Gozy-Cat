@@ -189,10 +189,10 @@
   <object id="88" name="Tree" gid="211" x="1408" y="1024" width="54" height="108"/>
   <object id="89" name="Tree" gid="214" x="1402" y="456" width="76" height="152"/>
   <object id="90" name="Tree" gid="2" x="1472" y="768" width="135" height="135"/>
-  <object id="91" name="Tree" gid="4" x="64" y="1024" width="208" height="208"/>
-  <object id="92" name="Tree" gid="3" x="350" y="648" width="258" height="258"/>
-  <object id="93" name="Tree" gid="1" x="882.333" y="524.833" width="168" height="168"/>
-  <object id="94" name="Tree" gid="209" x="704" y="1152" width="69" height="138"/>
+  <object id="91" name="Tree" gid="4" x="121.333" y="960.833" width="71.75" height="71.8333"/>
+  <object id="92" name="Tree" gid="3" x="350" y="648" width="258" height="258" visible="0"/>
+  <object id="93" name="Tree" gid="1" x="882.333" y="524.833" width="168" height="168" visible="0"/>
+  <object id="94" name="Tree" gid="209" x="704" y="1152" width="69" height="138" visible="0"/>
  </objectgroup>
  <objectgroup id="12" name="Data">
   <properties>
@@ -253,8 +253,6 @@
   <object id="37" name="Grass" gid="133" x="1024" y="576" width="64" height="64"/>
   <object id="38" name="Grass" gid="133" x="1088" y="576" width="64" height="64"/>
   <object id="39" name="Grass" gid="133" x="1091" y="576" width="64" height="64"/>
-  <object id="40" name="Grass" gid="133" x="1298.67" y="422" width="64" height="64"/>
-  <object id="41" name="Grass" gid="133" x="1426.67" y="358" width="64" height="64"/>
   <object id="42" gid="133" x="1472" y="768" width="64" height="64"/>
   <object id="43" name="Slime" gid="133" x="1536" y="768" width="64" height="64"/>
   <object id="44" name="Slime" gid="133" x="1300.46" y="888.838" width="19.1651" height="19.1651"/>
@@ -273,7 +271,7 @@
   <object id="69" name="Gozy" type="Animal" gid="217" x="-37" y="1016" width="120" height="120"/>
   <object id="95" name="Spike" gid="208" x="640" y="896" width="48" height="48"/>
   <object id="110" name="Fish" gid="227" x="954.293" y="802.867" width="26" height="26" rotation="219.383"/>
-  <object id="111" name="Fish" gid="227" x="464.667" y="618" width="26" height="26" rotation="219.383"/>
+  <object id="111" name="Fish" gid="227" x="458.167" y="615.5" width="26" height="26" rotation="219.383"/>
   <object id="112" name="Fish" gid="227" x="1264" y="556" width="26" height="26" rotation="219.383"/>
   <object id="113" name="Fish" gid="227" x="1328" y="617" width="26" height="26" rotation="219.383"/>
   <object id="115" name="Fish" gid="227" x="910.333" y="805.167" width="26" height="26" rotation="219.383"/>
@@ -297,9 +295,8 @@
   <object id="171" name="House" gid="249" x="1884.65" y="768.612" width="33.9217" height="33.9217"/>
   <object id="176" name="slime" x="711.75" y="521.5" width="46.5" height="40.5"/>
   <object id="180" name="slime" x="840.75" y="1027.75" width="46.5" height="40.5"/>
-  <object id="181" name="Food" x="778.75" y="528" width="44" height="35.5"/>
   <object id="184" name="Food" x="715.417" y="1106.67" width="44" height="35.5"/>
-  <object id="185" name="Fish" gid="227" x="513.667" y="616.333" width="26" height="26" rotation="219.383"/>
+  <object id="185" name="Fish" gid="227" x="925.5" y="485.333" width="26" height="26" rotation="219.383"/>
   <object id="186" name="Fish" gid="227" x="414.333" y="617.667" width="26" height="26" rotation="219.383"/>
   <object id="187" name="Fish" gid="227" x="565" y="1199.67" width="26" height="26" rotation="219.383"/>
   <object id="188" name="Fish" gid="227" x="945" y="1069.67" width="26" height="26" rotation="219.383"/>
