@@ -14,13 +14,16 @@ class Level:
         self.level_width = tmx_map.width*TILE_SIZE
         self.level_bottom = tmx_map.height*TILE_SIZE
         # tmx_level_properties = tmx_map.get_layer_by_name('Data')[0].properties
-        self.level_unlock = 0
+        # # self.level_unlock = 0
     
 
-        for layer in tmx_map.get_layer_by_name('Data'):
-            if layer.properties == 'level_unlock':
-                self.level_unlock = layer.properties['level_unlock']
-        
+        # for layer in tmx_map.get_layer_by_name('Data'):
+        #     if layer.properties == 'level_unlock':
+        #         self.level_unlock = layer.properties['level_unlock']
+        #     print(layer.properties)
+        tmx_level_properties = tmx_map.get_layer_by_name('Data')[0].properties
+        self.level_unlock = tmx_level_properties['level_unlock']
+        print(tmx_level_properties)
 
         # groups
         self.all_sprites = AllSprites(width=tmx_map.width,height=tmx_map.height)
@@ -56,6 +59,7 @@ class Level:
                     case 'BG 1' : z = Z_LAYERS['bg 1']
                     case 'BG 5 (grass mt 2)' : z = Z_LAYERS['bg 2']
                     case 'BG 2 (awan)' : z = Z_LAYERS['bg details 1']
+                    case 'BG 2' : z = Z_LAYERS['bg details 1']
                     case 'BG 4 (grass mt)' : z = Z_LAYERS['bg details 1']
                     case 'BG 3 (rck mt)' : z = Z_LAYERS['bg details 2']
                     case 'Pijakan' : z = Z_LAYERS['main']
