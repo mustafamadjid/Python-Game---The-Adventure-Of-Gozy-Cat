@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="7" nextobjectid="75">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="7" nextobjectid="77">
  <tileset firstgid="1" source="TSX/4-bg-mountain.tsx"/>
  <tileset firstgid="73" source="TSX/Sky.tsx"/>
  <tileset firstgid="98" source="TSX/overworld.tsx"/>
@@ -116,9 +116,9 @@
   <object id="36" gid="346" x="2048" y="640" width="64" height="64"/>
   <object id="37" gid="346" x="2112" y="576" width="64" height="64"/>
   <object id="38" name="Gozy" gid="349" x="60.6667" y="127.333" width="48" height="48"/>
-  <object id="39" name="slime" gid="350" x="645.333" y="561.333" width="40" height="40"/>
-  <object id="42" name="slime" gid="350" x="896" y="497.333" width="40" height="40"/>
-  <object id="43" name="slime" gid="350" x="1665.33" y="812" width="40" height="40"/>
+  <object id="39" name="slime_2" gid="350" x="645.333" y="577.333" width="40" height="40"/>
+  <object id="42" name="slime_2" gid="350" x="898" y="513.333" width="40" height="40"/>
+  <object id="43" name="slime_2" gid="350" x="1674.33" y="834" width="40" height="40"/>
   <object id="44" name="Food" gid="351" x="330" y="760" width="46" height="25"/>
   <object id="45" name="Food" gid="351" x="961.333" y="498.667" width="46" height="25"/>
   <object id="46" name="Food" gid="351" x="1150.67" y="437.333" width="46" height="25"/>
@@ -129,7 +129,6 @@
   <object id="51" name="Fish" gid="352" x="1361.33" y="370.333" width="25" height="25"/>
   <object id="52" name="Fish" gid="352" x="2068" y="621" width="25" height="25"/>
   <object id="54" name="Fish" gid="352" x="2194.67" y="503.667" width="25" height="25"/>
-  <object id="56" name="House" gid="353" x="2452" y="638.666" width="172" height="172"/>
   <object id="58" name="Spike" gid="354" x="1408" y="832" width="50" height="50"/>
   <object id="60" name="Fish" gid="352" x="26.1666" y="880.833" width="25" height="25"/>
   <object id="61" name="Food" gid="351" x="77" y="878.833" width="46" height="25"/>
@@ -143,6 +142,8 @@
   <object id="69" gid="346" x="512" y="640" width="64" height="64"/>
   <object id="72" name="Spike" gid="354" x="1540.33" y="317" width="50" height="50"/>
   <object id="73" name="Spike" gid="354" x="2304" y="448" width="50" height="50"/>
+  <object id="75" name="House" x="2404" y="518.666" width="129.333" height="144"/>
+  <object id="76" name="slime_2" gid="350" x="1872" y="448" width="40" height="40"/>
  </objectgroup>
  <objectgroup id="6" name="Data">
   <properties>

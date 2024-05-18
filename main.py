@@ -43,7 +43,8 @@ class GozyGame(Game):
         self.data = Data(self.ui)
         self.tmx_map = {
             0: load_pygame(join('Assets', 'Map', 'Stage Level', 'stage.tmx')),
-            1: load_pygame(join('Assets', 'Map', 'Stage Level 2', 'stage level 2.tmx'))
+            1: load_pygame(join('Assets', 'Map', 'Stage Level 2', 'stage level 2.tmx')),
+            2:load_pygame(join('Assets', 'Map', 'Stage Level 3', 'stage 3.tmx'))
         }
 
         self.tmx_overworld = load_pygame(join('Assets', 'Map', 'Map', 'Aset Tiles', 'Map Fix.tmx'))
@@ -54,6 +55,7 @@ class GozyGame(Game):
 
         self.game_active = False
         self.change_music("main menu.ogg")
+
 
     def switch_stage(self, target, unlock=0):
         if target == 'level':
@@ -75,11 +77,13 @@ class GozyGame(Game):
             'Fish': import_folder('Assets', 'makanan (koin)', 'Fish'),
             'Food': import_folder('Assets', 'makanan (koin)', 'Food'),
             'player': import_sub_folders('Assets', 'Player'),
-            'Slime': import_folder('Assets', 'enemy', 'slime_3'),
+            'Slime_2': import_folder('Assets', 'enemy', 'slime_2'),
+            'Slime_3': import_folder('Assets', 'enemy', 'slime_3'),
             'Fish': import_folder('Assets', 'makanan (koin)', 'Fish'),
             'Food': import_folder('Assets', 'makanan (koin)', 'Food'),
             'Particle': import_folder('Assets', 'ui', 'effect', 'particle'),
-            'Hit': import_folder('Assets', 'Player', 'hit')
+            'Hit': import_folder('Assets', 'Player', 'hit'),
+            'House' : import_image('Assets','rumah','rumah_2','120 x 104')
         }
         self.font = pygame.font.Font(join('Assets', 'ui', 'runescape_uf.ttf'), 40)
 

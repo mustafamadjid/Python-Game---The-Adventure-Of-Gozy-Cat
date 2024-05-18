@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="13" nextobjectid="180">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="13" nextobjectid="188">
  <tileset firstgid="1" name="48x48 trees" tilewidth="48" tileheight="48" tilecount="4" columns="4">
   <image source="Stage Tiles/bahan/48x48 trees.png" width="192" height="48"/>
  </tileset>
@@ -201,7 +201,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,174,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,1,0,0,174,0,0,3,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,174,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,174,174,174,0,0,0,135,136,137,174,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,171,172,173,0,0,0,0,0,0,174,147,148,149,0,174,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,174,0,0,0,0,0,0,0,0,174,0,159,160,161,0,0,0,0,0,0,0,0,0,0,0,
@@ -231,7 +231,6 @@
   <object id="29" name="Grass" gid="131" x="448" y="640" width="64" height="64"/>
   <object id="30" name="Grass" gid="131" x="512" y="640" width="64" height="64"/>
   <object id="31" name="Grass" gid="131" x="640" y="576" width="64" height="64"/>
-  <object id="32" name="Slime" gid="131" x="704" y="576" width="64" height="64"/>
   <object id="33" name="Grass" gid="131" x="768" y="576" width="64" height="64"/>
   <object id="34" name="Grass" gid="133" x="832" y="832" width="64" height="64"/>
   <object id="35" name="Grass" gid="133" x="896" y="832" width="64" height="64"/>
@@ -242,9 +241,6 @@
   <object id="40" name="Grass" gid="133" x="1298.67" y="422" width="64" height="64"/>
   <object id="41" name="Grass" gid="133" x="1426.67" y="358" width="64" height="64"/>
   <object id="42" gid="133" x="1472" y="768" width="64" height="64"/>
-  <object id="43" name="Slime" gid="133" x="1536" y="768" width="64" height="64"/>
-  <object id="44" name="Slime" gid="133" x="1300.46" y="888.838" width="19.1651" height="19.1651"/>
-  <object id="45" name="Slime" gid="133" x="1319.62" y="888.838" width="19.1651" height="19.1651"/>
   <object id="48" name="Grass" gid="132" x="1088" y="960" width="64" height="64"/>
   <object id="49" name="Grass" gid="132" x="832" y="1088" width="64" height="64"/>
   <object id="50" name="Grass" gid="132" x="896" y="1088" width="64" height="64"/>
@@ -262,12 +258,9 @@
   <object id="100" name="Chicken" gid="223" x="223.099" y="875.946" width="18.6927" height="18.6927" rotation="88.1453"/>
   <object id="102" gid="224" x="397.774" y="815.584" width="18.6927" height="18.6927" rotation="90.2353"/>
   <object id="103" name="Chicken" gid="223" x="416.539" y="815.698" width="18.6927" height="18.6927" rotation="90.2353"/>
-  <object id="104" name="Food" gid="225" x="576" y="1216.15" width="24.1189" height="24.1189"/>
-  <object id="105" name="Food" gid="226" x="599.85" y="1216" width="24.1189" height="24.1189"/>
-  <object id="106" gid="225" x="896" y="1088.15" width="24.1189" height="24.1189"/>
-  <object id="107" gid="226" x="919.85" y="1088" width="24.1189" height="24.1189"/>
-  <object id="108" name="Food" gid="225" x="768" y="576.15" width="24.1189" height="24.1189"/>
-  <object id="109" name="Food" gid="226" x="791.85" y="576" width="24.1189" height="24.1189"/>
+  <object id="104" name="Food" gid="225" x="577" y="1195.15" width="24.1189" height="24.1189"/>
+  <object id="106" gid="225" x="894" y="1080.15" width="24.1189" height="24.1189"/>
+  <object id="108" name="Food" gid="225" x="767" y="555.15" width="24.1189" height="24.1189"/>
   <object id="110" name="Fish" gid="227" x="1000.96" y="808.867" width="26" height="26" rotation="219.383"/>
   <object id="111" name="Fish" gid="227" x="432.667" y="618" width="26" height="26" rotation="219.383"/>
   <object id="112" name="Fish" gid="227" x="1264" y="556" width="26" height="26" rotation="219.383"/>
@@ -278,13 +271,13 @@
   <object id="119" gid="224" x="1096.61" y="928.939" width="18.6927" height="18.6927" rotation="88.1453"/>
   <object id="120" name="Chicken" gid="223" x="1115.36" y="928.368" width="18.6927" height="18.6927" rotation="88.1453"/>
   <object id="144" name="Grass" gid="133" x="1104.37" y="570.544" width="19.1651" height="19.1651"/>
-  <object id="149" name="Slime" gid="133" x="721.872" y="572.544" width="19.1651" height="19.1651"/>
   <object id="154" name="Grass" gid="133" x="1497.37" y="761.211" width="19.1651" height="19.1651"/>
-  <object id="173" name="House" gid="232" x="1737" y="774" width="363" height="316"/>
-  <object id="174" name="slime" x="670.667" y="526" width="38" height="44"/>
-  <object id="176" name="slime" x="1298" y="850" width="38" height="44"/>
-  <object id="177" name="slime" x="963" y="1038" width="38" height="44"/>
-  <object id="178" name="slime" x="1549" y="716.667" width="38" height="44"/>
+  <object id="180" name="House" x="1764" y="655" width="138" height="131"/>
+  <object id="183" name="slime_3" x="1260" y="856.333" width="47" height="40"/>
+  <object id="184" x="2263" y="83"/>
+  <object id="185" name="slime_3" x="448.5" y="600.121" width="47" height="40"/>
+  <object id="186" name="slime_3" x="1160.5" y="536" width="47" height="40"/>
+  <object id="187" name="slime_3" x="1513.5" y="728" width="47" height="40"/>
  </objectgroup>
  <objectgroup id="12" name="Data">
   <object id="179" name="Data" x="72" y="56" width="93.3333" height="96">

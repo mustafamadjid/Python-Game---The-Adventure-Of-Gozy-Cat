@@ -12,12 +12,10 @@ Z_LAYERS = {
     'path' : 3,
     'bg details 1' : 4,
     'bg details 2' : 5,
-    'terrain' : 6,
-    'main' : 7,
-    'obstacle' : 8,
-    'fg' : 9
+    'bg details 3' : 6,
+    'bg details 4' : 7,
+    'terrain' : 8,
+    'main' : 9,
+    'obstacle' : 10,
+    'fg' : 11
 }
-# New Comment
-
-
-# 'pijakan','BG 5 (pohon)','BG 4 (gunung grass)','BG 3 (awan)','BG 2 (rock mt)','BG 1'

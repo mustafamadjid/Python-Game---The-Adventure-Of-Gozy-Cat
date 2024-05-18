@@ -66,7 +66,8 @@ class Level:
                         case 'BG 3 (rck mt)' : z = Z_LAYERS['bg details 2']
                         case 'Pijakan' : z = Z_LAYERS['main']
                     Sprite((x * TILE_SIZE,y * TILE_SIZE),surf,groups,z)
-        if self.level_unlock == 2:
+                    
+        elif self.level_unlock == 2:
             for layer in ['Pijakan','BG 1','BG 2']:
                 # Tiles
                 for x,y,surf in tmx_map.get_layer_by_name(layer).tiles():
@@ -76,6 +77,22 @@ class Level:
                     match layer:
                         case 'BG 1' : z = Z_LAYERS['bg 1']
                         case 'BG 2' : z = Z_LAYERS['bg details 1']
+                        case 'Pijakan' : z = Z_LAYERS['main']
+                    Sprite((x * TILE_SIZE,y * TILE_SIZE),surf,groups,z)
+                    
+        elif self.level_unlock == 3:
+             for layer in ['Pijakan','BG 1','BG 2','BG 3','BG 4','BG 5']:
+                # Tiles
+                for x,y,surf in tmx_map.get_layer_by_name(layer).tiles():
+                    groups = [self.all_sprites]
+                    if layer == 'Pijakan' :
+                        groups.append(self.collision_sprites)
+                    match layer:
+                        case 'BG 1' : z = Z_LAYERS['bg 1']
+                        case 'BG 2' : z = Z_LAYERS['bg 1']
+                        case 'BG 3' : z = Z_LAYERS['bg details 1']
+                        case 'BG 4' : z = Z_LAYERS['bg details 2']
+                        case 'BG 5' : z = Z_LAYERS['bg details 3']
                         case 'Pijakan' : z = Z_LAYERS['main']
                     Sprite((x * TILE_SIZE,y * TILE_SIZE),surf,groups,z)
 
@@ -101,19 +118,38 @@ class Level:
                             frames=frames,
                             groups = (self.all_sprites,self.damage_sprites),
                             z = Z_LAYERS['obstacle'])
-                if obj.name in ('House','Grass'):
-                    z = Z_LAYERS['bg details 2']
-                    Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
-                    
+                if obj.name in ('House','Grass','Sun','Tree','Star'):
                     # House succces
                     if obj.name == 'House':
+                        Sprite((obj.x,obj.y),level_frames['House'],self.all_sprites,z)
                         self.level_finish_rect = pygame.Rect((obj.x,obj.y),(obj.width,obj.height))
-                        
+                    else:
+                        z = Z_LAYERS['fg']
+                        Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
         
+        # Object 2
+        # if self.level_unlock == 3:
+        #     for layer in ['Object 2','Object 3']:
+        #         for obj in tmx_map.get_layer_by_name(layer):
+        #             if obj.name == 'Tree':
+        #                 z = Z_LAYERS['bg details 4']
+        #                 Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
+                        
+        #             if obj.name == 'Gozy':
+        #                 self.player = Player(
+        #                     pos = (obj.x,obj.y),
+        #                     groups=self.all_sprites,
+        #                     collision_sprites=self.collision_sprites,
+        #                     frames=level_frames['player'],
+        #                     data = self.data,
+        #                     jump_sound = audio_files['jump'])
+           
         # Enemy
         for obj in tmx_map.get_layer_by_name('Object'):
-            if obj.name == 'slime' :
-                Slime((obj.x, obj.y), level_frames['Slime'], (self.all_sprites, self.slime_sprites,self.damage_sprites), self.collision_sprites)
+            if obj.name =='slime_2':
+                 Slime((obj.x, obj.y), level_frames['Slime_2'], (self.all_sprites, self.slime_sprites,self.damage_sprites), self.collision_sprites)
+            elif obj.name == 'slime_3' :
+                Slime((obj.x, obj.y), level_frames['Slime_3'], (self.all_sprites, self.slime_sprites,self.damage_sprites), self.collision_sprites)
     
         # Items
         for obj in tmx_map.get_layer_by_name('Object'):
