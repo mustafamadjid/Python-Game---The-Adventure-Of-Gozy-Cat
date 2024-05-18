@@ -2,6 +2,7 @@ from settings import *
 from sprites import *
 from groups import *
 from data import *
+import os
 
 class Overworld:
     def __init__(self,tmx_map,data,overworld_frames,switch_stage):

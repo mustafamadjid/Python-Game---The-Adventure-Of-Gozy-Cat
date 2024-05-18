@@ -38,6 +38,7 @@ class GozyGame(Game):
         super().__init__(1280, 720, 'The Adventure of Gozy Cat')
         self.import_assets()
 
+        self.hasActivated = False
         self.ui = UI(self.font, self.ui_frames)
         self.data = Data(self.ui)
         self.tmx_map = {
@@ -47,21 +48,17 @@ class GozyGame(Game):
 
         self.tmx_overworld = load_pygame(join('Assets', 'Map', 'Map', 'Aset Tiles', 'Map Fix.tmx'))
 
-        self.current_stage = Overworld(self.tmx_overworld, self.data, self.overworld_frames, self.switch_stage)
+        # self.current_stage = Overworld(self.tmx_overworld, self.data, self.overworld_frames, self.switch_stage)
         self.current_stage = Level(self.tmx_map[self.data.current_level], self.level_frames, self.audio_files, self.data, self.switch_stage)
         self.clock = pygame.time.Clock()
 
         self.game_active = False
-
-        self.bg_music['ingame music'].play(-1)
-        self.bg_music['ingame music'].set_volume(0.5)
+        self.change_music("main menu.ogg")
 
     def switch_stage(self, target, unlock=0):
         if target == 'level':
             self.current_stage = Level(self.tmx_map[self.data.current_level], self.level_frames, self.audio_files, self.data, self.switch_stage)
-            self.bg_music['overworld music'].stop()
-            self.bg_music['ingame music'].play(-1)
-            self.bg_music['ingame music'].set_volume(0.5)
+            self.change_music("in game.mp3")
         else:  # Overworld
             if unlock > 0:
                 self.data.unlocked_level = unlock
@@ -69,9 +66,7 @@ class GozyGame(Game):
                 self.data.health -= 1
 
             self.current_stage = Overworld(self.tmx_overworld, self.data, self.overworld_frames, self.switch_stage)
-            self.bg_music['ingame music'].stop()
-            self.bg_music['overworld music'].play(-1)
-            self.bg_music['overworld music'].set_volume(0.5)
+            self.change_music("overworld music.mp3")
 
     def import_assets(self):
         self.level_frames = {
@@ -103,10 +98,10 @@ class GozyGame(Game):
             'jump': pygame.mixer.Sound(join('Assets', 'Sound', 'Sound Effect', 'jump.wav'))
         }
 
-        self.bg_music = {
-            'ingame music': pygame.mixer.Sound(join('Assets', 'Sound', 'Music Background', 'in game.mp3')),
-            'overworld music': pygame.mixer.Sound(join('Assets', 'Sound', 'Music Background', 'overworld music.mp3'))
-        }
+    def change_music(self, musicName: str):
+        pygame.mixer.music.load(join('Assets', 'Sound', 'Music Background', musicName))
+        pygame.mixer.music.set_volume(0.5)
+        pygame.mixer.music.play(-1)
 
     def game_end(self):
         if self.data.health <= 0:
@@ -119,9 +114,11 @@ class GozyGame(Game):
         start_button = menu.Button(450, 320, start_img, 0.65)
         quit_button = menu.Button(450, 450, quit_img, 0.65)
         bg = pygame.image.load('Assets/Main menu/main bg.png')
+        pygame.mixer.music.play(-1)
 
         while True:
             self.display_surface.blit(bg, (0, 0))
+            
 
             if start_button.draw(self.display_surface):
                 self.game_active = True
@@ -135,6 +132,10 @@ class GozyGame(Game):
                     sys.exit()
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
                     self.game_active = True
+
+            if self.game_active and self.game_active != self.hasActivated:
+                self.change_music("in game.mp3")
+                self.hasActivated = True
 
             if self.game_active:
                 self.current_stage.run()

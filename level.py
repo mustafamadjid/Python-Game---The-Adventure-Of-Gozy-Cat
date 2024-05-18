@@ -1,3 +1,4 @@
+import os
 from settings import *
 from sprites import *
 from player import Player
