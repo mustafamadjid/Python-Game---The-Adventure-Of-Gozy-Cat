@@ -155,6 +155,8 @@ class Level:
         for obj in tmx_map.get_layer_by_name('Object'):
             if obj.name == 'Fish':
                 Item(obj.name, (obj.x + TILE_SIZE / 8 , obj.y + TILE_SIZE / 3), level_frames['Fish'], (self.all_sprites, self.item_sprites), self.data)
+            if obj.name == 'Chicken':
+                Item(obj.name, (obj.x + TILE_SIZE / 8 , obj.y + TILE_SIZE / 3), level_frames['Chicken'], (self.all_sprites, self.item_sprites), self.data)
             if obj.name == 'Food':
                 Item(obj.name, (obj.x + TILE_SIZE / 2, obj.y + TILE_SIZE / 2), level_frames['Food'], (self.all_sprites, self.item_sprites),self.data)
     
