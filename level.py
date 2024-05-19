@@ -3,7 +3,7 @@ from settings import *
 from sprites import *
 from player import Player
 from groups import AllSprites
-from enemy import Slime
+from enemy import *
 from data import Data
 
 class Level:
@@ -132,9 +132,11 @@ class Level:
         # Enemy
         for obj in tmx_map.get_layer_by_name('Object'):
             if obj.name =='slime_2':
-                 Slime((obj.x, obj.y), level_frames['Slime_2'], (self.all_sprites, self.slime_sprites,self.damage_sprites), self.collision_sprites)
+                 Enemy((obj.x, obj.y), level_frames['Slime_2'], (self.all_sprites, self.slime_sprites,self.damage_sprites), self.collision_sprites)
             elif obj.name == 'slime_3' :
-                Slime((obj.x, obj.y), level_frames['Slime_3'], (self.all_sprites, self.slime_sprites,self.damage_sprites), self.collision_sprites)
+                Enemy((obj.x, obj.y), level_frames['Slime_3'], (self.all_sprites, self.slime_sprites,self.damage_sprites), self.collision_sprites)
+            elif obj.name == 'Skeleton':
+                Enemy((obj.x, obj.y), level_frames['Skeleton'], (self.all_sprites, self.slime_sprites,self.damage_sprites), self.collision_sprites)
     
         # Items
         for obj in tmx_map.get_layer_by_name('Object'):

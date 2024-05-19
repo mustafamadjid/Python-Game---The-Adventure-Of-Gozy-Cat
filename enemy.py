@@ -2,7 +2,7 @@ from pygame.sprite import Group
 from settings import *
 from random import choice
 
-class Slime(pygame.sprite.Sprite):
+class Enemy(pygame.sprite.Sprite):
     def __init__(self, pos, frames, groups, collision_sprites):
         super().__init__(groups)
         self.frames, self.frame_index = frames, 0
