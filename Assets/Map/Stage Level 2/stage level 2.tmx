@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="7" nextobjectid="90">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="15" tilewidth="64" tileheight="64" infinite="0" nextlayerid="7" nextobjectid="110">
  <tileset firstgid="1" source="TSX/4-bg-mountain.tsx"/>
  <tileset firstgid="73" source="TSX/Sky.tsx"/>
  <tileset firstgid="98" source="TSX/overworld.tsx"/>
@@ -32,6 +32,9 @@
  </tileset>
  <tileset firstgid="357" name="Skeleton" tilewidth="64" tileheight="55" tilecount="1" columns="1">
   <image source="../../enemy/skeleton/walk/1.png" width="64" height="55"/>
+ </tileset>
+ <tileset firstgid="358" name="Tree" tilewidth="104" tileheight="132" tilecount="1" columns="1">
+  <image source="Aset/Trees/2.png" width="104" height="132"/>
  </tileset>
  <layer id="1" name="BG 1" width="40" height="15">
   <data encoding="csv">
@@ -127,7 +130,7 @@
   <object id="38" name="Gozy" gid="349" x="60.6667" y="127.333" width="48" height="48"/>
   <object id="42" name="slime_2" gid="350" x="898" y="505.333" width="40" height="40"/>
   <object id="43" name="slime_2" gid="350" x="1674.33" y="826" width="40" height="40"/>
-  <object id="44" name="Food" gid="351" x="330" y="760" width="46" height="25"/>
+  <object id="44" name="Food" gid="351" x="391.667" y="756.833" width="46" height="25"/>
   <object id="46" name="Food" gid="351" x="1153.34" y="437.333" width="46" height="25"/>
   <object id="48" name="Food" gid="351" x="1932" y="437.334" width="46" height="25"/>
   <object id="51" name="Fish" gid="352" x="1361.33" y="370.333" width="25" height="25"/>
@@ -158,6 +161,25 @@
   <object id="87" name="Bat" gid="356" x="2165.38" y="380" width="66.5833" height="45.3333"/>
   <object id="88" name="Skeleton" gid="357" x="640" y="576" width="64" height="55"/>
   <object id="89" name="Skeleton" gid="357" x="1536" y="320" width="64" height="55"/>
+  <object id="90" name="Fish" gid="352" x="84.8333" y="877.5" width="25" height="25"/>
+  <object id="91" name="Fish" gid="352" x="146.167" y="878.167" width="25" height="25"/>
+  <object id="93" name="Chicken" gid="355" x="461.398" y="685.812" width="17.2034" height="38.3769" rotation="38.2447"/>
+  <object id="94" name="Chicken" gid="355" x="524.398" y="615.812" width="17.2034" height="38.3769" rotation="38.2447"/>
+  <object id="95" name="Chicken" gid="355" x="845.398" y="493.812" width="17.2034" height="38.3769" rotation="38.2447"/>
+  <object id="96" name="Chicken" gid="355" x="1485.4" y="301.812" width="17.2034" height="38.3769" rotation="38.2447"/>
+  <object id="97" name="Chicken" gid="355" x="1614.4" y="306.812" width="17.2034" height="38.3769" rotation="38.2447"/>
+  <object id="98" name="Chicken" gid="355" x="2125.4" y="555.812" width="17.2034" height="38.3769" rotation="38.2447"/>
+  <object id="99" name="Chicken" gid="355" x="1999.4" y="689.812" width="17.2034" height="38.3769" rotation="38.2447"/>
+  <object id="100" name="Chicken" gid="355" x="1364.4" y="751.812" width="17.2034" height="38.3769" rotation="38.2447"/>
+  <object id="101" name="Chicken" gid="355" x="1502.4" y="871.812" width="17.2034" height="38.3769" rotation="38.2447"/>
+  <object id="102" name="Fish" gid="352" x="1619.5" y="815.5" width="25" height="25"/>
+  <object id="103" name="Fish" gid="352" x="1748.83" y="814.167" width="25" height="25"/>
+  <object id="104" name="Fish" gid="352" x="2264.5" y="428.5" width="25" height="25"/>
+  <object id="105" name="Tree" gid="358" x="926.333" y="512.333" width="104" height="132"/>
+  <object id="106" name="Tree" gid="2147484006" x="307.666" y="767.5" width="104" height="132"/>
+  <object id="107" name="Tree" gid="358" x="1954.67" y="446" width="104" height="132"/>
+  <object id="108" name="Spike" gid="354" x="272.333" y="762.333" width="50" height="50"/>
+  <object id="109" name="Spike" gid="354" x="265.667" y="381" width="50" height="50"/>
  </objectgroup>
  <objectgroup id="6" name="Data">
   <properties>
