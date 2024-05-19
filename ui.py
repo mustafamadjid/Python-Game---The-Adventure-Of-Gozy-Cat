@@ -29,13 +29,13 @@ class UI:
 			Heart((x,y), self.heart_frames, self.sprites)
 
 	def display_text(self):
-		if self.fish_timer.active:
-			text_surf = self.font.render(str(self.fish_amount), False, 'white')
-			text_rect = text_surf.get_rect(topleft = (1,40))
-			self.display_surface.blit(text_surf, text_rect)
+		#if self.fish_timer.active:
+		text_surf = self.font.render(str(f"Score : {self.fish_amount}"), False, 'white')
+		text_rect = text_surf.get_rect(topleft = (1,40))
+		self.display_surface.blit(text_surf, text_rect)
 
-			fish_rect = self.fish_surf.get_rect(center = text_rect.bottomleft).move(10,5)
-			self.display_surface.blit(self.fish_surf, fish_rect)
+			#fish_rect = self.fish_surf.get_rect(center = text_rect.bottomleft).move(10,5)
+			#self.display_surface.blit(self.fish_surf, fish_rect)
 
 	def show_fish(self, amount):
 		self.fish_amount = amount

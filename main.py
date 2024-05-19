@@ -119,6 +119,7 @@ class GozyGame(Game):
         quit_button = menu.Button(450, 450, quit_img, 0.65)
         bg = pygame.image.load('Assets/Main menu/main bg.png')
         pygame.mixer.music.play(-1)
+        pygame.display.set_icon(pygame.image.load('Assets/Player/idle/1.png'))
 
         while True:
             self.display_surface.blit(bg, (0, 0))
