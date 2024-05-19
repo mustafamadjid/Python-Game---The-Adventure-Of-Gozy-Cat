@@ -58,7 +58,6 @@
  <tileset firstgid="265" name="pohon 5" tilewidth="104" tileheight="132" tilecount="1" columns="1">
   <image source="../Stage Level 3/Assets/Trees/2.png" width="104" height="132"/>
  </tileset>
- <tileset firstgid="266" source="../../../../../Tubes PBO Cik/Assets/Map/revisi fatih lagi/File TILED/File TILED/Super-Pirate-World-main/data/tilesets/outside.tsx"/>
  <layer id="1" name="BG 1" width="55" height="20">
   <data encoding="csv">
 14,8,13,9,13,9,8,14,14,8,8,8,13,5,6,7,8,14,9,13,14,8,9,8,13,14,9,9,9,8,14,8,13,9,13,9,8,14,14,8,8,8,13,14,14,14,14,14,9,13,8,9,8,9,8,
