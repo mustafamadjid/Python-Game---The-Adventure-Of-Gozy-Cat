@@ -42,15 +42,15 @@ class GozyGame(Game):
         self.ui = UI(self.font, self.ui_frames)
         self.data = Data(self.ui)
         self.tmx_map = {
-            0: load_pygame(join('Assets', 'Map', 'Stage Level', 'stage.tmx')),
-            1: load_pygame(join('Assets', 'Map', 'Stage Level 2', 'stage level 2.tmx')),
-            2:load_pygame(join('Assets', 'Map', 'Stage Level 3', 'stage 3.tmx'))
+            0: load_pygame(join('Assets', 'Map', 'Stage Level 2', 'stage level 2.tmx')),
+            1: load_pygame(join('Assets', 'Map', 'Stage Level', 'stage.tmx')),
+            2: load_pygame(join('Assets', 'Map', 'Stage Level 3', 'stage 3.tmx'))
         }
 
         self.tmx_overworld = load_pygame(join('Assets', 'Map', 'Map', 'Aset Tiles', 'Map Fix.tmx'))
 
         # self.current_stage = Overworld(self.tmx_overworld, self.data, self.overworld_frames, self.switch_stage)
-        self.current_stage = Level(self.tmx_map[self.data.current_level], self.level_frames, self.audio_files, self.data, self.switch_stage)
+        self.current_stage = Overworld(self.tmx_overworld, self.data, self.overworld_frames, self.switch_stage)
         self.clock = pygame.time.Clock()
 
         self.game_active = False
@@ -71,7 +71,7 @@ class GozyGame(Game):
 
     def import_assets(self):
         self.level_frames = {
-            'Spike': import_folder('Assets', 'Spikes'),
+            'Spike': import_folder('Assets', 'Map', 'Stage Level', 'Stage Tiles', 'Spikes'),
             'Chicken': import_folder('Assets', 'makanan (koin)', 'Chicken'),
             'Fish': import_folder('Assets', 'makanan (koin)', 'Fish'),
             'Food': import_folder('Assets', 'makanan (koin)', 'Food'),
@@ -139,7 +139,7 @@ class GozyGame(Game):
                     self.game_active = True
 
             if self.game_active and self.game_active != self.hasActivated:
-                self.change_music("in game.mp3")
+                self.change_music("overworld music.mp3")
                 self.hasActivated = True
 
             if self.game_active:

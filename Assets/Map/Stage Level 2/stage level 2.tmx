@@ -136,17 +136,16 @@
   <object id="51" name="Fish" gid="352" x="1361.33" y="370.333" width="25" height="25"/>
   <object id="52" name="Fish" gid="352" x="2068" y="621" width="25" height="25"/>
   <object id="54" name="Fish" gid="352" x="2194.67" y="503.667" width="25" height="25"/>
-  <object id="58" name="Spike" gid="354" x="1413.33" y="828" width="50" height="50"/>
+  <object id="58" name="Spike" gid="354" x="1413.33" y="832" width="50" height="50"/>
   <object id="60" name="Fish" gid="352" x="26.1666" y="880.833" width="25" height="25"/>
   <object id="63" name="Fish" gid="352" x="216.833" y="878.167" width="25" height="25"/>
   <object id="64" gid="346" x="194.667" y="894.667" width="64" height="64"/>
-  <object id="65" gid="346" x="257.333" y="767.333" width="64" height="64"/>
   <object id="66" gid="346" x="320" y="768" width="64" height="64"/>
   <object id="67" gid="346" x="384" y="768" width="64" height="64"/>
   <object id="68" gid="346" x="450" y="702.667" width="64" height="64"/>
   <object id="69" gid="346" x="512" y="640" width="64" height="64"/>
   <object id="73" name="Spike" gid="354" x="2304" y="448" width="50" height="50"/>
-  <object id="75" name="House" x="2404" y="518.666" width="129.333" height="144"/>
+  <object id="75" name="House" x="2406" y="541.666" width="129.333" height="144"/>
   <object id="76" name="slime_2" gid="350" x="1872" y="440" width="40" height="40"/>
   <object id="77" name="Chicken" gid="355" x="330.352" y="371.601" width="17.2034" height="38.3769" rotation="38.2447"/>
   <object id="78" name="Chicken" gid="355" x="972.398" y="494.479" width="17.2034" height="38.3769" rotation="38.2447"/>
@@ -178,8 +177,8 @@
   <object id="105" name="Tree" gid="358" x="926.333" y="512.333" width="104" height="132"/>
   <object id="106" name="Tree" gid="2147484006" x="307.666" y="767.5" width="104" height="132"/>
   <object id="107" name="Tree" gid="358" x="1954.67" y="446" width="104" height="132"/>
-  <object id="108" name="Spike" gid="354" x="272.333" y="762.333" width="50" height="50"/>
-  <object id="109" name="Spike" gid="354" x="265.667" y="381" width="50" height="50"/>
+  <object id="108" name="Spike" gid="354" x="262.333" y="769.333" width="50" height="50"/>
+  <object id="109" name="Spike" gid="354" x="265.667" y="384" width="50" height="50"/>
  </objectgroup>
  <objectgroup id="6" name="Data">
   <properties>
