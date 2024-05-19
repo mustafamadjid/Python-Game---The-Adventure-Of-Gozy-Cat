@@ -127,22 +127,7 @@ class Level:
                         z = Z_LAYERS['fg']
                         Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
         
-        # Object 2
-        # if self.level_unlock == 3:
-        #     for layer in ['Object 2','Object 3']:
-        #         for obj in tmx_map.get_layer_by_name(layer):
-        #             if obj.name == 'Tree':
-        #                 z = Z_LAYERS['bg details 4']
-        #                 Sprite((obj.x,obj.y),obj.image,self.all_sprites,z)
-                        
-        #             if obj.name == 'Gozy':
-        #                 self.player = Player(
-        #                     pos = (obj.x,obj.y),
-        #                     groups=self.all_sprites,
-        #                     collision_sprites=self.collision_sprites,
-        #                     frames=level_frames['player'],
-        #                     data = self.data,
-        #                     jump_sound = audio_files['jump'])
+    
            
         # Enemy
         for obj in tmx_map.get_layer_by_name('Object'):

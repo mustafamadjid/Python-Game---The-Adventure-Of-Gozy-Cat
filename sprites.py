@@ -48,9 +48,9 @@ class Item(AnimatedSprite):
         
     def activate(self):
         if self.item_type == 'Fish':
-            self.data.fish += 2
+            self.data.fish += 1
         if self.item_type == 'Chicken':
-            self.data.fish += 5
+            self.data.fish += 1
         if self.item_type == 'Food':
             self.data.health += 1
 

@@ -56,7 +56,6 @@ class GozyGame(Game):
         self.game_active = False
         self.change_music("main menu.ogg")
 
-
     def switch_stage(self, target, unlock=0):
         if target == 'level':
             self.current_stage = Level(self.tmx_map[self.data.current_level], self.level_frames, self.audio_files, self.data, self.switch_stage)

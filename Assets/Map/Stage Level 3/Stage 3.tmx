@@ -300,7 +300,7 @@
   <object id="176" name="Star" gid="411" x="2517.67" y="493.667" width="30" height="30"/>
   <object id="118" name="Gozy" gid="402" x="23" y="1154" width="87.125" height="82"/>
   <object id="119" name="House" gid="403" x="2393.69" y="666" width="182.308" height="158"/>
-  <object id="120" name="slime_3" gid="404" x="258" y="1079" width="64" height="46"/>
+  <object id="120" name="slime_3" gid="404" x="192" y="1088" width="64" height="46"/>
   <object id="121" name="slime_3" gid="404" x="1216" y="256" width="64" height="46"/>
   <object id="122" name="slime_3" gid="404" x="1343" y="1211" width="64" height="46"/>
   <object id="123" name="slime_3" gid="404" x="1280" y="512" width="64" height="46"/>

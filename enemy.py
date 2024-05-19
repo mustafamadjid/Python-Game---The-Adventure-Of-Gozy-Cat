@@ -8,7 +8,7 @@ class Slime(pygame.sprite.Sprite):
         self.frames, self.frame_index = frames, 0
         self.image = self.frames[self.frame_index]
         self.rect = self.image.get_rect(topleft = pos)
-        self.z = Z_LAYERS['main']
+        self.z = Z_LAYERS['enemy']
 
         self.direction = choice((-1,1))
         self.collision_rects = [sprite.rect for sprite in collision_sprites]
