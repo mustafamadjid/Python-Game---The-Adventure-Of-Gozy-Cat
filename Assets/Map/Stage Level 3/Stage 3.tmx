@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="12" nextobjectid="178">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="12" nextobjectid="190">
  <tileset firstgid="1" name="Background_Awan" tilewidth="64" tileheight="64" tilecount="28" columns="7">
   <image source="Assets/Background_1.png" width="496" height="272"/>
  </tileset>
@@ -74,6 +74,10 @@
  </tileset>
  <tileset firstgid="411" name="star" tilewidth="30" tileheight="30" tilecount="1" columns="1">
   <image source="Assets/star.png" width="30" height="30"/>
+ </tileset>
+ <tileset firstgid="412" source="../Stage Level 2/TSX/outside.tsx"/>
+ <tileset firstgid="460" name="Bat" tilewidth="78" tileheight="62" tilecount="1" columns="1">
+  <image source="../Stage Level 2/Aset/Assets/enemy/bat/3.png" width="78" height="62"/>
  </tileset>
  <layer id="1" name="BG 1" width="40" height="20">
   <data encoding="csv">
@@ -200,10 +204,10 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,379,380,381,0,0,0,0,343,345,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,379,380,381,0,451,0,0,343,345,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,379,380,381,0,0,0,0,0,0,0,382,367,369,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,382,0,0,0,0,0,0,0,0,0,0,0,382,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,346,346,346,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147484029,380,381,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,346,346,346,0,0,0,0,0,0,0,0,0,0,0,0,0,451,0,0,0,0,0,2147484029,380,381,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,358,358,358,0,0,0,0,0,0,0,0,0,0,379,380,381,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,370,370,370,0,0,0,0,0,0,379,380,381,0,0,0,0,379,380,380,380,381,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,382,0,0,0,0,0,0,0,0,0,0,0,0,0,379,380,381,0,0,0,0,0,0,
@@ -219,7 +223,7 @@
 355,356,357,367,368,369,367,368,369,0,0,0,0,0,0,0,0,0,0,0,379,380,381,355,356,357,0,0,0,0,0,0,0,0,0,0,0,367,368,369
 </data>
  </layer>
- <objectgroup id="8" name="Object" visible="0">
+ <objectgroup id="8" name="Object">
   <object id="39" name="Grass" gid="392" x="0" y="1152" width="64" height="64"/>
   <object id="40" name="Grass" gid="393" x="65.3333" y="1152" width="64" height="64"/>
   <object id="41" name="Grass" gid="393" x="130.667" y="1151.33" width="64" height="64"/>
@@ -296,46 +300,47 @@
   <object id="176" name="Star" gid="411" x="2517.67" y="493.667" width="30" height="30"/>
   <object id="118" name="Gozy" gid="402" x="23" y="1154" width="87.125" height="82"/>
   <object id="119" name="House" gid="403" x="2393.69" y="666" width="182.308" height="158"/>
-  <object id="120" name="slime_3" gid="404" x="256" y="1088" width="64" height="46"/>
+  <object id="120" name="slime_3" gid="404" x="258" y="1079" width="64" height="46"/>
   <object id="121" name="slime_3" gid="404" x="1216" y="256" width="64" height="46"/>
-  <object id="122" name="slime_3" gid="404" x="1344" y="1216" width="64" height="46"/>
+  <object id="122" name="slime_3" gid="404" x="1343" y="1211" width="64" height="46"/>
   <object id="123" name="slime_3" gid="404" x="1280" y="512" width="64" height="46"/>
   <object id="124" name="slime_3" gid="404" x="1536" y="768" width="64" height="46"/>
   <object id="125" name="slime_2" gid="405" x="968" y="702.667" width="39.3333" height="44.101"/>
-  <object id="126" name="slime_2" gid="405" x="1548.33" y="448.616" width="39.3333" height="44.101"/>
-  <object id="127" name="slime_2" gid="405" x="1800.33" y="511.283" width="39.3333" height="44.101"/>
+  <object id="126" name="slime_2" gid="405" x="1548.33" y="441.616" width="39.3333" height="44.101"/>
+  <object id="127" name="slime_2" gid="405" x="1800.33" y="509.283" width="39.3333" height="44.101"/>
   <object id="128" name="slime_2" gid="405" x="1483" y="187.283" width="39.3333" height="44.101"/>
   <object id="129" name="Heart" gid="406" x="-10" y="55" width="64" height="64"/>
   <object id="130" name="Heart" gid="406" x="16.5" y="55.5" width="64" height="64"/>
   <object id="131" name="Heart" gid="406" x="45.5" y="55.5" width="64" height="64"/>
   <object id="132" name="Heart" gid="406" x="76.5" y="55.5" width="64" height="64"/>
   <object id="139" name="Spike" gid="407" x="2112" y="384" width="50" height="50"/>
-  <object id="140" name="Spike" gid="407" x="1856" y="192" width="50" height="50"/>
+  <object id="140" name="Spike" gid="407" x="1860" y="187" width="50" height="50"/>
   <object id="141" name="Spike" gid="407" x="1984" y="832" width="50" height="50"/>
   <object id="142" name="Spike" gid="407" x="576" y="1024" width="50" height="50"/>
-  <object id="143" name="Spike" gid="407" x="128" y="1152" width="50" height="50"/>
-  <object id="144" name="Chicken" gid="408" x="345" y="1085" width="27" height="51"/>
+  <object id="143" name="Spike" gid="407" x="129" y="1150" width="50" height="50"/>
+  <object id="144" name="Chicken" gid="408" x="345" y="1081" width="27" height="51"/>
   <object id="146" name="Chicken" gid="408" x="663.5" y="947.5" width="27" height="51"/>
-  <object id="147" name="Chicken" gid="408" x="850.5" y="758.5" width="27" height="51"/>
-  <object id="148" name="Chicken" gid="408" x="661.167" y="378.5" width="27" height="51"/>
-  <object id="149" name="Chicken" gid="408" x="782.5" y="377.167" width="27" height="51"/>
-  <object id="150" name="Fish" gid="409" x="917.333" y="695.667" width="35.6667" height="42.3333"/>
   <object id="152" name="Fish" gid="409" x="1106.17" y="566.833" width="35.6667" height="42.3333"/>
-  <object id="153" name="Fish" gid="409" x="1100.17" y="956.833" width="35.6667" height="42.3333"/>
-  <object id="154" name="Fish" gid="409" x="1163.17" y="952.833" width="35.6667" height="42.3333"/>
-  <object id="155" name="Fish" gid="409" x="1928.83" y="508.167" width="35.6667" height="42.3333"/>
+  <object id="154" name="Fish" gid="409" x="1167.17" y="942.833" width="35.6667" height="42.3333"/>
+  <object id="155" name="Fish" gid="409" x="1928.83" y="505.167" width="35.6667" height="42.3333"/>
   <object id="157" name="Fish" gid="409" x="1360.83" y="505.5" width="35.6667" height="42.3333"/>
-  <object id="158" name="Fish" gid="409" x="1743.5" y="309.5" width="35.6667" height="42.3333"/>
-  <object id="159" name="Food" gid="410" x="450" y="1022" width="61" height="33.1522"/>
   <object id="160" name="Food" gid="410" x="2052.17" y="568.757" width="61" height="33.1522"/>
-  <object id="161" name="Food" gid="410" x="2121.5" y="763.424" width="61" height="33.1522"/>
-  <object id="162" name="Food" gid="410" x="1732.17" y="958.091" width="61" height="33.1522"/>
-  <object id="163" gid="410" x="1529.5" y="1144.76" width="61" height="33.1522"/>
-  <object id="164" name="slime_3" gid="404" x="1856.67" y="898.333" width="64" height="46"/>
-  <object id="165" name="Food" gid="410" x="2299.5" y="697.424" width="61" height="33.1522"/>
+  <object id="164" name="slime_3" gid="404" x="1853.67" y="886.333" width="64" height="46"/>
   <object id="115" name="Tree" gid="399" x="688.333" y="371.666" width="108.333" height="130"/>
   <object id="116" name="Tree" gid="400" x="2086" y="386" width="126.495" height="129"/>
   <object id="117" name="Tree" gid="401" x="1794" y="874" width="113.455" height="144"/>
+  <object id="178" name="Grass" gid="393" x="1664" y="192" width="64" height="64"/>
+  <object id="179" name="Grass" gid="393" x="1664" y="384" width="64" height="64"/>
+  <object id="180" name="Bat" gid="460" x="62.6667" y="953.333" width="78" height="62"/>
+  <object id="181" name="Bat" gid="460" x="441" y="938.333" width="78" height="62"/>
+  <object id="182" name="Bat" gid="460" x="694.333" y="698.333" width="78" height="62"/>
+  <object id="183" name="Bat" gid="460" x="951.667" y="126.333" width="78" height="62"/>
+  <object id="184" name="Bat" gid="460" x="1913" y="65" width="78" height="62"/>
+  <object id="185" name="Bat" gid="460" x="2169" y="250.333" width="78" height="62"/>
+  <object id="186" name="Bat" gid="460" x="1659.67" y="825" width="78" height="62"/>
+  <object id="187" name="Fish" gid="409" x="1603.5" y="1072.17" width="35.6667" height="42.3333"/>
+  <object id="188" name="Fish" gid="409" x="1675.5" y="1001.5" width="35.6667" height="42.3333"/>
+  <object id="189" name="Fish" gid="409" x="1742.17" y="941.5" width="35.6667" height="42.3333"/>
  </objectgroup>
  <objectgroup id="11" name="Data">
   <object id="177" name="Data" x="40" y="134" width="114" height="114">
