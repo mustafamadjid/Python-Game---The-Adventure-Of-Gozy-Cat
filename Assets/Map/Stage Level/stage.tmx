@@ -383,7 +383,7 @@
  <objectgroup id="12" name="Data">
   <object id="179" name="Data" x="72" y="56" width="93.3333" height="96">
    <properties>
-    <property name="level_unlock" type="int" value="1"/>
+    <property name="level_unlock" type="int" value="2"/>
    </properties>
   </object>
  </objectgroup>

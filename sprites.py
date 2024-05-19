@@ -52,7 +52,10 @@ class Item(AnimatedSprite):
         if self.item_type == 'Chicken':
             self.data.fish += 1
         if self.item_type == 'Food':
-            self.data.health += 1
+            if self.data.health >= 5:
+                self.data.health = 5
+            else:
+                self.data.health += 1
 
 class Node(pygame.sprite.Sprite):
     def __init__(self, pos, surf, groups,level,data,paths):

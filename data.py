@@ -5,7 +5,7 @@ class Data:
         self._health = 5
         self.ui.create_hearts(self.health)
 
-        self.unlocked_level = 2
+        self.unlocked_level = 0
         self.current_level = 0
 
     @property
@@ -26,5 +26,8 @@ class Data:
 
     @health.setter
     def health(self, value):
-        self._health = value
-        self.ui.create_hearts(value)
+        if self._health > 5:
+            self._health = 5
+        else:
+            self._health = value
+            self.ui.create_hearts(value)
