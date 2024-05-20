@@ -42,12 +42,12 @@ class GozyGame(Game):
         self.ui = UI(self.font, self.ui_frames)
         self.data = Data(self.ui)
         self.tmx_map = {
-            0: load_pygame(join('Assets', 'Map', 'Stage Level 2', 'stage level 2.tmx')),
-            1: load_pygame(join('Assets', 'Map', 'Stage Level', 'stage.tmx')),
-            2: load_pygame(join('Assets', 'Map', 'Stage Level 3', 'stage 3.tmx'))
+            0: load_pygame(join('..','Assets', 'Map', 'Stage Level 2', 'stage level 2.tmx')),
+            1: load_pygame(join('..','Assets', 'Map', 'Stage Level', 'stage.tmx')),
+            2: load_pygame(join('..','Assets', 'Map', 'Stage Level 3', 'stage 3.tmx'))
         }
 
-        self.tmx_overworld = load_pygame(join('Assets', 'Map', 'Map', 'Aset Tiles', 'Map Fix.tmx'))
+        self.tmx_overworld = load_pygame(join('..','Assets', 'Map', 'Map', 'Aset Tiles', 'Map Fix.tmx'))
 
         # self.current_stage = Overworld(self.tmx_overworld, self.data, self.overworld_frames, self.switch_stage)
         self.current_stage = Overworld(self.tmx_overworld, self.data, self.overworld_frames, self.switch_stage)
@@ -71,39 +71,39 @@ class GozyGame(Game):
 
     def import_assets(self):
         self.level_frames = {
-            'Spike': import_folder('Assets', 'Map', 'Stage Level', 'Stage Tiles', 'Spikes'),
-            'Chicken': import_folder('Assets', 'makanan (koin)', 'Chicken'),
-            'Fish': import_folder('Assets', 'makanan (koin)', 'Fish'),
-            'Food': import_folder('Assets', 'makanan (koin)', 'Food'),
-            'player': import_sub_folders('Assets', 'Player'),
-            'Slime_2': import_folder('Assets', 'enemy', 'slime_2'),
-            'Slime_3': import_folder('Assets', 'enemy', 'slime_3'),
-            'Fish': import_folder('Assets', 'makanan (koin)', 'Fish'),
-            'Food': import_folder('Assets', 'makanan (koin)', 'Food'),
-            'Particle': import_folder('Assets', 'ui', 'effect', 'particle'),
-            'Hit': import_folder('Assets', 'Player', 'hit'),
-            'House' : import_image('Assets','rumah','rumah_2','120 x 104'),
-            'Skeleton' : import_folder('Assets','enemy','skeleton','animate_skeleton')
+            'Spike': import_folder('..','Assets', 'Map', 'Stage Level', 'Stage Tiles', 'Spikes'),
+            'Chicken': import_folder('..','Assets', 'makanan (koin)', 'Chicken'),
+            'Fish': import_folder('..','Assets', 'makanan (koin)', 'Fish'),
+            'Food': import_folder('..','Assets', 'makanan (koin)', 'Food'),
+            'player': import_sub_folders('..','Assets', 'Player'),
+            'Slime_2': import_folder('..','Assets', 'enemy', 'slime_2'),
+            'Slime_3': import_folder('..','Assets', 'enemy', 'slime_3'),
+            'Fish': import_folder('..','Assets', 'makanan (koin)', 'Fish'),
+            'Food': import_folder('..','Assets', 'makanan (koin)', 'Food'),
+            'Particle': import_folder('..','Assets', 'ui', 'effect', 'particle'),
+            'Hit': import_folder('..','Assets', 'Player', 'hit'),
+            'House' : import_image('..','Assets','rumah','rumah_2','120 x 104'),
+            'Skeleton' : import_folder('..','Assets','enemy','skeleton','animate_skeleton')
         }
-        self.font = pygame.font.Font(join('Assets', 'ui', 'runescape_uf.ttf'), 40)
+        self.font = pygame.font.Font(join('..','Assets', 'ui', 'runescape_uf.ttf'), 40)
 
         self.ui_frames = {
-            'heart': import_folder('Assets', 'ui', 'heart'),
-            'fish': import_image('Assets', 'ui', 'fish')
+            'heart': import_folder('..','Assets', 'ui', 'heart'),
+            'fish': import_image('..','Assets', 'ui', 'fish')
         }
 
         self.overworld_frames = {
-            'Node': import_image('Assets', 'Map', 'Map', 'object', '1'),
-            'Player': import_sub_folders('Assets', 'Player'),
+            'Node': import_image('..','Assets', 'Map', 'Map', 'object', '1'),
+            'Player': import_sub_folders('..','Assets', 'Player'),
         }
 
         self.audio_files = {
-            'snack': pygame.mixer.Sound(join('Assets', 'Sound', 'Sound Effect', 'snack.wav')),
-            'jump': pygame.mixer.Sound(join('Assets', 'Sound', 'Sound Effect', 'jump.wav'))
+            'snack': pygame.mixer.Sound(join('..','Assets', 'Sound', 'Sound Effect', 'snack.wav')),
+            'jump': pygame.mixer.Sound(join('..','Assets', 'Sound', 'Sound Effect', 'jump.wav'))
         }
 
     def change_music(self, musicName: str):
-        pygame.mixer.music.load(join('Assets', 'Sound', 'Music Background', musicName))
+        pygame.mixer.music.load(join('..','Assets', 'Sound', 'Music Background', musicName))
         pygame.mixer.music.set_volume(0.5)
         pygame.mixer.music.play(-1)
 
@@ -113,13 +113,13 @@ class GozyGame(Game):
             sys.exit()
 
     def run(self):
-        start_img = pygame.image.load('Assets/Main menu/Start Game.png')
-        quit_img = pygame.image.load('Assets/Main menu/Quit.png')
+        start_img = pygame.image.load('../Assets/Main menu/Start Game.png')
+        quit_img = pygame.image.load('../Assets/Main menu/Quit.png')
         start_button = menu.Button(450, 320, start_img, 0.65)
         quit_button = menu.Button(450, 450, quit_img, 0.65)
-        bg = pygame.image.load('Assets/Main menu/main bg.png')
+        bg = pygame.image.load('../Assets/Main menu/main bg.png')
         pygame.mixer.music.play(-1)
-        pygame.display.set_icon(pygame.image.load('Assets/Player/idle/1.png'))
+        pygame.display.set_icon(pygame.image.load('../Assets/Player/idle/1.png'))
 
         while True:
             self.display_surface.blit(bg, (0, 0))

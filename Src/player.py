@@ -35,10 +35,10 @@ class Player(pygame.sprite.Sprite):
         # Audio
         self.jump_sound = jump_sound
         
-        # timer
-        self.timers = {
-            'hit': Timer(400)
-        }
+        # # timer
+        # self.timers = {
+        #     'hit': Timer(400)
+        # }
         
         # Hit
         self.hit = False
