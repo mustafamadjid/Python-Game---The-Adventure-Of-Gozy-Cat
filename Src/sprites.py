@@ -50,7 +50,7 @@ class Item(AnimatedSprite):
         if self.item_type == 'Fish':
             self.data.fish += 1
         if self.item_type == 'Chicken':
-            self.data.fish += 1
+            self.data.fish += 3
         if self.item_type == 'Food':
             if self.data.health >= 5:
                 self.data.health = 5

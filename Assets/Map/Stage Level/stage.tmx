@@ -302,7 +302,7 @@
   <object id="248" name="Grass" gid="131" x="2368" y="832" width="64" height="64"/>
   <object id="249" name="Grass" gid="131" x="2304" y="960" width="64" height="64"/>
   <object id="257" name="Bat" gid="256" x="1725.38" y="572" width="66.5833" height="45.3333"/>
-  <object id="265" name="slime_2" gid="257" x="710.333" y="561.667" width="44.0889" height="42.6667"/>
+  <object id="265" name="slime_2" gid="257" x="710.333" y="576.667" width="44.0889" height="42.6667"/>
   <object id="266" name="slime_2" gid="257" x="1792" y="704" width="44.0889" height="42.6667"/>
   <object id="268" name="slime_2" gid="257" x="2816" y="1024" width="44.0889" height="42.6667"/>
   <object id="271" name="slime_3" gid="258" x="1099.68" y="569" width="44.64" height="36"/>

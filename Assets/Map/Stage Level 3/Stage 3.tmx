@@ -320,7 +320,7 @@
   <object id="157" name="Fish" gid="409" x="1360.83" y="505.5" width="35.6667" height="42.3333"/>
   <object id="160" name="Food" gid="410" x="708.17" y="898.757" width="61" height="33.1522"/>
   <object id="115" name="Tree" gid="399" x="689.333" y="380.666" width="108.333" height="130"/>
-  <object id="116" name="Tree" gid="400" x="2076" y="382" width="126.495" height="129"/>
+  <object id="116" name="Tree" gid="400" x="2076" y="400" width="126.495" height="129"/>
   <object id="117" name="Tree" gid="401" x="1794" y="893.333" width="113.455" height="144"/>
   <object id="178" name="Grass" gid="393" x="1664" y="192" width="64" height="64"/>
   <object id="179" name="Grass" gid="393" x="1664" y="384" width="64" height="64"/>
@@ -334,7 +334,7 @@
   <object id="187" name="Fish" gid="409" x="1603.5" y="1072.17" width="35.6667" height="42.3333"/>
   <object id="189" name="Fish" gid="409" x="1742.17" y="941.5" width="35.6667" height="42.3333"/>
   <object id="190" name="Skeleton" gid="461" x="1421.33" y="201.334" width="64" height="55"/>
-  <object id="192" name="Skeleton" gid="461" x="665.584" y="390.666" width="64" height="55"/>
+  <object id="192" name="Skeleton" gid="461" x="661.084" y="385.166" width="64" height="55"/>
   <object id="193" name="Skeleton" gid="461" x="1285.33" y="512.5" width="64" height="55"/>
   <object id="194" name="Skeleton" gid="461" x="1728" y="512" width="64" height="55"/>
   <object id="195" name="Skeleton" gid="461" x="1216" y="256" width="64" height="55"/>
@@ -348,14 +348,14 @@
   <object id="209" name="Chicken" gid="408" x="1241.5" y="502.5" width="27" height="51"/>
   <object id="211" name="Fish" gid="409" x="1680.17" y="369.833" width="35.6667" height="42.3333"/>
   <object id="212" name="Chicken" gid="408" x="1815.5" y="502.5" width="27" height="51"/>
-  <object id="213" name="Fish" gid="409" x="2130.17" y="751.833" width="35.6667" height="42.3333"/>
+  <object id="213" name="Fish" gid="409" x="2193.17" y="751.833" width="35.6667" height="42.3333"/>
   <object id="214" name="Fish" gid="409" x="2061.17" y="751.833" width="35.6667" height="42.3333"/>
   <object id="215" name="Chicken" gid="408" x="2069.5" y="371.5" width="27" height="51"/>
   <object id="216" name="Chicken" gid="408" x="2188.5" y="374.5" width="27" height="51"/>
   <object id="217" name="Fish" gid="409" x="1104.17" y="942.833" width="35.6667" height="42.3333"/>
   <object id="218" name="Food" gid="410" x="773.333" y="373.333" width="46" height="25"/>
   <object id="219" name="Fish" gid="409" x="1868.83" y="506.833" width="35.6667" height="42.3333"/>
-  <object id="220" name="slime_3" gid="404" x="2240" y="704" width="64" height="46"/>
+  <object id="220" name="slime_3" gid="404" x="2113.33" y="768" width="64" height="46"/>
   <object id="222" name="Spike" gid="407" x="397.667" y="1025.67" width="50" height="50"/>
   <object id="223" name="Spike" gid="407" x="1124.33" y="963" width="50" height="50"/>
   <object id="224" name="Spike" gid="407" x="1832.33" y="897.667" width="50" height="50"/>
