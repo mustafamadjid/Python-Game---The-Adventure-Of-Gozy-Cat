@@ -1,5 +1,5 @@
 from pygame.sprite import Group
-from settings import *
+from Src.settings import *
 from random import choice
 
 class Enemy(pygame.sprite.Sprite):

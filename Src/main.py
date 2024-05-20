@@ -1,13 +1,13 @@
-from settings import *
+from Src.settings import *
 from abc import ABC, abstractmethod
-from level import Level
+from Src.level import Level
 from pytmx.util_pygame import load_pygame
 from os.path import join
-from support import *
-from data import Data
-from ui import UI
-import menu
-from overworld import *
+from Src.support import *
+from Src.data import Data
+from Src.ui import UI
+from Src.menu import Button
+from Src.overworld import *
 
 class Game(ABC):
     def __init__(self, width, height, title):
@@ -115,8 +115,8 @@ class GozyGame(Game):
     def run(self):
         start_img = pygame.image.load('../Assets/Main menu/Start Game.png')
         quit_img = pygame.image.load('../Assets/Main menu/Quit.png')
-        start_button = menu.Button(450, 320, start_img, 0.65)
-        quit_button = menu.Button(450, 450, quit_img, 0.65)
+        start_button = Button(450, 320, start_img, 0.65)
+        quit_button = Button(450, 450, quit_img, 0.65)
         bg = pygame.image.load('../Assets/Main menu/main bg.png')
         pygame.mixer.music.play(-1)
         pygame.display.set_icon(pygame.image.load('../Assets/Player/idle/1.png'))

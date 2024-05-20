@@ -11,12 +11,12 @@ class TestGozyGame(unittest.TestCase):
         game = GozyGame()
         game.change_music("test_music.ogg")
 
-        mock_load.assert_called_once_with('Assets/Sound/Music Background/test_music.ogg')
+        mock_load.assert_called_once_with('../Assets/Sound/Music Background/test_music.ogg')
         mock_set_volume.assert_called_once_with(0.5)
         mock_play.assert_called_once_with(-1)
 
-    @patch('game_module.Level')  # Mock the Level class
-    @patch('game_module.Overworld')  # Mock the Overworld class
+    @patch('Src.main.Level')  # Mock the Level class
+    @patch('Src.main.Overworld')  # Mock the Overworld class
     def test_switch_stage(self, MockOverworld, MockLevel):
         game = GozyGame()
         game.data = MagicMock()  # Mock the data attribute
@@ -37,9 +37,9 @@ class TestGozyGame(unittest.TestCase):
         game.data.health -= 1
         self.assertEqual(game.data.health, -1)
 
-    @patch('game_module.import_folder')
-    @patch('game_module.import_image')
-    @patch('game_module.import_sub_folders')
+    @patch('Src.main.import_folder')
+    @patch('Src.main.import_image')
+    @patch('Src.main.import_sub_folders')
     @patch('pygame.font.Font')
     def test_import_assets(self, mock_font, mock_import_sub_folders, mock_import_image, mock_import_folder):
         game = GozyGame()
@@ -48,7 +48,7 @@ class TestGozyGame(unittest.TestCase):
         self.assertTrue(mock_import_folder.called)
         self.assertTrue(mock_import_image.called)
         self.assertTrue(mock_import_sub_folders.called)
-        mock_font.assert_called_once_with('Assets/ui/runescape_uf.ttf', 40)
+        mock_font.assert_called_once_with('../Assets/ui/runescape_uf.ttf', 40)
 
 if __name__ == '__main__':
     unittest.main()

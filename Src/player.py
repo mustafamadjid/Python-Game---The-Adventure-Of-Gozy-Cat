@@ -1,9 +1,9 @@
 from pygame.sprite import Group
-from settings import *
-from timer import *
+from Src.settings import *
+from Src.timer import *
 from os.path import join
 from math import sin
-from data import *
+from Src.data import *
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos, groups, collision_sprites, frames, data, jump_sound):

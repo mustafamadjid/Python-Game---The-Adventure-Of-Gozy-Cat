@@ -1,4 +1,4 @@
-from settings import * 
+from Src.settings import * 
 from os import walk
 from os.path import join
 

@@ -1,6 +1,6 @@
-from settings import *
-from sprites import *
-from data import *
+from Src.settings import *
+from Src.sprites import *
+from Src.data import *
 
 class AllSprites(pygame.sprite.Group):
     def __init__(self,width,height):
