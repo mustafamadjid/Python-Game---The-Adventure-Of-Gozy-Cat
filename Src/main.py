@@ -108,7 +108,24 @@ class GozyGame(Game):
         pygame.mixer.music.play(-1)
 
     def game_end(self):
+        #retry_img = pygame.image.load('../Assets/Game over/Try Again.png')
+        #quit_img = pygame.image.load('../Assets/Main menu/Quit.png')
+        #retry_button = Button(450, 320, retry_img, 0.65)
+        #quit_button = Button(450, 450, quit_img, 0.65)
+        #main_button = Button(450, 450, main_img, 0.65)
+        #gameover_bg = pygame.image.load('../Assets/Game over/gameover bg.png')
+        
         if self.data.health <= 0:
+            #self.display_surface.blit(gameover_bg, (0, 0))
+            #self.game_active = False
+            #self.change_music('GameOver.wav')
+
+            #if retry_button.draw(self.display_surface):
+                #self.game_active = True
+                #self.data.health += 5
+            #if quit_button.draw(self.display_surface):
+                #pygame.quit()
+                #sys.exit()
             pygame.quit()
             sys.exit()
 

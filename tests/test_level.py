@@ -1,9 +1,9 @@
 import unittest
 from unittest.mock import patch, MagicMock, call
 import pygame
-from Src.level import Level
-from Src.data import Data
-from Src.settings import *
+from src.level import Level
+from src.data import Data
+from src.settings import *
 
 class TestLevel(unittest.TestCase):
     def setUp(self):

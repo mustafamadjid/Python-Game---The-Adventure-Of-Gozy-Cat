@@ -1,5 +1,11 @@
+import sys
+import os
 import unittest
 import pygame
+
+# Menambahkan jalur proyek ke PYTHONPATH
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'Src')))
+
 from src.player import Player
 
 # Mock classes
