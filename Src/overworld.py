@@ -1,7 +1,7 @@
-from Src.settings import *
-from Src.sprites import *
-from Src.groups import *
-from Src.data import *
+from settings import *
+from sprites import *
+from groups import *
+from data import *
 import os
 
 class Overworld:

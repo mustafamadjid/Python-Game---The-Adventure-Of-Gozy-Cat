@@ -1,7 +1,7 @@
-from Src.settings import * 
-from Src.sprites import AnimatedSprite
+from settings import * 
+from sprites import AnimatedSprite
 from random import randint
-from Src.timer import Timer
+from Timer import Timer
 
 class UI:
 	def __init__(self, font, frames):

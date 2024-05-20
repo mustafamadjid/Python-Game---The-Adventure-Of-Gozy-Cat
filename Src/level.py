@@ -1,10 +1,10 @@
 import os
-from Src.settings import *
-from Src.sprites import *
-from Src.player import Player
-from Src.groups import AllSprites
-from Src.enemy import *
-from Src.data import Data
+from settings import *
+from sprites import *
+from player import Player
+from groups import AllSprites
+from enemy import *
+from data import Data
 
 class Level:
     def __init__(self,tmx_map,level_frames,audio_files,data,switch_stage):

@@ -1,13 +1,13 @@
-from Src.settings import *
+from settings import *
 from abc import ABC, abstractmethod
-from Src.level import Level
+from level import Level
 from pytmx.util_pygame import load_pygame
 from os.path import join
-from Src.support import *
-from Src.data import Data
-from Src.ui import UI
-from Src.menu import Button
-from Src.overworld import *
+from support import *
+from data import Data
+from ui import UI
+from menu import Button
+from overworld import *
 
 class Game(ABC):
     def __init__(self, width, height, title):

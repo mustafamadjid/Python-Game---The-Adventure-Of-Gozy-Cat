@@ -1,9 +1,9 @@
 # import pygame
 from typing import Iterable
-from Src.settings import *
+from settings import *
 from pygame.sprite import AbstractGroup, Group
 
-from Src.settings import Z_LAYERS
+from settings import Z_LAYERS
 
 class Sprite(pygame.sprite.Sprite):
     def __init__(self,pos,surf = pygame.Surface((TILE_SIZE,TILE_SIZE)),groups = None,z = Z_LAYERS['main']):
