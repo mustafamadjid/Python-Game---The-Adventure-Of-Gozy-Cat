@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from ..src.main import GozyGame
+from Src.main import GozyGame
 
 class TestGozyGame(unittest.TestCase):
 
