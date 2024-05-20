@@ -1,3 +1,4 @@
+import pygame
 from settings import *
 from abc import ABC, abstractmethod
 from level import Level
@@ -14,7 +15,7 @@ class Game(ABC):
         pygame.init()
         self._width = width
         self._height = height
-        self.display_surface = pygame.display.set_mode((self._width, self._height))
+        self.display_surface = pygame.display.set_mode((self._width, self._height), pygame.RESIZABLE)
         pygame.display.set_caption(title)
 
     @abstractmethod
@@ -49,7 +50,6 @@ class GozyGame(Game):
 
         self.tmx_overworld = load_pygame(join('..','Assets', 'Map', 'Map', 'Aset Tiles', 'Map Fix.tmx'))
 
-        # self.current_stage = Overworld(self.tmx_overworld, self.data, self.overworld_frames, self.switch_stage)
         self.current_stage = Overworld(self.tmx_overworld, self.data, self.overworld_frames, self.switch_stage)
         self.clock = pygame.time.Clock()
 
@@ -77,7 +77,7 @@ class GozyGame(Game):
             'Food': import_folder('..','Assets', 'makanan (koin)', 'Food'),
             'player': import_sub_folders('..','Assets', 'Player'),
             'Slime_2': import_folder('..','Assets', 'enemy', 'slime_2'),
-            'Slime_3': import_folder('..','Assets', 'enemy', 'slime_3'),
+            'Slime_3': import_folder('..','Assets', 'enemy', 'slime_3'), 
             'Fish': import_folder('..','Assets', 'makanan (koin)', 'Fish'),
             'Food': import_folder('..','Assets', 'makanan (koin)', 'Food'),
             'Particle': import_folder('..','Assets', 'ui', 'effect', 'particle'),
@@ -123,7 +123,6 @@ class GozyGame(Game):
 
         while True:
             self.display_surface.blit(bg, (0, 0))
-            
 
             if start_button.draw(self.display_surface):
                 self.game_active = True
@@ -137,6 +136,9 @@ class GozyGame(Game):
                     sys.exit()
                 elif event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
                     self.game_active = True
+                elif event.type == pygame.VIDEORESIZE:
+                    self._width, self._height = event.w, event.h
+                    self.display_surface = pygame.display.set_mode((self._width, self._height), pygame.RESIZABLE)
 
             if self.game_active and self.game_active != self.hasActivated:
                 self.change_music("overworld music.mp3")
