@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="12" nextobjectid="219">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="12" nextobjectid="222">
  <tileset firstgid="1" name="Background_Awan" tilewidth="64" tileheight="64" tilecount="28" columns="7">
   <image source="Assets/Background_1.png" width="496" height="272"/>
  </tileset>
@@ -250,7 +250,6 @@
   <object id="59" name="Grass" gid="394" x="1344" y="512" width="64" height="64"/>
   <object id="60" name="Grass" gid="394" x="640" y="384" width="64" height="64"/>
   <object id="61" name="Grass" gid="394" x="704" y="384" width="64" height="64"/>
-  <object id="62" name="Grass" gid="394" x="768" y="384" width="64" height="64"/>
   <object id="63" name="Grass" gid="394" x="960" y="320" width="64" height="64"/>
   <object id="64" name="Grass" gid="394" x="1152" y="256" width="64" height="64"/>
   <object id="65" name="Grass" gid="394" x="1216" y="256" width="64" height="64"/>
@@ -302,7 +301,7 @@
   <object id="175" name="Star" gid="411" x="2465.67" y="481.667" width="30" height="30"/>
   <object id="176" name="Star" gid="411" x="2517.67" y="493.667" width="30" height="30"/>
   <object id="118" name="Gozy" gid="402" x="23" y="1154" width="87.125" height="82"/>
-  <object id="119" name="House" gid="403" x="2364" y="694" width="214.975" height="186.311"/>
+  <object id="119" name="House" gid="403" x="2390.67" y="698" width="214.975" height="186.311"/>
   <object id="122" name="slime_3" gid="404" x="1343" y="1211" width="64" height="46"/>
   <object id="124" name="slime_3" gid="404" x="1536" y="768" width="64" height="46"/>
   <object id="125" name="slime_2" gid="405" x="971.333" y="693.334" width="39.3333" height="44.101"/>
@@ -320,7 +319,7 @@
   <object id="154" name="Fish" gid="409" x="1167.17" y="942.833" width="35.6667" height="42.3333"/>
   <object id="155" name="Fish" gid="409" x="1928.83" y="505.167" width="35.6667" height="42.3333"/>
   <object id="157" name="Fish" gid="409" x="1360.83" y="505.5" width="35.6667" height="42.3333"/>
-  <object id="160" name="Food" gid="410" x="2052.17" y="568.757" width="61" height="33.1522"/>
+  <object id="160" name="Food" gid="410" x="708.17" y="898.757" width="61" height="33.1522"/>
   <object id="115" name="Tree" gid="399" x="689.333" y="380.666" width="108.333" height="130"/>
   <object id="116" name="Tree" gid="400" x="2076" y="382" width="126.495" height="129"/>
   <object id="117" name="Tree" gid="401" x="1794" y="893.333" width="113.455" height="144"/>
@@ -336,7 +335,7 @@
   <object id="187" name="Fish" gid="409" x="1603.5" y="1072.17" width="35.6667" height="42.3333"/>
   <object id="189" name="Fish" gid="409" x="1742.17" y="941.5" width="35.6667" height="42.3333"/>
   <object id="190" name="Skeleton" gid="461" x="256" y="1088" width="64" height="55"/>
-  <object id="192" name="Skeleton" gid="461" x="642.667" y="381.833" width="64" height="55"/>
+  <object id="192" name="Skeleton" gid="461" x="638.917" y="389.333" width="64" height="55"/>
   <object id="193" name="Skeleton" gid="461" x="1285.33" y="512.5" width="64" height="55"/>
   <object id="194" name="Skeleton" gid="461" x="1728" y="512" width="64" height="55"/>
   <object id="195" name="Skeleton" gid="461" x="1216" y="256" width="64" height="55"/>
@@ -356,6 +355,8 @@
   <object id="216" name="Chicken" gid="408" x="2188.5" y="374.5" width="27" height="51"/>
   <object id="217" name="Fish" gid="409" x="1104.17" y="942.833" width="35.6667" height="42.3333"/>
   <object id="218" name="Food" gid="410" x="772" y="380" width="46" height="25"/>
+  <object id="219" name="Fish" gid="409" x="1868.83" y="506.833" width="35.6667" height="42.3333"/>
+  <object id="220" name="slime_3" gid="404" x="2240" y="704" width="64" height="46"/>
  </objectgroup>
  <objectgroup id="11" name="Data">
   <object id="177" name="Data" x="40" y="134" width="114" height="114">
