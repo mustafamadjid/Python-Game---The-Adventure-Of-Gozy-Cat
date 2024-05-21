@@ -61,8 +61,8 @@ Objek yang menampilkan skor yang didapatkan oleh pemain dari mendapatkan Snack C
 Objek yang merupakan latar game bertema hutan dengan pohon-pohon dan air terjun.
 ### - **Cat Snack**: 
 Objek yang ketika didapatkan akan menambahkan skor sebanyak 2 poin.
-### - **Obstacles**: O
-bjek yang merupakan rintangan bagi Gozy Cat selain monster, seperti duri-duri.
+### - **Obstacles**: 
+Objek yang merupakan rintangan bagi Gozy Cat selain monster, seperti duri-duri.
 ### - **Monster**: 
 Objek berbentuk monster yang merupakan musuh-musuh penghambat Gozy Cat.
 
