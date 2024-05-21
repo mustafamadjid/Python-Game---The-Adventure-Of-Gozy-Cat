@@ -41,9 +41,9 @@ class UI:
 		self.score_amount = amount
 		self.score_timer.activate()
 
-	def update(self):
+	def update(self,dt):
 		self.score_timer.update()
-		self.sprites.update()
+		self.sprites.update(dt)
 		self.sprites.draw(self.display_surface)
 		self.display_text()
 
@@ -52,17 +52,17 @@ class Heart(AnimatedSprite):
 		super().__init__(pos, frames, groups)
 		self.active = False
 
-	def animate(self):
-		self.frame_index += ANIMATION_SPEED
+	def animate(self,dt):
+		self.frame_index += ANIMATION_SPEED * dt
 		if self.frame_index < len(self.frames):
 			self.image = self.frames[int(self.frame_index)]
 		else:
 			self.active = False
 			self.frame_index = 0
 
-	def update(self):
+	def update(self,dt):
 		if self.active:
-			self.animate()
+			self.animate(dt)
 		else:
 			if randint(0,2000) == 1:
 				self.active = True

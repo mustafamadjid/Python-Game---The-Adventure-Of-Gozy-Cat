@@ -15,18 +15,10 @@ class Level:
         # Level Data
         self.level_width = tmx_map.width*TILE_SIZE
         self.level_bottom = tmx_map.height*TILE_SIZE
-        # tmx_level_properties = tmx_map.get_layer_by_name('Data')[0].properties
-        # # self.level_unlock = 0
-    
-
-        # for layer in tmx_map.get_layer_by_name('Data'):
-        #     if layer.properties == 'level_unlock':
-        #         self.level_unlock = layer.properties['level_unlock']
-        #     print(layer.properties)
+     
         tmx_level_properties = tmx_map.get_layer_by_name('Data')[0].properties
         self.level_unlock = tmx_level_properties['level_unlock']
-        print(tmx_level_properties)
-
+        
         # groups
         self.all_sprites = AllSprites(width=tmx_map.width,height=tmx_map.height)
         self.collision_sprites = pygame.sprite.Group()
@@ -111,7 +103,6 @@ class Level:
             else:
                 if obj.name in ('Spike',''):
                     if obj.name == 'Spike':
-                        # Sprite((obj.x,obj.y),obj.image,(self.all_sprites,self.collision_sprites))
                         frames = level_frames[obj.name]
                         AnimatedSprite(
                             pos=(obj.x,obj.y),
@@ -174,13 +165,13 @@ class Level:
                 ParticleEffect((item_sprites[0].rect.center),self.particle_frames,self.all_sprites)
                 self.snack_sound.play()
                 item_sprites[0].activate()
-                print(item_sprites[0].item_type)
+                
             
-    def run(self):        
-        self.all_sprites.update()
+    def run(self,dt):        
+        self.all_sprites.update(dt)
         
         self.display_surface.fill('black')
-        self.all_sprites.draw(self.player.rect.center)
+        self.all_sprites.draw(self.player.rect.center,dt)
         self.item_collision()
         self.hit_collision()
         

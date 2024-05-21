@@ -23,7 +23,7 @@ class AllSprites(pygame.sprite.Group):
         self.offset.y = self.offset.y if self.offset.y > self.borders['bottom'] else self.borders['bottom']
         self.offset.y = self.offset.y if self.offset.y < self.borders['top'] else self.borders['top']
     
-    def draw(self,target_position):
+    def draw(self,target_position,dt):
         self.offset.x = -(target_position[0] - 1280/2)
         self.offset.y = -(target_position[1] - 720/2)
         self.camera_constraint()
@@ -56,7 +56,7 @@ class WorldSprites(pygame.sprite.Group):
         self.offset.y = self.offset.y if self.offset.y > self.borders['bottom'] else self.borders['bottom']
         self.offset.y = self.offset.y if self.offset.y < self.borders['top'] else self.borders['top']
         
-    def draw (self,target_position):
+    def draw (self,target_position,dt):
         self.offset.x = -(target_position[0] - 1280/2)
         self.offset.y = -(target_position[1] - 720/2)
         self.camera_constraint()

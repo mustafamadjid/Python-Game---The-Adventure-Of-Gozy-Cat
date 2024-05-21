@@ -39,7 +39,7 @@ class Overworld:
             start = obj.properties['start']
             
             self.paths[end] = {'pos' : pos, 'start' : start}
-            print(self.paths)
+            
             
           
           
@@ -57,7 +57,7 @@ class Overworld:
             # Nodes
             if obj.name == 'Node':
                 available_paths = {k:v for k,v in obj.properties.items() if k in ('left','right','up','down')}
-                print(available_paths)
+                
                 Node(
                     pos = (obj.x,obj.y),
                     surf = overworld_frames['Node'],
@@ -97,8 +97,8 @@ class Overworld:
         if nodes:
             self.current_node = nodes[0]
         
-    def run (self):
+    def run (self,dt):
         self.input()
         self.get_current_node()
-        self.all_sprites.update()
-        self.all_sprites.draw(self.icon.rect)
+        self.all_sprites.update(dt)
+        self.all_sprites.draw(self.icon.rect,dt)

@@ -19,12 +19,12 @@ class AnimatedSprite(Sprite):
         super().__init__(pos,self.frames[self.frame_index],groups,z)
         self.animation_speed = animation_speed
     
-    def animate(self):
-        self.frame_index += self.animation_speed 
+    def animate(self,dt):
+        self.frame_index += self.animation_speed * dt 
         self.image = self.frames[int(self.frame_index % len(self.frames))]
     
-    def update(self):
-        self.animate()
+    def update(self,dt):
+        self.animate(dt)
 
 class ParticleEffect(AnimatedSprite):
     def __init__(self,pos,frames,groups):
@@ -32,8 +32,8 @@ class ParticleEffect(AnimatedSprite):
         self.rect.center = pos
         self.z = Z_LAYERS['fg']
         
-    def animate(self):
-        self.frame_index += self.animation_speed
+    def animate(self,dt):
+        self.frame_index += self.animation_speed * dt
         if self.frame_index < len(self.frames):
             self.image = self.frames[int(self.frame_index)]
         else:
@@ -96,7 +96,7 @@ class Icon(pygame.sprite.Sprite):
     
     def find_path(self):
         if self.path:
-            print(self.path)
+            
             if self.rect.centerx == self.path[0][0]: #Vertical
                 self.direction = vector(0,1 if self.path[0][1] > self.rect.centery else -1)
             else: #Horizontal
@@ -133,15 +133,15 @@ class Icon(pygame.sprite.Sprite):
             self.state = 'run'
             self.facing_right = False
             
-    def animate(self):
-        self.frame_index += ANIMATION_SPEED
+    def animate(self,dt):
+        self.frame_index += ANIMATION_SPEED * dt
         self.image = self.frames[self.state][int(self.frame_index % len(self.frames[self.state]))]
         self.image = self.image if self.facing_right else pygame.transform.flip(self.image,True,False)
                 
-    def update(self):
+    def update(self,dt):
         if self.path:
             self.point_collision()
-            self.rect.center += self.direction * self.speed
+            self.rect.center += self.direction * self.speed * dt
         
         self.get_state()
-        self.animate()
+        self.animate(dt)

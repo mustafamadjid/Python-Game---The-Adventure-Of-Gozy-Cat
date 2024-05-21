@@ -15,16 +15,16 @@ class Enemy(pygame.sprite.Sprite):
         self.speed = 1
         
         
-    def update (self):
+    def update (self,dt):
         # Animate
-        self.frame_index += ANIMATION_SPEED - 0.04
+        self.frame_index += ANIMATION_SPEED * dt
         self.image = self.frames[int(self.frame_index) % len(self.frames) ]
         
         if self.direction < 0:
             self.image = pygame.transform.flip(self.image,True,False)
         
         # Move
-        self.rect.x += self.direction * self.speed
+        self.rect.x += self.direction * self.speed * dt
         
         # Reverse direction
         

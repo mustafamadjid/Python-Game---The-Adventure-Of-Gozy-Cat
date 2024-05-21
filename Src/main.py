@@ -1,4 +1,4 @@
-import pygame
+import pygame,time
 from settings import *
 from abc import ABC, abstractmethod
 from level import Level
@@ -55,6 +55,8 @@ class GozyGame(Game):
 
         self.game_active = False
         self.change_music("main menu.ogg")
+        
+        self.last_time = time.time()
 
     def switch_stage(self, target, unlock=0):
         if target == 'level':
@@ -108,17 +110,17 @@ class GozyGame(Game):
         pygame.mixer.music.play(-1)
 
     def game_end(self):
-        retry_img = pygame.image.load('../Assets/Game over/Try Again.png')
-        quit_img = pygame.image.load('../Assets/Main menu/Quit.png')
+        retry_img = pygame.image.load('../Assets/Game over/Try Again.png').convert_alpha()
+        quit_img = pygame.image.load('../Assets/Main menu/Quit.png').convert_alpha()
         retry_button = Button(450, 290, retry_img, 0.41)
         quit_button = Button(450, 420, quit_img, 0.65)
-        gameover_bg = pygame.image.load('../Assets/Game over/gameover bg.png')
+        gameover_bg = pygame.image.load('../Assets/Game over/gameover bg.png').convert_alpha()
         
         if self.data.health <= 0:
             self.display_surface.blit(gameover_bg, (0, 0))
             self.hasActivated = False
-            #self.change_music('GameOver.wav')
-            #pygame.display.update()
+            # self.change_music
+            # pygame.display.update()
 
             if retry_button.draw(self.display_surface):
                 #self.game_active = True
@@ -126,20 +128,25 @@ class GozyGame(Game):
                 self.data.health += 5
                 self.current_stage = Overworld(self.tmx_overworld, self.data, self.overworld_frames, self.switch_stage)
                 self.data.unlocked_level == 0
+                self.data.score = 0
             if quit_button.draw(self.display_surface):
                 pygame.quit()
                 sys.exit()
 
     def run(self):
-        start_img = pygame.image.load('../Assets/Main menu/Start Game.png')
-        quit_img = pygame.image.load('../Assets/Main menu/Quit.png')
+        start_img = pygame.image.load('../Assets/Main menu/Start Game.png').convert_alpha()
+        quit_img = pygame.image.load('../Assets/Main menu/Quit.png').convert_alpha()
         start_button = Button(450, 320, start_img, 0.65)
         quit_button = Button(450, 450, quit_img, 0.65)
-        bg = pygame.image.load('../Assets/Main menu/main bg.png')
+        bg = pygame.image.load('../Assets/Main menu/main bg.png').convert_alpha()
         pygame.mixer.music.play(-1)
-        pygame.display.set_icon(pygame.image.load('../Assets/Player/idle/1.png'))
+        pygame.display.set_icon(pygame.image.load('../Assets/Player/idle/1.png').convert_alpha())
 
         while True:
+            dt = time.time() - self.last_time
+            dt *= 60
+            self.last_time = time.time()
+            
             self.display_surface.blit(bg, (0, 0))
 
             if start_button.draw(self.display_surface):
@@ -163,12 +170,13 @@ class GozyGame(Game):
                 self.hasActivated = True
 
             if self.game_active:
-                self.current_stage.run()
-                self.ui.update()
+                self.current_stage.run(dt)
+                self.ui.update(dt)
                 self.game_end()
 
             pygame.display.update()
             self.clock.tick(60)
+            
 
 if __name__ == "__main__":
     game = GozyGame()

@@ -27,7 +27,7 @@ class Player(pygame.sprite.Sprite):
         self.speed = 5
         self.gravity = 1
         self.jump = False
-        self.jump_height = 20
+        self.jump_height = 25
         
         # collision
         self.collision_sprites = collision_sprites
@@ -59,13 +59,13 @@ class Player(pygame.sprite.Sprite):
             if (keys[pygame.K_SPACE] or keys[pygame.K_w]) and self.rect.bottom == sprite.rect.top:
                 self.jump = True
 
-    def move(self):
+    def move(self,dt):
         # Horizontal
-        self.rect.x += self.direction.x * self.speed
+        self.rect.x += self.direction.x * self.speed * dt
         self.collision('horizontal')
         
         # Vertical
-        self.direction.y += self.gravity
+        self.direction.y += self.gravity * dt
         self.rect.y += self.direction.y
         self.collision('vertical')
         
@@ -120,17 +120,17 @@ class Player(pygame.sprite.Sprite):
             self.image = white_surf
         
 
-    def animate(self):
-        self.frame_index += ANIMATION_SPEED
+    def animate(self,dt):
+        self.frame_index += ANIMATION_SPEED * dt
         self.image = self.frames[self.state][int(self.frame_index % len(self.frames[self.state]))]
         self.image = self.image if self.facing_right else pygame.transform.flip(self.image, True, False)
 
-    def update(self):
+    def update(self,dt):
         self.old_rect = self.rect.copy()
         self.input()
-        self.move()
+        self.move(dt)
         self.get_state()
-        self.animate()
+        self.animate(dt)
         self.flicker()
         # Update timers
         for timer in self.timers.values():
