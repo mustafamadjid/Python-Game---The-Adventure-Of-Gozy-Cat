@@ -6,14 +6,14 @@ _______________
 [Klik di sini](https://github.com/mustafamadjid/TugasBesar-Kelompok5-Platformer.git)
  
 ## Anggota GitBros
-| Nama                    | NIM       | Contributions  | 
-|-------------------------|-----------|----------------|
-| Athaullah Mustafa Madjid| 122140191 | Lead Programmer| 
-| Arya Pratama            | 122140156 | Programmer     | 
-| Aditya Wahyu Suhendar   | 122140235 | Programmer     | 
-| Eden Wijaya             | 122140187 | Designer       | 
-| M. Fatih Hanbali        | 122140122 | Designer       | 
-| Debora Sihombing        | 122140032 | Designer       | 
+| Nama                    | NIM       | Contributions        | 
+|-------------------------|-----------|----------------------|
+| Athaullah Mustafa Madjid| 122140191 | Lead Programmer      | 
+| Arya Pratama            | 122140156 | Programmer           | 
+| Aditya Wahyu Suhendar   | 122140235 | Programmer           | 
+| Eden Wijaya             | 122140187 | Character Designer   | 
+| M. Fatih Hanbali        | 122140122 | Map Designer         | 
+| Debora Sihombing        | 122140032 | Map Designer         | 
 
 ## Deskripsi Permainan
 Dalam permainan ini, pemain akan mengendalikan karakter bernama Gozy. Gozy adalah kucing yang tersesat di hutan berbahaya. Pemain harus menghindari beberapa monster jahat dan rintangan berbahaya hingga Gozy kembali ke rumah majikannya.
@@ -37,6 +37,19 @@ Pemain dapat mengontrol Gozy Cat dengan menggunakan tombol 'W (Lompat), A (Kiri)
 ## UML Class Diagram
 <img src="Screenshot/uml.jpeg">
 
+## Penerapan PBO
+
+1. Pewarisan
+Konsep Pewarisan diterapkan pada pewarisan kelas Sprite yang berasal dari modul pygame seperti yang terjadi pada kelas Player dan Sprites
+
+2. Enkapsulasi
+Enkapsulasi diterapkan pada kelas item dan Game, dimana setiap atributnya memiliki visbility modifier berupa protected
+
+3. Polimorfisme
+Polimorfisme terdapat pada method move(), dimana move() pada player berbeda dengan move() pada enemy tetapi memiliki penamaan method yang sama, Sama seperti yang ada  method run(),update(),animate() pada kelas-kelas lain
+
+4. Abstraksi
+Abstraksi diterapkan pada kelas Game, dimana kelas Game memiliki 3 atribut  dan 2 abstract method berupa method run() dan import_assets(), yang mana setiap atribut dan methodnya digunakan pada kelas pewaris yakni GozyGame
 
 ## Objek
 
