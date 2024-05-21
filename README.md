@@ -1,21 +1,25 @@
 # THE ADVENTURE OF GOZY CAT
+
 ## CREATE BY GITBROS
-_______________
- ## Link GitHub
+
+---
+
+## Link GitHub
+
 =>[Klik disini](https://github.com/mustafamadjid/TugasBesar-Kelompok5-Platformer.git)
- 
- ## Anggota Gitbros
-| Nama | NIM |
-| ------ | ------ |
+
+## Anggota Gitbros
+
+| Nama                     | NIM       |
+| ------------------------ | --------- |
 | Athaullah Mustafa Madjid | 122140191 |
-| Arya Pratama | 122140156 |
-| Aditya Wahyu Suhendar | 122140235 |
-| Eden Wijaya | 122140187 |
-| M. Fatih Hanbali | 122140122 |
-| Debora Sihombing | 122140032 |
+| Arya Pratama             | 122140156 |
+| Aditya Wahyu Suhendar    | 122140235 |
+| Eden Wijaya              | 122140187 |
+| M. Fatih Hanbali         | 122140122 |
+| Debora Sihombing         | 122140032 |
 
-
-Dalam permainan ini, player akan mengendalikan karakter bernama Gozy . Gozy sendiri merupakan kucing yang tersesat di hutan berbahaya. Player harus menghindari beberapa monster jahat dan rintangan berbahaya hingga Gozy Cat menuju kembali ke rumah majikannya 
+Dalam permainan ini, player akan mengendalikan karakter bernama Gozy . Gozy sendiri merupakan kucing yang tersesat di hutan berbahaya. Player harus menghindari beberapa monster jahat dan rintangan berbahaya hingga Gozy Cat menuju kembali ke rumah majikannya
 
 CARA BERMAIN :
 Player dapat mengontrol Gozy Cat dengan menginput key 'W (Jump), A (left), D (right)' dari keyboard, yang dimana tombol - tombol tersebut akan bergerak sesuai arahan untuk melewati setiap rintangan berupa Objek Obstacle atau Monster. Health pada karakter Gozy hanya terdapat 3 heart. Jika player mengenai monster atau obstacle akan berkurang satu heart. Jika health heartnya sudah habis maka player kalah (Game Over). Player bisa menang jika sudah mencapai Finish di rumah.
@@ -27,10 +31,10 @@ Player dapat mengontrol Gozy Cat dengan menginput key 'W (Jump), A (left), D (ri
 - Sprites
 - Game
 - Animatedsprite
-- Isi
+- Timer
 - Enemy
 - Allsprite
-- ISI
+- UI
 
 ## Objek
 
@@ -47,10 +51,8 @@ Player dapat mengontrol Gozy Cat dengan menginput key 'W (Jump), A (left), D (ri
 - Monster
   Objek berbentuk monster yang merupakan musuh-musuh penghambat Gozy Cat
 
-
 ## License
 
 GitBros
 
 **Thankyou**
-

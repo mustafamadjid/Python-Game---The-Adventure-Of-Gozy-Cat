@@ -36,8 +36,7 @@ class Level:
         self.jump_sound = audio_files['jump']
         self.jump_sound.set_volume(0.2)
         
-        # Hit
-        # self.hit = False
+        
         
         self.setup(tmx_map,level_frames,audio_files)
         

@@ -27,7 +27,7 @@ class Player(pygame.sprite.Sprite):
         self.speed = 5
         self.gravity = 1
         self.jump = False
-        self.jump_height = 25
+        self.jump_height = 27
         
         # collision
         self.collision_sprites = collision_sprites
@@ -109,7 +109,6 @@ class Player(pygame.sprite.Sprite):
             if self.data.health > 0:
                 self.data.health -= 1
                 
-            print("Kena deh")
             self.timers['hit'].activate()
 
     def flicker(self):

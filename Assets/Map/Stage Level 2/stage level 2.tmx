@@ -135,7 +135,7 @@
   <object id="43" name="slime_2" gid="350" x="1674.33" y="826" width="40" height="40"/>
   <object id="44" name="Food" gid="351" x="391.667" y="756.833" width="46" height="25"/>
   <object id="46" name="Food" gid="351" x="1153.34" y="437.333" width="46" height="25"/>
-  <object id="48" name="Food" gid="351" x="1932" y="437.334" width="46" height="25"/>
+  <object id="48" name="Food" gid="351" x="1932" y="431.334" width="46" height="25"/>
   <object id="51" name="Fish" gid="352" x="1361.33" y="370.333" width="25" height="25"/>
   <object id="52" name="Fish" gid="352" x="2068" y="621" width="25" height="25"/>
   <object id="54" name="Fish" gid="352" x="2194.67" y="503.667" width="25" height="25"/>

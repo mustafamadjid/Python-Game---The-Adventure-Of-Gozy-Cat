@@ -27,7 +27,6 @@ class Enemy(pygame.sprite.Sprite):
         self.rect.x += self.direction * self.speed * dt
         
         # Reverse direction
-        
         floor_rect_right = pygame.Rect(self.rect.bottomright,(1,1))
         floor_rect_left = pygame.Rect(self.rect.bottomleft,(-1,1))
         
@@ -36,4 +35,3 @@ class Enemy(pygame.sprite.Sprite):
         elif floor_rect_left.collidelist(self.collision_rects) < 0 and self.direction < 0:
             self.direction = 1
                 
-                # floor_rect_left.collidelist(self.collision_rects) < 0 and self.direction < 0:

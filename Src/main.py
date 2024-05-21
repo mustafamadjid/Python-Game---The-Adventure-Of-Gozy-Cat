@@ -44,7 +44,7 @@ class GozyGame(Game):
         self.data = Data(self.ui)
         self.tmx_map = {
             0: load_pygame(join('..','Assets', 'Map', 'Stage Level 2', 'stage level 2.tmx')),
-            1: load_pygame(join('..','Assets', 'Map', 'Stage Level', 'stage.tmx')),
+            1: load_pygame(join('..','Assets', 'Map', 'Stage Level','stage.tmx')),
             2: load_pygame(join('..','Assets', 'Map', 'Stage Level 3', 'stage 3.tmx'))
         }
 
@@ -123,7 +123,6 @@ class GozyGame(Game):
             # pygame.display.update()
 
             if retry_button.draw(self.display_surface):
-                #self.game_active = True
                 self.hasActivated = True
                 self.data.health += 5
                 self.current_stage = Overworld(self.tmx_overworld, self.data, self.overworld_frames, self.switch_stage)
