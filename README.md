@@ -27,10 +27,13 @@ Pemain dapat mengontrol Gozy Cat dengan menggunakan tombol 'W (Lompat), A (Kiri)
 - Sprites
 - Game
 - Animatedsprite
-- Isi
 - Enemy
 - Allsprite
-- ISI
+- ui
+- Timer
+- Data
+- Overworld
+
 
 ## Objek
 
