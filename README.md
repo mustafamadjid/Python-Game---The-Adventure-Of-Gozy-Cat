@@ -35,7 +35,7 @@ Pemain dapat mengontrol Gozy Cat dengan menggunakan tombol 'W (Lompat), A (Kiri)
 - Overworld
 
 ## UML Class Diagram
-<img src="Screenshots/uml.jpeg">
+<img src="Screenshot/uml.jpeg">
 
 
 ## Objek
