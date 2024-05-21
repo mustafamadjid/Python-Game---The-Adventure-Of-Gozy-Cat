@@ -39,16 +39,16 @@ Pemain dapat mengontrol Gozy Cat dengan menggunakan tombol 'W (Lompat), A (Kiri)
 
 ## Penerapan PBO
 
-1. Pewarisan
+### 1. Pewarisan
 Konsep Pewarisan diterapkan pada pewarisan kelas Sprite yang berasal dari modul pygame seperti yang terjadi pada kelas Player dan Sprites
 
-2. Enkapsulasi
+### 2. Enkapsulasi
 Enkapsulasi diterapkan pada kelas item dan Game, dimana setiap atributnya memiliki visbility modifier berupa protected
 
-3. Polimorfisme
+### 3. Polimorfisme
 Polimorfisme terdapat pada method move(), dimana move() pada player berbeda dengan move() pada enemy tetapi memiliki penamaan method yang sama, Sama seperti yang ada  method run(),update(),animate() pada kelas-kelas lain
 
-4. Abstraksi
+### 4. Abstraksi
 Abstraksi diterapkan pada kelas Game, dimana kelas Game memiliki 3 atribut  dan 2 abstract method berupa method run() dan import_assets(), yang mana setiap atribut dan methodnya digunakan pada kelas pewaris yakni GozyGame
 
 ## Objek
