@@ -15,10 +15,10 @@ class UI:
 		self.heart_padding = 6
 		self.create_hearts(5)
 
-		# fish 
-		self.fish_amount = 0
-		self.fish_timer = Timer(1000)
-		self.fish_surf = frames['fish']
+		# score 
+		self.score_amount = 0
+		self.score_timer = Timer(1000)
+		self.score_surf = frames['fish']
 
 	def create_hearts(self, amount):
 		for sprite in self.sprites:
@@ -30,19 +30,19 @@ class UI:
 
 	def display_text(self):
 		#if self.fish_timer.active:
-		text_surf = self.font.render(str(f"Score : {self.fish_amount}"), False, 'white')
+		text_surf = self.font.render(str(f"Score : {self.score_amount}"), False, 'white')
 		text_rect = text_surf.get_rect(topleft = (1,40))
 		self.display_surface.blit(text_surf, text_rect)
 
 			#fish_rect = self.fish_surf.get_rect(center = text_rect.bottomleft).move(10,5)
 			#self.display_surface.blit(self.fish_surf, fish_rect)
 
-	def show_fish(self, amount):
-		self.fish_amount = amount
-		self.fish_timer.activate()
+	def show_score(self, amount):
+		self.score_amount = amount
+		self.score_timer.activate()
 
 	def update(self):
-		self.fish_timer.update()
+		self.score_timer.update()
 		self.sprites.update()
 		self.sprites.draw(self.display_surface)
 		self.display_text()

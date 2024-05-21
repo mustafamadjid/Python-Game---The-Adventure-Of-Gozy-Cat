@@ -48,12 +48,13 @@ class Item(AnimatedSprite):
         
     def activate(self):
         if self.item_type == 'Fish':
-            self.data.fish += 1
+            self.data.score += 1
         if self.item_type == 'Chicken':
-            self.data.fish += 3
+            self.data.score += 2
         if self.item_type == 'Food':
             if self.data.health >= 5:
                 self.data.health = 5
+                self.data.score += 3
             else:
                 self.data.health += 1
 

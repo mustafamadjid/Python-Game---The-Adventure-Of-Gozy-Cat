@@ -1,7 +1,7 @@
 class Data:
     def __init__(self, ui):
         self.ui = ui
-        self._fish = 0
+        self._score = 0
         self._health = 5
         self.ui.create_hearts(self.health)
 
@@ -9,16 +9,16 @@ class Data:
         self.current_level = 0
 
     @property
-    def fish(self):
-        return self._fish
+    def score(self):
+        return self._score
 
-    @fish.setter
-    def fish(self, value):
-        self._fish = value
-        if self.fish >= 100:
-            self.fish -= 100
+    @score.setter
+    def score(self, value):
+        self._score = value
+        if self.score >= 100:
+            self.score -= 100
             self.health += 1
-        self.ui.show_fish(self.fish)
+        self.ui.show_score(self.score)
 
     @property
     def health(self):
