@@ -12,7 +12,7 @@
 
 | Nama                     | NIM       | Contributions      |
 | ------------------------ | --------- | ------------------ |
-| Athaullah Mustafa Madjid | 122140191 | Lead Programmer    |
+| Athaullah Mustafa Madjid | 122140191 | Programmer    |
 | Arya Pratama             | 122140156 | Programmer         |
 | Aditya Wahyu Suhendar    | 122140235 | Programmer         |
 | Eden Wijaya              | 122140187 | Character Designer |
