@@ -5,7 +5,6 @@ from level import Level
 from pytmx.util_pygame import load_pygame
 from os.path import join
 from support import *
-from data import Data
 from ui import UI
 from menu import Button
 from overworld import *
@@ -126,7 +125,8 @@ class GozyGame(Game):
                 self.hasActivated = True
                 self.data.health += 5
                 self.current_stage = Overworld(self.tmx_overworld, self.data, self.overworld_frames, self.switch_stage)
-                self.data.unlocked_level == 0
+                self.data.unlocked_level = 0
+                self.data.current_level = 0
                 self.data.score = 0
             if quit_button.draw(self.display_surface):
                 pygame.quit()
