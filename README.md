@@ -8,6 +8,10 @@
 
 [Klik di sini](https://github.com/mustafamadjid/TugasBesar-Kelompok5-Platformer.git)
 
+## YouTube Link
+
+[Klik di sini](https://youtu.be/iwCpQ-dPmp8?feature=shared)
+
 ## Anggota GitBros
 
 | Nama                     | NIM       | Contributions      |
