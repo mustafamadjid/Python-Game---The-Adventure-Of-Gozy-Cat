@@ -1,5 +1,6 @@
 # THE ADVENTURE OF GOZY CAT
 <img src="Screenshot/gitbros.png">
+
 ## Created by GitBros
 
 ---
